@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import { Burger, Logo, NavLinks, NavbarContainer } from './navbar.styles';
+import { Burger, Logo, MobileNavLinks, NavLinks, NavbarContainer } from './navbar.styles';
+import Image from 'next/image';
+import { RxHamburgerMenu } from 'react-icons/rx';
+import { RxCross1 } from 'react-icons/rx';
 
 export const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -10,13 +13,27 @@ export const Navbar = () => {
   };
 
   return (
-    <NavbarContainer>
-      <Logo >
-        <Link href="/" passHref>
-          Logo
-        </Link>
-      </Logo>
-      <NavLinks open={nav}>
+    <>
+      <NavbarContainer>
+        <Logo>
+          <Link href="/" passHref>
+            <Image alt={'Logo image of a leaf'} height={50} width={50} src={'/images/logo.png'} />
+          </Link>
+        </Logo>
+        <NavLinks>
+          <Link href="/" passHref>
+            Home
+          </Link>
+          <Link href="/my-garden" passHref>
+            My Garden
+          </Link>
+          <Link href="/learn" passHref>
+            Learn
+          </Link>{' '}
+        </NavLinks>
+        <Burger onClick={toggleNav}>{nav ? <RxCross1 /> : <RxHamburgerMenu />}</Burger>
+      </NavbarContainer>
+      <MobileNavLinks open={nav}>
         <Link href="/" passHref>
           Home
         </Link>
@@ -25,9 +42,8 @@ export const Navbar = () => {
         </Link>
         <Link href="/learn" passHref>
           Learn
-        </Link>{' '}
-      </NavLinks>
-      <Burger onClick={toggleNav}>{nav ? 'X' : '='}</Burger>
-    </NavbarContainer>
+        </Link>
+      </MobileNavLinks>
+    </>
   );
 };
