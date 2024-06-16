@@ -46,7 +46,7 @@ export const MobileNavLinks = styled.div<NavLinksProps>`
     padding: 5px 0 5px 10px;
     :hover {
       text-decoration: underline;
-      text-decoration-thickness: 1px;
+      text-decoration-thickness: 2px;
       text-decoration-color: #32a585;
       text-underline-offset: 7px;
     }
@@ -95,7 +95,7 @@ export const NavLinks = styled.div`
     padding: 0 30px 0 0;
     :hover {
       text-decoration: underline;
-      text-decoration-thickness: 1px;
+      text-decoration-thickness: 2px;
       text-decoration-color: #32a585;
       text-underline-offset: 7px;
     }
