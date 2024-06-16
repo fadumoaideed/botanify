@@ -5,5 +5,3 @@ export const Video = ({ video }: any) => {
     </video>
   );
 };
-
-export default Video;
