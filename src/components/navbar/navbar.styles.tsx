@@ -38,6 +38,7 @@ export const MobileNavLinks = styled.div<NavLinksProps>`
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   padding: 10px;
   background: #f7f6f7;
+
   a {
     text-decoration: none;
     color: black;
@@ -63,7 +64,7 @@ export const NavbarContainer = styled.nav`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  /* padding: 1rem; */
   background-color: #f7f6f7;
   color: black;
   height: 50px;

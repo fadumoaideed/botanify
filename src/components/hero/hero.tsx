@@ -2,18 +2,19 @@
 import React from 'react';
 import styles from './hero.module.css';
 import Link from 'next/link';
+import { HeroContainer } from './hero.styles';
 //TODO!: Make subheadline relatice to img instead of from top of page
 //TODO: navbar?
 // MLP: video of plant https://stock.adobe.com/uk/search/video?filters%5Bcontent_type%3Avideo%5D=1&k=monstera&order=relevance&safe_search=1&limit=100&search_page=1&search_type=usertyped&acp=&aco=monstera&get_facets=0&asset_id=561158807
 function Hero() {
   return (
-    <div className={styles.hero}>
+    <HeroContainer>
       <div className={styles.hero_text}>
         <h2 className={styles.hero_headline}>Botanify</h2>
-        <h4 className={styles.hero_subheadline}>
+        {/* <h4 className={styles.hero_subheadline}>
           Your<span className={styles.span}> green</span> oasis
           <span className={styles.span}> awaits</span>
-        </h4>
+        </h4> */}
       </div>
       {/* <Link href="/add-plant" className={styles.link}>
         <button className={styles.button} type="button">
@@ -22,10 +23,10 @@ function Hero() {
       </Link> */}
       <img className={styles.hero_image} src="images/hero-plant-green-bg.png" alt="placeholder" />
 
-      <div className={styles.arrow}>
+      {/* <div className={styles.arrow}>
         <span></span>
       </div>
-      <div className={styles.oval_shape}></div>
+      <div className={styles.oval_shape}></div> */}
       {/* <svg className={styles.svg1} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <path
           fill="rgb(226, 232, 229, 0.5)"
@@ -44,7 +45,7 @@ function Hero() {
       <svg width="400" height="180">
         <rect x="10" y="10" width="100" height="100" fill="none" stroke="pink" />
       </svg> */}
-    </div>
+    </HeroContainer>
   );
 }
 
