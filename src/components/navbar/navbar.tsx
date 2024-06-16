@@ -24,7 +24,7 @@ export const Navbar = () => {
           <Link href="/" passHref>
             Home
           </Link>
-          <Link href="/my-garden" passHref>
+          <Link href="/garden" passHref>
             My Garden
           </Link>
           <Link href="/learn" passHref>
@@ -32,18 +32,18 @@ export const Navbar = () => {
           </Link>{' '}
         </NavLinks>
         <Burger onClick={toggleNav}>{nav ? <RxCross1 /> : <RxHamburgerMenu />}</Burger>
+        <MobileNavLinks open={nav}>
+          <Link href="/" passHref>
+            Home
+          </Link>
+          <Link href="/garden" passHref>
+            My Garden
+          </Link>
+          <Link href="/learn" passHref>
+            Learn
+          </Link>
+        </MobileNavLinks>
       </NavbarContainer>
-      <MobileNavLinks open={nav}>
-        <Link href="/" passHref>
-          Home
-        </Link>
-        <Link href="/my-garden" passHref>
-          My Garden
-        </Link>
-        <Link href="/learn" passHref>
-          Learn
-        </Link>
-      </MobileNavLinks>
     </>
   );
 };
