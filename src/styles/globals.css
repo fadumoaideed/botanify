@@ -10,7 +10,7 @@
   2. Remove default margin
 */
 * {
-  font-family: Verdana, sans-serif;
+  /* font-family: Verdana, sans-serif; */
   margin: 0;
 }
 /*
