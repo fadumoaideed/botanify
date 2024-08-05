@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import { HeroContainer, HeroText, HeroImage, HeroMedia } from './hero.styles';
+import { HeroContainer, HeroText, HeroMedia } from './hero.styles';
 
 function Hero() {
   return (
@@ -19,8 +19,6 @@ function Hero() {
           width="auto"
         />
       </HeroMedia>
-      {/* <HeroImage>
-      </HeroImage> */}
     </HeroContainer>
   );
 }
