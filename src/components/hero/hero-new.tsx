@@ -1,13 +1,26 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import { HeroContainer } from './hero.styles';
+import { HeroContainer, HeroText, HeroImage, HeroMedia } from './hero.styles';
 
 function Hero() {
   return (
     <HeroContainer>
-      {/* <HeroHeader>
-        <h2>Plants make life better</h2>
-        <div></div>
-      </HeroHeader> */}
+      <HeroText>
+        <h2>
+          Your <span>Personal</span> Plant Care Companion
+        </h2>
+        <h4>Learn, grow and botanify your space with this comphensive guide</h4>
+      </HeroText>
+      <HeroMedia>
+        <img
+          src={'/images/monstera-hero-desktop.png'}
+          alt="Image of monstera plant potted"
+          max-height="650px"
+          width="auto"
+        />
+      </HeroMedia>
+      {/* <HeroImage>
+      </HeroImage> */}
     </HeroContainer>
   );
 }

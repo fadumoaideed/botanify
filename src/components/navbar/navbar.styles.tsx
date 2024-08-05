@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
+export const navBarSize = '80px';
 interface NavLinksProps {
   open: boolean;
 }
@@ -7,12 +8,17 @@ interface NavLinksProps {
 export const Logo = styled.div`
   display: flex;
   justify-content: flex-start;
-  height: 50px;
+  height: ${navBarSize};
+  width: ${navBarSize};
+  padding: 0 0 0 10px;
   a {
-    font-size: 1.5rem;
-    font-weight: bold;
     text-decoration: none;
     color: black;
+    height: ${navBarSize};
+    width: ${navBarSize};
+  }
+  a:hover {
+    /* TODO: Animation  */
   }
   @media (max-width: 768px) {
     flex: 1;
@@ -21,14 +27,12 @@ export const Logo = styled.div`
 
 export const Burger = styled.div`
   display: none;
-  flex-direction: column;
   font-size: 1.5rem;
-  height: 50px;
-
+  height: ${navBarSize};
   @media (max-width: 768px) {
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: flex-end;
+    align-items: center;
     padding: 0 10px 0 0;
   }
 `;
@@ -38,6 +42,8 @@ export const MobileNavLinks = styled.div<NavLinksProps>`
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   padding: 10px;
   background: #f7f6f7;
+  top: ${navBarSize};
+  position: absolute;
 
   a {
     text-decoration: none;
@@ -67,7 +73,7 @@ export const NavbarContainer = styled.nav`
   /* padding: 1rem; */
   background-color: #f7f6f7;
   color: black;
-  height: 50px;
+  height: ${navBarSize};
 
   ${Logo} {
     flex: 2;
@@ -77,6 +83,7 @@ export const NavbarContainer = styled.nav`
   }
   ${MobileNavLinks} {
     flex-basis: 100%;
+    font-family: Verdana, sans-serif;
   }
 
   @media (max-width: 768px) {
@@ -93,6 +100,8 @@ export const NavLinks = styled.div`
     text-decoration: none;
     color: black;
     padding: 0 30px 0 0;
+    font-family: Verdana, sans-serif;
+
     :hover {
       text-decoration: underline;
       text-decoration-thickness: 2px;
