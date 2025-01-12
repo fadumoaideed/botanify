@@ -2,16 +2,11 @@ import { SIZE_EXTRA_SMALL } from '@/styles/breakpoints';
 import styled from '@emotion/styled';
 
 export const HeroContainer = styled.div`
-  position: relative;
-
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 700px;
-
   @media (max-width: 375px) {
     display: flex;
     flex-direction: column;
+    padding: 50px 15px 20px 15px;
+    gap: 50px;
   }
 
   @media (min-width: 600px) {
@@ -22,32 +17,60 @@ export const HeroContainer = styled.div`
   }
 
   @media (min-width: 800px) {
-  height: 550px;
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 550px;
   }
 `;
 
 export const HeroMedia = styled.div`
-  width: 100%;
-
-  div {
-    background-color: #e5eae2;
-    border-radius: 20px 0 0 20px;
-  }
-
-  img {
-    position: absolute;
-    bottom: 0;
-    right: 0px;
+  .hero-media-background {
+      position: absolute;
+      background-color: #e5eae2;
+      border-radius: 30% 0 0 30%;
+      width: 100%;
+      height: 100%;
+    }
+      
+  @media (min-width: 375px) {
+    position: relative;
+    width: 100%;
     height: 100%;
+
+    .hero-media-background {
+      position: absolute;
+      background-color: #e5eae2;
+      border-radius: 20px 0 0 20px;
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   @media (min-width: 800px) {
+    width: 100%;
+
+    img {
+      position: absolute;
+      bottom: 0;
+      right: 0px;
+      height: 100%;
+    }
+
     position: relative;
     border-radius: 15% 0 0 15%;
     flex: 1.5;
     padding-left: 50px;
 
-    div {
+    .hero-media-background {
       background-color: #e5eae2;
       position: absolute;
       width: 80%;

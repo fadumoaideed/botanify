@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const navBarSize = '80px';
+export const navBarSize = '70px';
 interface NavLinksProps {
   open: boolean;
 }

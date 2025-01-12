@@ -12,7 +12,7 @@ function Hero() {
         <h4>Learn, grow and botanify your space with this comphensive guide</h4>
       </HeroText>
       <HeroMedia>
-        <div></div>
+        <div className="hero-media-background"></div>
         <img
           src={'/images/monstera-hq.png'}
           alt="Image of monstera plant leaves"

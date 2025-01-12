@@ -17,7 +17,7 @@ export const Navbar = () => {
       <NavbarContainer>
         <Logo>
           <Link href="/" passHref>
-            <Image alt={'Logo image of a leaf'} height={80} width={80} src={'/images/logo.png'} />
+            <Image alt={'Logo image of a leaf'} src={''} style={{backgroundColor: 'grey'}} />
           </Link>
         </Logo>
         <NavLinks>
