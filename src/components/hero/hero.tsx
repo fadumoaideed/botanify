@@ -15,7 +15,20 @@ function Hero() {
       <HeroMedia>
         <div className="background"></div>
         <div className="image-container">
-          <img src={'/images/monstera-hq.png'} alt="Image of monstera plant leaves" max-height="950px" width="auto" />
+          <img
+            className="image-mobile"
+            src={'/images/monstera-hq.png'}
+            alt="Image of monstera plant leaves mobile"
+            max-height="950px"
+            width="auto"
+          />
+          <img
+            className="image-desktop"
+            src={'/images/monstera-borderd.png'}
+            alt="Image of monstera plant leaves desktop"
+            max-height="950px"
+            width="auto"
+          />
 
           <div className="target-indicator" />
           <div className="indicator-text">
