@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 export const HeroContainer = styled.div`
   position: relative;
   display: flex;
-  gap:20px;
+  gap: 20px;
 
   @media (max-width: 375px) {
     flex-direction: column;
@@ -82,12 +82,6 @@ export const HeroMedia = styled.div`
   border-radius: 30% 0 0 30%;
   position: relative;
 
-  .image-container {
-    position: relative;
-    z-index: 3;
-
-  }
-
   .background {
     position: absolute;
     width: 100%;
@@ -95,16 +89,20 @@ export const HeroMedia = styled.div`
     bottom: 0;
     background-color: #e5eae2;
     z-index: 2;
-    
+  }
+
+  .image-container {
+    position: relative;
+    z-index: 3;
   }
 
   img {
-    min-width: 300px;
-    height: 110%;
-    width: 90%;
+    position: relative;
+    width: 80%;
+    margin-left: auto;
     z-index: 3;
     animation: scaleIn 2s ease-out;
-    transform-origin: right center;
+    transform-origin: right bottom;
 
     @keyframes scaleIn {
       from {
@@ -115,8 +113,6 @@ export const HeroMedia = styled.div`
       }
     }
   }
-
-  border-radius: 0px;
 
   @media (min-width: 376px) {
     img {
@@ -137,7 +133,7 @@ export const HeroMedia = styled.div`
     width: 15px;
     height: 15px;
     top: 30%;
-    left: 15%;
+    left: 30%;
     z-index: 4;
     border-radius: 50%;
     background: white;
@@ -145,8 +141,7 @@ export const HeroMedia = styled.div`
     animation: pulse 2s infinite ease-in-out;
     animation-delay: 2s;
     opacity: 0;
-    animation: fadeIn 0.5s ease-out 2s forwards,
-             pulse 2s infinite ease-in-out 2s;
+    animation: fadeIn 0.5s ease-out 2s forwards, pulse 2s infinite ease-in-out 2s;
 
     &::before {
       content: '';
@@ -165,7 +160,7 @@ export const HeroMedia = styled.div`
       position: absolute;
       top: 50%;
       right: 100%;
-      width: 50px;
+      width: 60px;
       height: 2px;
       background: lightgrey;
       transform: translateY(-50%);
@@ -176,18 +171,20 @@ export const HeroMedia = styled.div`
   .indicator-text {
     position: absolute;
     top: 25%;
-    left: -10%;
+    left: 20px;
     z-index: 4;
     color: black;
     display: flex;
     align-items: center;
-    gap: 5px;
-    animation: fadeIn 0.5s ease-out 0.5s forwards;
+    gap: 0px;
+    animation: fadeIn 0.5s ease-out 2.5s forwards;
     opacity: 0;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.8rem;
 
     svg {
-      width: 16px;
-      height: 16px;
+      width: 20px;
+      height: 20px;
     }
   }
 
