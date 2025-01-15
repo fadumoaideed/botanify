@@ -55,7 +55,7 @@ export const MobileNavLinks = styled.div<NavLinksProps>`
   background: #f7f6f7;
   top: ${navBarSize};
   position: absolute;
-  z-index: 10;
+  z-index: 100;
 
   li {
     color: black;

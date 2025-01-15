@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { HeroContainer, HeroText, HeroMedia } from './hero.styles';
+import { WiRaindrop } from 'react-icons/wi';
 
 function Hero() {
   return (
@@ -13,13 +14,20 @@ function Hero() {
       </HeroText>
       <HeroMedia>
         <div className="background"></div>
-        <img
-          src={'/images/monstera-hq.png'}
-          alt="Image of monstera plant leaves"
+        <div className="image-container">
+          <img
+            src={'/images/monstera-hq.png'}
+            alt="Image of monstera plant leaves"
           max-height="950px"
-          width="auto"
-        />
-      </HeroMedia>
+            width="auto"
+          />
+      
+        <div className="target-indicator" />
+        <div className="indicator-text">
+          <WiRaindrop height={20} width={20} />
+          <span> &gt;80%</span>
+        </div>
+       </div> </HeroMedia>
     </HeroContainer>
   );
 }
