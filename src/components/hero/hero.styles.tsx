@@ -18,7 +18,6 @@ export const HeroContainer = styled.div`
   }
 
   @media (min-width: 600px) {
-    flex-direction: row;
     margin-top: 70px;
     padding: 0px;
   }
@@ -51,14 +50,17 @@ export const HeroText = styled.div`
 
   @media (min-width: 376px) {
     padding: 25px 20px 50px 25px;
-    font-size: 2rem;
+    h2 {
+      padding: 0 15px 0 15px;
+      font-size: 3rem;
+    }
   }
 
   @media (min-width: 600px) {
-    padding: 0px 0px 50px 50px;
+    padding: 0px 0px 50px 40px;
 
     h2 {
-      font-size: 4.5rem;
+      font-size: 4rem;
     }
 
     h4 {
@@ -72,6 +74,8 @@ export const HeroText = styled.div`
 `;
 
 export const HeroMedia = styled.div`
+  position: relative;
+
   display: flex;
   justify-content: flex-end;
   flex: 1;
@@ -80,7 +84,6 @@ export const HeroMedia = styled.div`
   height: 450px;
   background-color: transparent;
   border-radius: 30% 0 0 30%;
-  position: relative;
 
   .background {
     position: absolute;
@@ -93,7 +96,6 @@ export const HeroMedia = styled.div`
 
   .image-container {
     position: relative;
-    z-index: 3;
   }
 
   img {
@@ -101,7 +103,7 @@ export const HeroMedia = styled.div`
     width: 80%;
     margin-left: auto;
     z-index: 3;
-    animation: scaleIn 2s ease-out;
+    animation: scaleIn 1.5s ease-out;
     transform-origin: right bottom;
 
     @keyframes scaleIn {
@@ -112,20 +114,6 @@ export const HeroMedia = styled.div`
         transform: scale(1);
       }
     }
-  }
-
-  @media (min-width: 376px) {
-    img {
-      width: 360px;
-    }
-  }
-
-  @media (min-width: 600px) {
-  }
-
-  @media (min-width: 800px) {
-    flex: 1.5;
-    padding-left: 50px;
   }
 
   .target-indicator {
@@ -160,7 +148,7 @@ export const HeroMedia = styled.div`
       position: absolute;
       top: 50%;
       right: 100%;
-      width: 60px;
+      width: 50px;
       height: 2px;
       background: lightgrey;
       transform: translateY(-50%);
@@ -170,8 +158,9 @@ export const HeroMedia = styled.div`
 
   .indicator-text {
     position: absolute;
-    top: 25%;
-    left: 20px;
+    top: 29%;
+    right: 83%;
+    transform: translateY(-50%);
     z-index: 4;
     color: black;
     display: flex;
@@ -186,6 +175,27 @@ export const HeroMedia = styled.div`
       width: 20px;
       height: 20px;
     }
+  }
+
+  @media (min-width: 376px) {
+    img {
+      width: 80%;
+    }
+
+    .target-indicator::after {
+      width: 50px;
+    }
+  }
+
+  @media (min-width: 600px) {
+    .target-indicator::after {
+      width: 70px;
+    }
+  }
+
+  @media (min-width: 800px) {
+    flex: 1.5;
+    padding-left: 50px;
   }
 
   @keyframes pulse {

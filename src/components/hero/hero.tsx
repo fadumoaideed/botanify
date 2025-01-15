@@ -19,10 +19,10 @@ function Hero() {
 
           <div className="target-indicator" />
           <div className="indicator-text">
-            <WiRaindrop />
+            <WiRaindrop color="lightblue" />
             <span> &gt;80%</span>
           </div>
-        </div>{' '}
+        </div>
       </HeroMedia>
     </HeroContainer>
   );
