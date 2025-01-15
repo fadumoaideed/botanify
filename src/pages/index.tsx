@@ -1,5 +1,4 @@
 import Hero from '@/components/hero/hero';
-import { MobileWrapper } from '@/styles/mobile-wrapper';
 import Head from 'next/head';
 
 export default function Home() {
