@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const navBarSize = '70px';
+export const navBarSize = '60px';
 interface NavLinksProps {
   open: boolean;
 }
@@ -10,24 +10,27 @@ export const Logo = styled.div`
   flex-direction: row;
   align-items: center;
   padding: 0 0 0 10px;
- 
+
   img {
     text-decoration: none;
     color: black;
     height: ${navBarSize};
   }
-  
+
   h1 {
-  padding: 0 0 0 10px;
-  font-size: 1.3rem;
+    padding: 0 0 0 10px;
+    font-size: 1.3rem;
   }
 
-  @media (max-width: 768px) { 
-  h1 {
-  font-size: 1rem;
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1rem;
+    }
+    img {
+      height: 70px;
+    }
   }
-  }
-  
+
   a:hover {
     /* TODO: Animation  */
   }
@@ -89,11 +92,11 @@ export const NavbarContainer = styled.nav`
   li {
     list-style: none;
   }
-  
+
   a {
-  text-decoration: none;
-  color: black;
-  font-family: 'Comfortaa', cursive;
+    text-decoration: none;
+    color: black;
+    font-family: 'Comfortaa', cursive;
   }
 
   ${Logo} {

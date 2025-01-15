@@ -15,19 +15,15 @@ function Hero() {
       <HeroMedia>
         <div className="background"></div>
         <div className="image-container">
-          <img
-            src={'/images/monstera-hq.png'}
-            alt="Image of monstera plant leaves"
-          max-height="950px"
-            width="auto"
-          />
-      
-        <div className="target-indicator" />
-        <div className="indicator-text">
-          <WiRaindrop height={20} width={20} />
-          <span> &gt;80%</span>
-        </div>
-       </div> </HeroMedia>
+          <img src={'/images/monstera-hq.png'} alt="Image of monstera plant leaves" max-height="950px" width="auto" />
+
+          <div className="target-indicator" />
+          <div className="indicator-text">
+            <WiRaindrop />
+            <span> &gt;80%</span>
+          </div>
+        </div>{' '}
+      </HeroMedia>
     </HeroContainer>
   );
 }
