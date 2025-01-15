@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState } from 'react';
 import Link from 'next/link';
 import { Burger, Logo, MobileNavLinks, NavLinks, NavbarContainer, navBarSize } from './navbar.styles';
-import Image from 'next/image';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { RxCross1 } from 'react-icons/rx';
 
@@ -15,35 +15,40 @@ export const Navbar = () => {
   return (
     <>
       <NavbarContainer>
-        <Logo>
-          <Link href="/" passHref>
-            <Image alt={'Logo image of a leaf'} src={''} style={{backgroundColor: 'grey'}} />
-          </Link>
-        </Logo>
+        <Link href="/" passHref> <Logo>
+         
+            <img alt={'Logo image of a leaf'} src={'images/logo.png'} />
+            <h1> botanify</h1>
+        
+
+        </Logo>  </Link>
         <NavLinks>
-          <Link href="/" passHref>
-            Home
+          <Link href="/plant-care" passHref>
+            Plant Care
           </Link>
           <Link href="/garden" passHref>
-            My Garden
-          </Link>
-          <Link href="/learn" passHref>
-            Learn
+            Log in
           </Link>
         </NavLinks>
         <Burger onClick={toggleNav}>
-          {nav ? <RxCross1 /> : <RxHamburgerMenu style={{ fontSize: '40px', color: '#3b3b3b' }} />}
+          {nav ? <RxCross1  style={{ fontSize: '30px', color: '#3b3b3b' }} /> : <RxHamburgerMenu style={{ fontSize: '30px', color: '#3b3b3b' }} />}
         </Burger>
         <MobileNavLinks open={nav}>
-          <Link href="/" passHref>
-            Home
-          </Link>
-          <Link href="/garden" passHref>
-            My Garden
-          </Link>
-          <Link href="/learn" passHref>
-            Learn
-          </Link>
+          <li>
+            <Link href="/" passHref>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link href="/garden" passHref>
+              My Garden
+            </Link>
+          </li>
+          <li>
+            <Link href="/learn" passHref>
+              Learn
+            </Link>
+          </li>
         </MobileNavLinks>
       </NavbarContainer>
     </>

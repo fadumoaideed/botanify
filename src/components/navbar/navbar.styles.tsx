@@ -7,16 +7,27 @@ interface NavLinksProps {
 
 export const Logo = styled.div`
   display: flex;
-  justify-content: flex-start;
-  height: ${navBarSize};
-  width: ${navBarSize};
+  flex-direction: row;
+  align-items: center;
   padding: 0 0 0 10px;
-  a {
+ 
+  img {
     text-decoration: none;
     color: black;
     height: ${navBarSize};
-    width: ${navBarSize};
   }
+  
+  h1 {
+  padding: 0 0 0 10px;
+  font-size: 1.3rem;
+  }
+
+  @media (max-width: 768px) { 
+  h1 {
+  font-size: 1rem;
+  }
+  }
+  
   a:hover {
     /* TODO: Animation  */
   }
@@ -40,16 +51,15 @@ export const Burger = styled.div`
 export const MobileNavLinks = styled.div<NavLinksProps>`
   display: none;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  padding: 10px;
+  padding: 20px;
   background: #f7f6f7;
   top: ${navBarSize};
   position: absolute;
 
-  a {
-    text-decoration: none;
+  li {
     color: black;
-    font-family: Verdana, sans-serif;
-    padding: 5px 0 5px 10px;
+    font-family: 'Comfortaa', cursive;
+    padding: 15px 0 5px 10px;
     :hover {
       text-decoration: underline;
       text-decoration-thickness: 2px;
@@ -74,6 +84,16 @@ export const NavbarContainer = styled.nav`
   background-color: #f7f6f7;
   color: black;
   height: ${navBarSize};
+
+  li {
+    list-style: none;
+  }
+  
+  a {
+  text-decoration: none;
+  color: black;
+  font-family: 'Comfortaa', cursive;
+  }
 
   ${Logo} {
     flex: 2;
