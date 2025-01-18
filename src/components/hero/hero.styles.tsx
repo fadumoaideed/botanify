@@ -17,13 +17,11 @@ export const HeroContainer = styled.div`
   }
 
   @media (min-width: 600px) {
-    margin-top: 50px;
     padding: 0px;
   }
 
   @media (min-width: 800px) {
     flex-direction: row;
-    justify-content: space-between;
     width: 100%;
     height: 550px;
     gap: 0px;
@@ -31,10 +29,6 @@ export const HeroContainer = styled.div`
 `;
 
 export const HeroText = styled.div`
-  flex: 1.8;
-
-  padding: 40px 10px 20px 10px;
-
   h2 {
     font-family: 'Comfortaa', sans-serif;
     font-weight: 700;
@@ -60,7 +54,7 @@ export const HeroText = styled.div`
   }
 
   @media (min-width: 600px) {
-    padding: 0px 0px 50px 40px;
+    padding: 50px 0px 50px 40px;
 
     h2 {
       font-size: 4rem;
@@ -73,7 +67,6 @@ export const HeroText = styled.div`
   }
 
   @media (min-width: 800px) {
-    flex: 1;
     padding: 50px 0px 50px 40px;
 
     h2 {
@@ -82,6 +75,8 @@ export const HeroText = styled.div`
   }
 
   @media (min-width: 980px) {
+    padding: 50px 0px 50px 100px;
+
     h2 {
       font-size: 4rem;
     }
@@ -99,7 +94,6 @@ export const HeroMedia = styled.div`
 
   display: flex;
   justify-content: flex-end;
-  flex: 1;
 
   width: 100%;
   height: 350px;
@@ -120,12 +114,11 @@ export const HeroMedia = styled.div`
 
   .image-mobile {
     position: relative;
-    width: 80%;
     margin-left: auto;
     z-index: 3;
     animation: scaleIn 1.5s ease-out;
     transform-origin: right bottom;
-
+    bottom: 0;
     @keyframes scaleIn {
       from {
         transform: scale(0.9);
@@ -230,8 +223,6 @@ export const HeroMedia = styled.div`
   }
 
   @media (min-width: 800px) {
-    flex: 1.6;
-
     margin-left: auto;
 
     .background {
