@@ -15,23 +15,27 @@ export const Navbar = () => {
   return (
     <>
       <NavbarContainer>
-        <Link href="/" passHref> <Logo>
-         
+        <Link href="/" passHref>
+          {' '}
+          <Logo>
             <img alt={'Logo image of a leaf'} src={'images/logo.png'} />
             <h1> botanify</h1>
-        
-
-        </Logo>  </Link>
+          </Logo>{' '}
+        </Link>
         <NavLinks>
           <Link href="/plant-care" passHref>
             Plant Care
           </Link>
-          <Link href="/garden" passHref>
+          <Link href="/login" passHref>
             Log in
           </Link>
         </NavLinks>
         <Burger onClick={toggleNav}>
-          {nav ? <RxCross1  style={{ fontSize: '30px', color: '#3b3b3b' }} /> : <RxHamburgerMenu style={{ fontSize: '30px', color: '#3b3b3b' }} />}
+          {nav ? (
+            <RxCross1 style={{ fontSize: '30px', color: '#3b3b3b' }} />
+          ) : (
+            <RxHamburgerMenu style={{ fontSize: '30px', color: '#3b3b3b' }} />
+          )}
         </Burger>
         <MobileNavLinks open={nav}>
           <li>
@@ -45,8 +49,8 @@ export const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/learn" passHref>
-              Learn
+            <Link href="/login" passHref>
+              Login
             </Link>
           </li>
         </MobileNavLinks>
