@@ -1,10 +1,10 @@
-import { SIZE_EXTRA_SMALL } from '@/styles/breakpoints';
 import styled from '@emotion/styled';
 
 export const HeroContainer = styled.div`
   position: relative;
   display: flex;
   gap: 20px;
+  height: 100vh;
 
   @media (max-width: 375px) {
     flex-direction: column;
@@ -23,6 +23,7 @@ export const HeroContainer = styled.div`
 
   @media (min-width: 800px) {
     flex-direction: row;
+    justify-content: space-between;
     width: 100%;
     height: 550px;
     gap: 0px;
@@ -53,6 +54,9 @@ export const HeroText = styled.div`
       padding: 0 15px 0 15px;
       font-size: 3rem;
     }
+    h4 {
+      padding: 0 15px 0 15px;
+    }
   }
 
   @media (min-width: 600px) {
@@ -64,13 +68,28 @@ export const HeroText = styled.div`
 
     h4 {
       font-size: 1.5rem;
+      width: 80%;
     }
   }
 
   @media (min-width: 800px) {
-    padding: 0px 0px 50px 40px;
+    flex: 1;
+    padding: 50px 0px 50px 40px;
+
     h2 {
-      font-size: 3rem;
+      font-size: 3.5rem;
+    }
+  }
+
+  @media (min-width: 980px) {
+    h2 {
+      font-size: 4rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    h2 {
+      font-size: 4.3rem;
     }
   }
 `;
@@ -122,6 +141,7 @@ export const HeroMedia = styled.div`
   }
 
   .target-indicator {
+    //inner circle
     position: absolute;
     width: 15px;
     height: 15px;
@@ -137,6 +157,7 @@ export const HeroMedia = styled.div`
     animation: fadeIn 0.5s ease-out 2s forwards, pulse 2s infinite ease-in-out 2s;
 
     &::before {
+      //Outer circlei
       content: '';
       position: absolute;
       top: 50%;
@@ -149,6 +170,7 @@ export const HeroMedia = styled.div`
     }
 
     &::after {
+      // Line after target
       content: '';
       position: absolute;
       top: 50%;
@@ -183,12 +205,21 @@ export const HeroMedia = styled.div`
   }
 
   @media (min-width: 376px) {
-    .image-mobile {
-      width: 80%;
+    height: auto;
+
+    .target-indicator {
+      top: 30%;
+      left: 30%;
     }
 
     .target-indicator::after {
       width: 50px;
+    }
+  }
+
+  @media (min-width: 450px) {
+    .target-indicator::after {
+      width: 70px;
     }
   }
 
@@ -199,7 +230,13 @@ export const HeroMedia = styled.div`
   }
 
   @media (min-width: 800px) {
-    flex: 1.5;
+    flex: 1.6;
+
+    margin-left: auto;
+
+    .background {
+      display: none;
+    }
 
     .image-desktop {
       display: block;
@@ -207,7 +244,7 @@ export const HeroMedia = styled.div`
       z-index: 3;
       animation: none;
       transform-origin: right bottom;
-      height: 100%;
+      height: 80%;
       @keyframes scaleIn {
         from {
           transform: scale(0.9);
@@ -225,6 +262,19 @@ export const HeroMedia = styled.div`
     .background {
       top: 0;
       border-radius: 50%;
+      height: 100%;
+    }
+  }
+
+  @media (min-width: 980px) {
+    .image-desktop {
+      height: 90%;
+      margin-right: 50px;
+    }
+  }
+
+  @media (min-width: 980px) {
+    .image-desktop {
       height: 100%;
     }
   }

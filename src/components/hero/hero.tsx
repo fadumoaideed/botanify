@@ -24,7 +24,7 @@ function Hero() {
           />
           <img
             className="image-desktop"
-            src={'/images/monstera-borderd.png'}
+            src={'/images/monstera-desktop-background.png'}
             alt="Image of monstera plant leaves desktop"
             max-height="950px"
             width="auto"
