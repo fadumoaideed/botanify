@@ -110,9 +110,13 @@ export const NavbarContainer = styled.nav`
     font-family: Verdana, sans-serif;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     flex-direction: row;
     align-items: flex-start;
+  }
+
+  @media (min-width: 601px) {
+    height: 75px;
   }
 `;
 
