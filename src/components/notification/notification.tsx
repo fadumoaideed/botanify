@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plant } from '../../../types/plant';
+import { Plant } from '../../types/plant';
 import { Notification } from './notification.styles';
 
 export interface NotificationStatus {
