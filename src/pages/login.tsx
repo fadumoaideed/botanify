@@ -30,7 +30,7 @@ const LoginPage = () => {
       // Add your authentication logic here
       // For example:
       // await signIn(email, password);
-      router.push('/dashboard'); // Redirect after successful login
+      router.push('/dashboard'); // TODO: Create dashboard page. Redirect after successful login
     } catch (err) {
       setError('Invalid email or password');
     }
@@ -38,7 +38,7 @@ const LoginPage = () => {
 
   return (
     <PageContainer>
-      <ImageSection />
+      <ImageSection>Did you know? section</ImageSection>
       <Container>
         <FormContainer>
           <Title>Sign in to your account</Title>

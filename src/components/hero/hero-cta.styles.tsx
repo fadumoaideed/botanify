@@ -10,13 +10,17 @@ export const HeroCtaContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 375px) {
+  @media (min-width: 375px) {
     padding: 0 10px;
   }
 
+  @media (min-width: 425px) {
+    padding: 0 20px;
+  }
+
   @media (min-width: 600px) {
-    padding: 0 70px;
-    margin-top: 30px;
+    padding: 0 50px;
+    margin-top: 70px;
   }
 
   @media (min-width: 960px) {
@@ -61,6 +65,7 @@ export const GridItem = styled.div<{ gridArea: 'a' | 'b' | 'c' }>`
   justify-content: center;
   align-items: center;
   font-weight: bold;
+
   grid-area: ${({ gridArea }) => gridArea};
 
   ${({ gridArea }) => {
@@ -72,11 +77,10 @@ export const GridItem = styled.div<{ gridArea: 'a' | 'b' | 'c' }>`
           background-color: #ead9cf;
           
     
-          &::after {
+          &::before {
             content: '';
             position: absolute;
-            clip-path: path('M 29,0 L 29,400 Q -75,60 100,0 Z');
-            clip-path: path('M 0 0 C 103 353 338 403 547 216 L 554 127 C 335 330 147 251 103 0 L 0 0');
+            clip-path: path('M 0 0 C 103 353 338 403 800 199 L 800 98 C 407 327 147 251 103 -0 L 0 0');
             background-color: #e6b496;
             left: 0%;
             top: 0%;
@@ -92,11 +96,10 @@ export const GridItem = styled.div<{ gridArea: 'a' | 'b' | 'c' }>`
           color: #cbd6dd;
           background-color: #153135;
 
-          &::after {
+          &::before {
             content: '';
             position: absolute;
-            clip-path: path('M 29,0 L 29,400 Q -75,60 100,0 Z');
-            clip-path: path('M 0 0 C 103 353 338 403 547 216 L 554 127 C 335 330 147 251 103 0 L 0 0');
+            clip-path: path('M 416 442 C 421 245 425 89 811 102 L 811 6 C 438 38 393 66 297 442 L 416 442');
             background-color: #2e5b62;
             left: 0%;
             top: 0%;
@@ -105,11 +108,31 @@ export const GridItem = styled.div<{ gridArea: 'a' | 'b' | 'c' }>`
             overflow: hidden;
           }
 
+          @media (min-width: 960px) {
+
+          &::before {
+            clip-path: path('M 206 450 C 191 155 341 72 849 126 L 839 0 C 264 0 167 19 66 450 L 70 450');
+          }
+          }
         `;
       case 'c':
         return `
+          position: relative;
           color: #192831;
           background-color: #e6eae3;
+
+        &::before {
+            content: '';
+            position: absolute;
+            clip-path: path('M 0 101 C 82 199 312 469 878 522 L 878 396 C 796 396 428 454 0 9 L -2 5');
+            background-color: #c2d4b5;
+            left: 0%;
+            top: 0%;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
         `;
     }
   }}
@@ -122,6 +145,7 @@ export const Content = styled.div`
   align-items: center;
   height: 100%;
   z-index: 2;
+  box-sizing: border-box;
 `;
 
 export const TextContainer = styled.div`
