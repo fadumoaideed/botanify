@@ -1,41 +1,43 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import { HeroContainer, HeroText, HeroMedia } from './hero.styles';
+import {
+  HeroContainer,
+  HeroText,
+  HeroMedia,
+  Title,
+  Subtitle,
+  Background,
+  ImageContainer,
+  StyledMobileImage,
+  StyledDesktopImage,
+  TargetIndicator,
+  IndicatorText,
+} from './hero.styles';
 import { WiRaindrop } from 'react-icons/wi';
 
 function Hero() {
   return (
     <HeroContainer>
       <HeroText>
-        <h2>
+        <Title>
           Your <span>Personal</span> Plant Care Companion
-        </h2>
-        <h4>Learn, grow and botanify your space with this comphensive guide</h4>
+        </Title>
+        <Subtitle>Learn, grow and botanify your space with this comphensive guide</Subtitle>
       </HeroText>
       <HeroMedia>
-        <div className="background"></div>
-        <div className="image-container">
-          <img
-            className="image-mobile"
-            src={'/images/monstera-hq.png'}
-            alt="Image of monstera plant leaves mobile"
-            max-height="950px"
-            width="auto"
-          />
-          <img
-            className="image-desktop"
+        <Background />
+        <ImageContainer>
+          <StyledMobileImage src={'/images/monstera-hq.png'} alt="Image of monstera plant leaves mobile" />
+          <StyledDesktopImage
             src={'/images/monstera-desktop-background.png'}
             alt="Image of monstera plant leaves desktop"
-            max-height="950px"
-            width="auto"
           />
-
-          <div className="target-indicator" />
-          <div className="indicator-text">
+          <TargetIndicator />
+          <IndicatorText>
             <WiRaindrop color="lightblue" />
             <span> &gt;80%</span>
-          </div>
-        </div>
+          </IndicatorText>
+        </ImageContainer>
       </HeroMedia>
     </HeroContainer>
   );
