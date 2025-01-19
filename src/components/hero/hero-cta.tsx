@@ -6,33 +6,33 @@ import {
   GridItem,
   Content,
   TextContainer,
-  Image,
   Title,
   Subtitle,
   Button,
+  StyledImage,
 } from './hero-cta.styles';
 import { FaCalendarDays } from 'react-icons/fa6';
 
 export const HeroCta = () => {
+  // "Did you know? Despite popular myths, snake plants can't sustain life in sealed rooms - but they're still amazing air purifiers!"
   return (
     <HeroCtaContainer>
       <Grid>
-        <GridItem>
+        <GridItem gridArea="a">
           <Content>
-            <Image src="images/snake-plant.png" alt="snake plant" />
+            <StyledImage src="images/snake-plant.png" alt="snake plant" />
             <TextContainer>
               <Title>Breathe Better with Plants</Title>
               <Subtitle>
-                Discover nature&apos;s air purifiers: Top indoor plants that transform your home into a healthier
-                sanctuary
+                Discover nature&apos;s air purifiers that transform your home into a healthier sanctuary
               </Subtitle>
               <Button>Learn More</Button>
             </TextContainer>
           </Content>
         </GridItem>
-        <GridItem>
+        <GridItem gridArea="b">
           <Content>
-            <FaCalendarDays />
+            <FaCalendarDays size={60} />
 
             <TextContainer>
               <Title>Smart Plant Care Reminders</Title>
@@ -42,7 +42,7 @@ export const HeroCta = () => {
             </TextContainer>
           </Content>
         </GridItem>
-        <GridItem>
+        <GridItem gridArea="c">
           <Content>
             <TextContainer>
               <Title>Your Plant Care Companion</Title>

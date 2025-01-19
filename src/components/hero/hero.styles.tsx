@@ -4,7 +4,6 @@ export const HeroContainer = styled.div`
   position: relative;
   display: flex;
   gap: 20px;
-  height: 100vh;
 
   @media (max-width: 375px) {
     flex-direction: column;
@@ -93,6 +92,8 @@ export const Subtitle = styled.h4`
 
 export const ImageContainer = styled.div`
   position: relative;
+  display: flex;
+  width: 100%;
 `;
 
 export const HeroMedia = styled.div`
@@ -134,9 +135,9 @@ export const StyledMobileImage = styled.img`
   animation: scaleIn 1.5s ease-out;
   transform-origin: right bottom;
   bottom: 0;
-  max-height: 950px;
+  height: 90%;
   width: auto;
-
+  align-self: flex-end;
   @media (min-width: 800px) {
     display: none;
   }

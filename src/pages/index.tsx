@@ -4,9 +4,10 @@ import Head from 'next/head';
 import styled from '@emotion/styled';
 
 const HomePageContainer = styled.main`
+  position: relative;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+
+  // margin: 0 auto;
 
   @media (min-width: 1200px) {
     max-width: 95%;
