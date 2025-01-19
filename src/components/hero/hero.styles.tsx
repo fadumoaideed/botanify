@@ -4,12 +4,11 @@ export const HeroContainer = styled.div`
   position: relative;
   display: flex;
   gap: 20px;
+  box-sizing: border-box;
 
-  @media (max-width: 375px) {
-    flex-direction: column;
-  }
+  flex-direction: column;
 
-  @media (min-width: 376px) {
+  @media (min-width: 375px) {
     flex-direction: column;
     padding: 0px;
     gap: 0px;
@@ -22,28 +21,37 @@ export const HeroContainer = styled.div`
   @media (min-width: 800px) {
     flex-direction: row;
     width: 100%;
-    height: 550px;
+    height: 450px;
     gap: 0px;
+    padding: 0 50px;
+  }
+
+  @media (min-width: 960px) {
+    padding: 0 100px;
   }
 `;
 
 export const HeroText = styled.div`
   padding: 25px 20px 50px 25px;
 
-  @media (min-width: 376px) {
+  @media (min-width: 375px) {
     padding: 25px 20px 50px 25px;
   }
 
+  @media (min-width: 450px) {
+    padding: 25px 50px 50px 50px;
+  }
+
   @media (min-width: 600px) {
-    padding: 50px 0px 50px 40px;
+    padding: 50px 50px 50px 40px;
   }
 
   @media (min-width: 800px) {
-    padding: 50px 0px 50px 40px;
+    padding: 50px 0px 0 0;
   }
 
-  @media (min-width: 980px) {
-    padding: 50px 0px 50px 100px;
+  @media (min-width: 960px) {
+    padding: 50px 0px 0 0;
   }
 `;
 
@@ -52,7 +60,7 @@ export const Title = styled.h2`
   font-weight: 700;
   font-size: 2.5rem;
 
-  @media (min-width: 376px) {
+  @media (min-width: 375px) {
     padding: 0 15px 0 15px;
     font-size: 3rem;
   }
@@ -62,15 +70,15 @@ export const Title = styled.h2`
   }
 
   @media (min-width: 800px) {
-    font-size: 3rem;
+    font-size: 2.9rem;
   }
 
-  @media (min-width: 980px) {
-    font-size: 4rem;
+  @media (min-width: 960px) {
+    font-size: 3.5rem;
   }
 
   @media (min-width: 1200px) {
-    font-size: 4.3rem;
+    font-size: 4rem;
   }
 `;
 
@@ -80,7 +88,7 @@ export const Subtitle = styled.h4`
   font-size: 1rem;
   padding-top: 25px;
 
-  @media (min-width: 376px) {
+  @media (min-width: 375px) {
     padding: 0 15px 0 15px;
   }
 
@@ -94,6 +102,8 @@ export const ImageContainer = styled.div`
   position: relative;
   display: flex;
   width: 100%;
+  align-items: flex-start;
+  justify-content: center;
 `;
 
 export const HeroMedia = styled.div`
@@ -106,12 +116,12 @@ export const HeroMedia = styled.div`
   height: 350px;
   background-color: transparent;
 
-  @media (min-width: 376px) {
+  @media (min-width: 375px) {
     height: auto;
   }
 
   @media (min-width: 800px) {
-    margin-left: auto;
+    margin-top: 30px;
   }
 `;
 
@@ -163,12 +173,12 @@ export const StyledDesktopImage = styled.img`
     z-index: 3;
     animation: none;
     transform-origin: right bottom;
-    height: 80%;
+    max-height: 370px;
   }
 
-  @media (min-width: 980px) {
+  @media (min-width: 960px) {
     height: 90%;
-    margin-right: 50px;
+    max-height: 500px;
   }
 
   @media (min-width: 1200px) {
@@ -215,7 +225,7 @@ export const TargetIndicator = styled.div`
     animation-delay: 2s;
   }
 
-  @media (min-width: 376px) {
+  @media (min-width: 375px) {
     top: 30%;
     left: 30%;
 
