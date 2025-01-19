@@ -1,4 +1,4 @@
-import jsonData from '../api/db.json';
+import jsonData from '../../json-server/plants.json';
 //https://www.dhiwise.com/post/how-to-use-json-server-in-frontend-development
 export async function getData() {
   if (process.env.NODE_ENV === 'development') {
