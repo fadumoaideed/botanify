@@ -1,7 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import styled from '@emotion/styled';
 import {
   PageContainer,
   ImageSection,
@@ -60,10 +59,8 @@ const RegisterPage = () => {
     }
 
     try {
-      // Add your registration logic here
-      // For example:
-      // await register(formData);
-      router.push('/login'); // Redirect to login after registering
+      // TODO: Add registration logic
+      router.push('/login'); // TODO: Redirect to login after registering
     } catch (err) {
       setError('Failed to create account');
     }
@@ -71,7 +68,7 @@ const RegisterPage = () => {
 
   return (
     <PageContainer>
-      <ImageSection />
+      <ImageSection>Did you know? section</ImageSection>
       <Container>
         <FormContainer>
           <Title>Create your account</Title>
