@@ -15,8 +15,12 @@ export const HeroCtaContainer = styled.div`
   }
 
   @media (min-width: 600px) {
-    padding: 0 100px;
+    padding: 0 70px;
     margin-top: 30px;
+  }
+
+  @media (min-width: 960px) {
+    padding: 0 100px;
   }
 `;
 
@@ -31,8 +35,16 @@ export const Grid = styled.div`
     'b b b b b'
     'c c c c c';
 
-  @media (min-width: 800px) {
-    grid-template-rows: repeat(4, 70px);
+  @media (min-width: 960px) {
+    grid-template-rows: repeat(4, 80px);
+    grid-template-areas:
+      'a a a b b'
+      'a a a c c'
+      'a a a c c';
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-rows: repeat(4, 80px);
     grid-template-areas:
       'a a a b b'
       'a a a b b'
@@ -156,12 +168,18 @@ export const Subtitle = styled.h4`
 `;
 
 export const StyledImage = styled.img`
-  @media (max-width: 375px) {
-    height: 200px;
+  height: 200px;
+
+  @media (min-width: 375px) {
+    height: 240px;
   }
 
-  @media (min-width: 600px) {
-    height: 440px;
+  @media (min-width: 800px) {
+    height: 280px;
+  }
+
+  @media (min-width: 960px) {
+    height: 300px;
   }
 
   &:nth-child(1) {
@@ -176,10 +194,10 @@ export const Button = styled.button`
   border-radius: 10px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-
+  margin: 20px;
   @media (max-width: 375px) {
-    width: 100px;
-    height: 30px;
+    width: 90px;
+    height: 25px;
     font-size: 0.7rem;
   }
 
