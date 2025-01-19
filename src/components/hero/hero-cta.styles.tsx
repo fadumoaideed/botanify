@@ -43,14 +43,6 @@ export const Grid = styled.div`
     grid-template-rows: repeat(4, 80px);
     grid-template-areas:
       'a a a b b'
-      'a a a c c'
-      'a a a c c';
-  }
-
-  @media (min-width: 1200px) {
-    grid-template-rows: repeat(4, 80px);
-    grid-template-areas:
-      'a a a b b'
       'a a a b b'
       'a a a c c'
       'a a a c c';
@@ -65,7 +57,7 @@ export const GridItem = styled.div<{ gridArea: 'a' | 'b' | 'c' }>`
   justify-content: center;
   align-items: center;
   font-weight: bold;
-
+  //   overflow: hidden;
   grid-area: ${({ gridArea }) => gridArea};
 
   ${({ gridArea }) => {
@@ -146,6 +138,7 @@ export const Content = styled.div`
   height: 100%;
   z-index: 2;
   box-sizing: border-box;
+  padding: 20px;
 `;
 
 export const TextContainer = styled.div`
@@ -169,9 +162,6 @@ export const Title = styled.h3`
   }
 
   @media (min-width: 600px) {
-    padding: 1rem;
-    margin-top: 30px;
-
     font-size: 1.5rem;
   }
 `;
@@ -186,7 +176,6 @@ export const Subtitle = styled.h4`
   }
 
   @media (min-width: 600px) {
-    padding: 1rem;
     margin-top: 10px;
   }
 `;
@@ -230,4 +219,102 @@ export const Button = styled.button`
     height: 40px;
     font-size: 1rem;
   }
+`;
+
+export const Calendar = styled.div`
+  font-size: 80px;
+  border: 0.07em solid white;
+  height: 0.8em;
+  width: 0.9em;
+  border-radius: 0.04em;
+  box-shadow: inset 0 0.2em 0 0.01em white;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    background-color: white;
+    height: 0.09em;
+    width: 0.07em;
+    border-radius: 0.18em 0.18em 0 0;
+    top: -0.16em;
+    left: 0.08em;
+    box-shadow: 0.67em 0 0 0 white;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    inset: 0;
+    background: inherit;
+    border: inherit;
+    border-radius: inherit;
+    box-shadow: inherit;
+    transform-origin: top;
+    animation: flipCalendar 4s 4s infinite;
+  }
+
+  @keyframes flipCalendar {
+    0% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+    49% {
+      transform: rotateX(-180deg);
+      opacity: 0;
+    }
+    50% {
+      transform: rotateX(0deg);
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+  }
+
+  @media (min-width: 960px) {
+    font-size: 100px;
+  }
+`;
+
+export const CalendarSpan = styled.span`
+  position: absolute;
+  content: '';
+  background-color: white;
+  height: 0.14em;
+  width: 0.14em;
+  top: 0.31em;
+  left: 0.12em;
+  animation: dotAnimation 4s 4s infinite;
+
+  @keyframes dotAnimation {
+    0%,
+    100% {
+      box-shadow: 0.26em 0 0 0 white, 0.52em 0 0 0 white, 0 0.25em 0 0 white, 0.26em 0.25em 0 0 white;
+    }
+    20% {
+      box-shadow: 0.26em 0 0 0 #f27979, 0.52em 0 0 0 white, 0 0.25em 0 0 white, 0.26em 0.25em 0 0 white;
+    }
+    40% {
+      box-shadow: 0.26em 0 0 0 white, 0.52em 0 0 0 #f27979, 0 0.25em 0 0 white, 0.26em 0.25em 0 0 white;
+    }
+    60% {
+      box-shadow: 0.26em 0 0 0 white, 0.52em 0 0 0 white, 0 0.25em 0 0 #f27979, 0.26em 0.25em 0 0 white;
+    }
+    80% {
+      box-shadow: 0.26em 0 0 0 white, 0.52em 0 0 0 white, 0 0.25em 0 0 white, 0.26em 0.25em 0 0 #f27979;
+    }
+  }
+`;
+
+export const CalendarContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  z-index: 2;
+  box-sizing: border-box;
+  perspective: 1000px; // Added this for the 3D effect
 `;
