@@ -10,6 +10,9 @@ import {
   Subtitle,
   Button,
   StyledImage,
+  Calendar,
+  CalendarSpan,
+  CalendarContainer,
 } from './hero-cta.styles';
 import { FaCalendarDays } from 'react-icons/fa6';
 
@@ -32,10 +35,13 @@ export const HeroCta = () => {
         </GridItem>
         <GridItem gridArea="b">
           <Content>
-            <FaCalendarDays size={60} />
-
+            <CalendarContainer>
+              <Calendar>
+                <CalendarSpan />
+              </Calendar>
+            </CalendarContainer>
             <TextContainer>
-              <Title>Smart Plant Care Reminders</Title>
+              <Title>Plant Care Reminders</Title>
               <Subtitle>
                 Never miss a watering day with personalized care alerts for each of your green companions
               </Subtitle>
