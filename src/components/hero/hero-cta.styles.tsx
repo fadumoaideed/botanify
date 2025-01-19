@@ -1,13 +1,18 @@
 import styled from '@emotion/styled';
 
 export const HeroCtaContainer = styled.div`
-  margin-top: 30px;
+  //   position: relative;
+  margin-top: 50px;
   max-width: 100%;
   width: 100%;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 375px) {
+    padding: 0 10px;
+  }
 
   @media (min-width: 600px) {
     padding: 0 100px;
@@ -20,7 +25,7 @@ export const Grid = styled.div`
   gap: 20px;
   width: 100%;
 
-  grid-template-rows: repeat(3, 120px);
+  grid-template-rows: repeat(3, 220px);
   grid-template-areas:
     'a a a a a'
     'b b b b b'
@@ -36,51 +41,66 @@ export const Grid = styled.div`
   }
 `;
 
-export const GridItem = styled.div`
+export const GridItem = styled.div<{ gridArea: 'a' | 'b' | 'c' }>`
   width: 100%;
   height: 100%;
-  background-color: pink;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  grid-area: ${({ gridArea }) => gridArea};
 
-  &:nth-child(1) {
-    grid-area: a;
-    position: relative;
+  ${({ gridArea }) => {
+    switch (gridArea) {
+      case 'a':
+        return `
+          position: relative;
+          color: #192831;
+          background-color: #ead9cf;
+          
+    
+          &::after {
+            content: '';
+            position: absolute;
+            clip-path: path('M 29,0 L 29,400 Q -75,60 100,0 Z');
+            clip-path: path('M 0 0 C 103 353 338 403 547 216 L 554 127 C 335 330 147 251 103 0 L 0 0');
+            background-color: #e6b496;
+            left: 0%;
+            top: 0%;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+      
+          }
+        `;
+      case 'b':
+        return `
+          position: relative;
+          color: #cbd6dd;
+          background-color: #153135;
 
-    .snake-plant {
-      height: 440px;
+          &::after {
+            content: '';
+            position: absolute;
+            clip-path: path('M 29,0 L 29,400 Q -75,60 100,0 Z');
+            clip-path: path('M 0 0 C 103 353 338 403 547 216 L 554 127 C 335 330 147 251 103 0 L 0 0');
+            background-color: #2e5b62;
+            left: 0%;
+            top: 0%;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+          }
+
+        `;
+      case 'c':
+        return `
+          color: #192831;
+          background-color: #e6eae3;
+        `;
     }
-    color: #192831;
-    background-color: #ead9cf;
-  }
-
-  &:nth-child(1)::before {
-    content: '';
-    clip-path: path(
-      'M 0,0 Q 0.46,0.641 0,0.006 L 0.235,0.006 Q 0.385,0.135 0.465,0.309 Q 0.565,0.132 0.555,0 L 0.75,0 Q 0.595,0.729 1.02,0.718 L 1.005,0.809 Q 0.695,0.818 0.525,0.574 Q 0.495,0.829 0.45,1.015 L 0.215,1.003 Z'
-    );
-    background-color: red;
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    width: 100px;
-    height: 100px;
-    z-index: 2;
-  }
-
-  &:nth-child(2) {
-    grid-area: b;
-    color: #cbd6dd;
-    background-color: #153135;
-  }
-  &:nth-child(3) {
-    grid-area: c;
-    color: #192831;
-    background-color: #e6eae3;
-  }
+  }}
 `;
 
 export const Content = styled.div`
@@ -89,6 +109,7 @@ export const Content = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  z-index: 2;
 `;
 
 export const TextContainer = styled.div`
@@ -96,28 +117,52 @@ export const TextContainer = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100%;
-  padding: 24px;
+  justify-content: center;
+  @media (min-width: 600px) {
+    padding: 10px;
+  }
 `;
 
 export const Title = styled.h3`
-  font-size: 24px;
   font-weight: 700;
-  margin-top: 30px;
-  padding: 1rem;
   font-family: 'Comfortaa', cursive;
   text-align: center;
+
+  @media (max-width: 375px) {
+    font-size: 0.9rem;
+  }
+
+  @media (min-width: 600px) {
+    padding: 1rem;
+    margin-top: 30px;
+
+    font-size: 1.5rem;
+  }
 `;
 
 export const Subtitle = styled.h4`
-  padding: 1rem;
-  margin-top: 10px;
   font-size: 16px;
   font-weight: normal;
   font-family: 'Roboto', sans-serif;
+
+  @media (max-width: 375px) {
+    font-size: 0.7rem;
+  }
+
+  @media (min-width: 600px) {
+    padding: 1rem;
+    margin-top: 10px;
+  }
 `;
 
-export const Image = styled.img`
-  height: 440px;
+export const StyledImage = styled.img`
+  @media (max-width: 375px) {
+    height: 200px;
+  }
+
+  @media (min-width: 600px) {
+    height: 440px;
+  }
 
   &:nth-child(1) {
     align-self: flex-end;
@@ -131,6 +176,16 @@ export const Button = styled.button`
   border-radius: 10px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  width: 160px;
-  height: 40px;
+
+  @media (max-width: 375px) {
+    width: 100px;
+    height: 30px;
+    font-size: 0.7rem;
+  }
+
+  @media (min-width: 600px) {
+    width: 160px;
+    height: 40px;
+    font-size: 1rem;
+  }
 `;
