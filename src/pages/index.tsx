@@ -5,28 +5,28 @@ import styled from '@emotion/styled';
 
 const HomePageContainer = styled.main`
   position: relative;
-  width: 100%;
-
-  // margin: 0 auto;
+  width: 100vw;
+  margin: 0 auto;
+  // // margin: 0 auto;
 
   @media (min-width: 1200px) {
     max-width: 95%;
   }
 
   @media (min-width: 1600px) {
-    max-width: 85%;
-  }
-
-  @media (min-width: 1900px) {
     max-width: 75%;
   }
 
-  @media (min-width: 2300px) {
+  @media (min-width: 1900px) {
     max-width: 65%;
   }
 
-  @media (min-width: 2600px) {
+  @media (min-width: 2300px) {
     max-width: 55%;
+  }
+
+  @media (min-width: 2600px) {
+    max-width: 45%;
   }
 `;
 
