@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import { Plant } from '../../../types/plant';
+import { Plant } from '../../types/plant';
 import styles from './card.module.css';
 export const Card = ({ name, image }: Plant) => {
   return (
