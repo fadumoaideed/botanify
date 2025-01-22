@@ -55,8 +55,7 @@ const LoginPage = () => {
          const data = await response.json()
 
          if (data.token) {
-            login(data.token)
-            setUser(data.user)
+            login(data.token, data.user)
          } else {
             setError(data.message || 'Login failed')
          }

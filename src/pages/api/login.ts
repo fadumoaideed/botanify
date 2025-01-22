@@ -40,7 +40,7 @@ export default async function handler(
          expiresIn: '3h'
       })
 
-      res.status(200).json({ token })
+      res.status(200).json({ token, user: { firstName: user.firstName } })
    } catch (error) {
       console.error('Error during login:', error)
       res.status(500).json({ message: 'Internal server error' })

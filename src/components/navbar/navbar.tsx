@@ -21,6 +21,31 @@ export const Navbar = () => {
       setNav(!nav)
    }
 
+   const Links = () => {
+      return isAuthenticated ? (
+         <>
+            <Link href="/plant-care" passHref>
+               Plant Care
+            </Link>
+            <Link href="/login" passHref>
+               Hello, {user?.firstName}
+            </Link>
+            <Link href="/login" passHref onClick={logout}>
+               Log out
+            </Link>
+         </>
+      ) : (
+         <>
+            <Link href="/plant-care" passHref>
+               Plant Care
+            </Link>
+            <Link href="/login" passHref>
+               Log in
+            </Link>
+         </>
+      )
+   }
+
    return (
       <>
          <NavbarContainer>
@@ -32,28 +57,7 @@ export const Navbar = () => {
                </Logo>{' '}
             </Link>
             <NavLinks>
-               {isAuthenticated ? (
-                  <>
-                     <Link href="/plant-care" passHref>
-                        Plant Care
-                     </Link>
-                     <Link href="/login" passHref>
-                        Hello, {user?.name}
-                     </Link>
-                     <Link href="/login" passHref onClick={logout}>
-                        Log out
-                     </Link>
-                  </>
-               ) : (
-                  <>
-                     <Link href="/plant-care" passHref>
-                        Plant Care
-                     </Link>
-                     <Link href="/login" passHref>
-                        Log in
-                     </Link>
-                  </>
-               )}
+               <Links />
             </NavLinks>
             <Burger onClick={toggleNav}>
                {nav ? (
@@ -65,21 +69,7 @@ export const Navbar = () => {
                )}
             </Burger>
             <MobileNavLinks open={nav}>
-               <li>
-                  <Link href="/" passHref>
-                     Home
-                  </Link>
-               </li>
-               <li>
-                  <Link href="/garden" passHref>
-                     My Garden
-                  </Link>
-               </li>
-               <li>
-                  <Link href="/login" passHref>
-                     Login
-                  </Link>
-               </li>
+               <Links />
             </MobileNavLinks>
          </NavbarContainer>
       </>

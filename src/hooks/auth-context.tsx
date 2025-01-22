@@ -7,12 +7,17 @@ import {
 } from 'react'
 import { useRouter } from 'next/router'
 
+interface User {
+   firstName: string
+   email: string
+}
+
 interface AuthContextType {
    isAuthenticated: boolean
-   login: (token: string) => void
+   login: (token: string, userData: User) => void
    logout: () => void
-   user: any | null
-   router: any | null
+   user: User | null
+   router: any
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -25,27 +30,30 @@ const AuthContext = createContext<AuthContextType>({
 
 export function AuthProvider({ children }: { children: ReactNode }) {
    const [isAuthenticated, setIsAuthenticated] = useState(false)
-   const [user, setUser] = useState(null)
+   const [user, setUser] = useState<User | null>(null)
    const router = useRouter()
 
    useEffect(() => {
-      // Check if token exists on mount
+      // Check if token and user data exist on mount
       const token = localStorage.getItem('token')
-      if (token) {
+      const savedUser = localStorage.getItem('user')
+      if (token && savedUser) {
          setIsAuthenticated(true)
-         // TODO: Fetch user data using token
+         setUser(JSON.parse(savedUser))
       }
    }, [])
 
-   const login = (token: string) => {
+   const login = (token: string, userData: User) => {
       localStorage.setItem('token', token)
+      localStorage.setItem('user', JSON.stringify(userData))
       setIsAuthenticated(true)
-      // setUser({})
+      setUser(userData)
       router.push('/dashboard')
    }
 
    const logout = () => {
       localStorage.removeItem('token')
+      localStorage.removeItem('user')
       setIsAuthenticated(false)
       setUser(null)
       router.push('/')
