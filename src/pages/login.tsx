@@ -24,7 +24,7 @@ interface FormData {
 }
 
 const LoginPage = () => {
-   const { login, user, router } = useAuth()
+   const { login } = useAuth()
    const [formData, setFormData] = useState<FormData>({
       email: '',
       password: ''
