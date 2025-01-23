@@ -4,7 +4,7 @@ A NextJS application for managing your indoor plants with authentication and per
 
 ## Overview
 
-This project is built using NextJS and Emotion styled-components, providing a modern and responsive interface for plant enthusiasts to manage their indoor garden. The application features JWT authentication for secure user access and a json-server backend for development purposes.
+This project is built using NextJS and Emotion styled-components, providing a modern and responsive interface for plant enthusiasts to manage their indoor garden. The application uses Supabase for production authentication and database, while utilizing json-server for development purposes.
 
 > **Note**: This project uses json-server to simulate a backend and is not secure nor production ready. This was a learning exercise to get a better understanding of JWT and authentication.
 
@@ -12,8 +12,8 @@ This project is built using NextJS and Emotion styled-components, providing a mo
 
 ### Authentication
 - User registration with email and password
-- Secure password hashing using bcryptjs
-- JWT-based authentication with 3-hour token expiration
+- Secure authentication using Supabase Auth in production
+- Development mode using JSON server with JWT tokens
 - Protected routes for authenticated users
 
 ### Dashboard
@@ -28,7 +28,6 @@ This project is built using NextJS and Emotion styled-components, providing a mo
 - Detailed care instructions and guidelines
 - Customizable care schedules
 
-
 ### Reminders System
 - Automated notifications for:
   - Watering schedules
@@ -39,15 +38,50 @@ This project is built using NextJS and Emotion styled-components, providing a mo
 ## Tech Stack
 
 - **Frontend**: NextJS, Emotion Styled Components
-- **Authentication**: JWT (JSON Web Tokens)
-- **Password Security**: bcryptjs
-- **Development Database**: json-server
+- **Production Backend**: Supabase (Auth & Database)
+- **Development Backend**: json-server
 - **Styling**: Emotion (CSS-in-JS)
 
 ## Getting Started
 
 1. Clone the repository
-2. Run `npm install` to install the dependencies
-3. Run `npm run dev` to start the development server
-4. Run `npm run json-server` to start the json-server
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Development Mode:
+   ```bash
+   # Start Next.js development server
+   npm run dev
+
+   # Start JSON servers (in a separate terminal)
+   npm run server:all
+   ```
+   This will run:
+   - Next.js on port 3000
+   - Users JSON server on port 3001
+   - Plants JSON server on port 3002
+
+4. Production Mode:
+   ```bash
+   npm run build
+   npm run start
+   ```
+   This will use Supabase for authentication and data storage.
+
+## Development vs Production
+
+- **Development** (`npm run dev`):
+  - Uses JSON server for data storage
+  - Local JWT authentication
+  - Hot reloading enabled
+  - Development debugging tools
+
+- **Production** (`npm run start`):
+  - Uses Supabase for authentication and data storage
+  - Production-optimized build
+  - Enhanced security and performance
+
+## Available Scripts
 
