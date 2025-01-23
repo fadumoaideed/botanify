@@ -4,8 +4,8 @@
    "private": true,
    "scripts": {
       "dev": "next dev --port 3000",
-      "server:users": "json-server --watch src/json-server/users.json --port 3001",
-      "server:plants": "json-server --watch src/json-server/plants.json --port 3002",
+      "server:users": "json-server --watch src/json-server/users-db.json --port 3001",
+      "server:plants": "json-server --watch src/json-server/plants-db.json --port 3002",
       "server:all": "concurrently \"npm run server:users\" \"npm run server:plants\"",
       "build": "next build",
       "start": "next start",
@@ -16,6 +16,7 @@
       "@emotion/react": "^11.11.4",
       "@emotion/styled": "^11.11.5",
       "@next/bundle-analyzer": "^14.2.3",
+      "@supabase/supabase-js": "^2.48.0",
       "@types/node": "^20.3.1",
       "@types/react": "^18.2.12",
       "@types/react-dom": "^18.2.5",
