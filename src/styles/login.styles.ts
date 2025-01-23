@@ -81,6 +81,7 @@ export const Input = styled.input`
    color: #111827;
    background-color: white;
    font-family: 'Roboto', sans-serif;
+   box-sizing: border-box;
 
    &:focus {
       outline: none;
