@@ -6,24 +6,23 @@ import {
    ReactNode
 } from 'react'
 import { useRouter } from 'next/router'
-import { createClient } from '@supabase/supabase-js'
 import { User } from '@/types/users'
+import { authService } from '@/services/auth.service'
 
 interface AuthContextType {
    isAuthenticated: boolean
-   login: (token: string, userData: User) => void
-   logout: () => void
    user: User | null
-   router: any
+   login: (email: string, password: string) => Promise<string | null>
+   signup: (userData: {
+      email: string
+      password: string
+      firstName: string
+      lastName: string
+   }) => Promise<string | null>
+   logout: () => Promise<void>
 }
 
-const AuthContext = createContext<AuthContextType>({
-   isAuthenticated: false,
-   login: () => {},
-   logout: () => {},
-   user: null,
-   router: null
-})
+const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export function AuthProvider({ children }: { children: ReactNode }) {
    const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -40,25 +39,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
    }, [])
 
-   const login = async (token: string, userData: User) => {
+   const login = async (email: string, password: string) => {
+      const { user, token, error } = await authService.login(email, password)
+
+      if (error || !token || !user) return error || 'Login failed'
+
       localStorage.setItem('token', token)
-      localStorage.setItem('user', JSON.stringify(userData))
+      localStorage.setItem('user', JSON.stringify(user))
       setIsAuthenticated(true)
-      setUser(userData)
+      setUser(user)
       router.push('/dashboard')
+      return null
+   }
+
+   const signup = async (userData: {
+      email: string
+      password: string
+      firstName: string
+      lastName: string
+   }) => {
+      const { error } = await authService.signup(userData)
+      if (error) return error
+
+      router.push('/login')
+      return null
    }
 
    const logout = async () => {
-      if (process.env.ENV === 'production') {
-         const supabase = createClient(
-            process.env.NEXT_PUBLIC_SUPABASE_URL!,
-            process.env.NEXT_PUBLIC_SUPABASE_API_KEY!
-         )
-         await supabase.auth.signOut()
-         console.log('User signed out')
-      }
-      localStorage.removeItem('token')
-      localStorage.removeItem('user')
+      await authService.logout()
       setIsAuthenticated(false)
       setUser(null)
       router.push('/')
@@ -66,11 +74,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
    return (
       <AuthContext.Provider
-         value={{ isAuthenticated, login, logout, user, router }}
+         value={{ isAuthenticated, user, login, signup, logout }}
       >
          {children}
       </AuthContext.Provider>
    )
 }
 
-export const useAuth = () => useContext(AuthContext)
+export const useAuth = () => {
+   const context = useContext(AuthContext)
+   if (context === undefined) {
+      throw new Error('useAuth must be used within an AuthProvider')
+   }
+   return context
+}

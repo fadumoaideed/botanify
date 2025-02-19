@@ -18,7 +18,6 @@ export default async function handler(
       const { firstName, lastName, email, password } = req.body
 
       if (process.env.ENV === 'production') {
-         console.log('HELLLLOOOO')
          // Production: Use Supabase
          const supabase = createClient(
             process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -38,7 +37,6 @@ export default async function handler(
          })
 
          if (authError) {
-            console.log('Error during registration:', authError)
             return res.status(400).json({ message: authError.message })
          }
 
@@ -70,7 +68,8 @@ export default async function handler(
             firstName,
             lastName,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            createdAt: new Date().toISOString()
          }
 
          // Add user to array and write back to file
@@ -94,7 +93,8 @@ export default async function handler(
          })
       }
    } catch (error) {
-      console.log('Error registering user:', error)
       res.status(500).json({ message: 'Internal server error' })
    }
 }
+
+// Currently the jwt auth is only using a json server for the users db and the prod version is using supabase.

@@ -1,5 +1,4 @@
 import { useState, FormEvent } from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
 import {
    PageContainer,
@@ -17,8 +16,6 @@ import {
 } from '../styles/login.styles'
 import bcrypt from 'bcryptjs'
 import { useAuth } from '../hooks/auth-context'
-import { supabase } from '@/utils/supabase'
-import { User } from '@/types/users'
 
 interface FormData {
    email: string
@@ -45,22 +42,8 @@ const LoginPage = () => {
       e.preventDefault()
       setError('')
 
-      try {
-         const response = await fetch('/api/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-         })
-         const data = await response.json()
-
-         if (data.token) {
-            login(data.token, data.user)
-         } else {
-            setError(data.message || 'Login failed')
-         }
-      } catch (err) {
-         setError('Invalid email or password')
-      }
+      const error = await login(formData.email, formData.password)
+      if (error) setError(error)
    }
 
    return (
@@ -68,7 +51,7 @@ const LoginPage = () => {
          <ImageSection>Did you know? section</ImageSection>
          <Container>
             <FormContainer>
-               <Title>Sign in to your account</Title>
+               <Title>Log in to your account</Title>
                <Form onSubmit={handleSubmit}>
                   {error && <ErrorMessage>{error}</ErrorMessage>}
 
@@ -98,7 +81,7 @@ const LoginPage = () => {
                      />
                   </InputGroup>
 
-                  <Button type="submit">Sign in</Button>
+                  <Button type="submit">Login</Button>
                </Form>
 
                <SignUpText>

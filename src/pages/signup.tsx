@@ -16,7 +16,7 @@ import {
    SignInText
 } from '../styles/register.styles'
 import { supabase } from '@/utils/supabase'
-import { User } from '@/types/users'
+import { useAuth } from '@/hooks/auth-context'
 
 interface FormData {
    firstName: string
@@ -28,6 +28,7 @@ interface FormData {
 
 const SignupPage = () => {
    const router = useRouter()
+   const { signup } = useAuth()
    const [formData, setFormData] = useState<FormData>({
       firstName: '',
       lastName: '',
@@ -60,56 +61,14 @@ const SignupPage = () => {
          return
       }
 
-      try {
-         if (process.env.ENV === 'production') {
-            const { data, error } = await supabase.auth.signUp({
-               email: formData.email,
-               password: formData.password
-            })
+      const error = await signup({
+         email: formData.email,
+         password: formData.password,
+         firstName: formData.firstName,
+         lastName: formData.lastName
+      })
 
-            if (error) {
-               setError(error.message)
-               return
-            }
-
-            if (data.user) {
-               const { error: profileError } = await supabase
-                  .from('users')
-                  .insert([
-                     {
-                        id: data.user.id,
-                        first_name: formData.firstName,
-                        last_name: formData.lastName,
-                        email: formData.email
-                     }
-                  ])
-
-               if (profileError) {
-                  setError(profileError.message)
-                  return
-               }
-            }
-         } else {
-            const response = await fetch('/api/signup', {
-               method: 'POST',
-               headers: {
-                  'Content-Type': 'application/json'
-               },
-               body: JSON.stringify(formData)
-            })
-
-            const data = await response.json()
-
-            if (!response.ok) {
-               setError(data.message || 'Failed to create account')
-               return
-            }
-         }
-
-         router.push('/login')
-      } catch (err) {
-         setError('Failed to create account')
-      }
+      if (error) setError(error)
    }
 
    return (

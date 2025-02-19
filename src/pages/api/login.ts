@@ -17,7 +17,6 @@ export default async function handler(
       const { email, password } = req.body
 
       if (process.env.ENV === 'production') {
-         console.log('HELLO PRODUCTION ENVIRONMENT')
          // Production: Use Supabase
          const supabase = createClient(
             process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -33,12 +32,18 @@ export default async function handler(
          })
 
          if (error) {
-            console.log('Error during login:', error)
-            return res
-               .status(401)
-               .json({ message: 'Invalid email or password' })
+            switch (error.code) {
+               case 'email_not_confirmed':
+                  return res.status(400).json({
+                     message:
+                        'Please check your email and verify your account before logging in.'
+                  })
+               default:
+                  return res.status(401).json({
+                     message: 'Invalid email or password'
+                  })
+            }
          }
-         console.log({ user })
 
          if (!user) {
             return res.status(404).json({ message: 'User data not found' })
@@ -89,7 +94,6 @@ export default async function handler(
             .json({ token, user: { firstName: user.firstName } })
       }
    } catch (error) {
-      console.log('Error during login:', error)
       res.status(500).json({ message: 'Internal server error' })
    }
 }
