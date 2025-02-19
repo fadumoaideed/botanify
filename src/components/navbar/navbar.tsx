@@ -16,7 +16,6 @@ import { useAuth } from '../../hooks/auth-context'
 export const Navbar = () => {
    const [nav, setNav] = useState(false)
    const { isAuthenticated, logout, user } = useAuth()
-   console.log('user navbar', user)
    const toggleNav = () => {
       setNav(!nav)
    }

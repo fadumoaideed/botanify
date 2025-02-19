@@ -6,7 +6,6 @@ export interface User {
    createdAt: string
 }
 
-// If you need a separate type for authentication
 export interface AuthResponse {
    user: User
    token: string

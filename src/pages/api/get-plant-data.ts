@@ -21,7 +21,6 @@ export async function getIOTPlantData() {
       return jsonData
       // }
    } else {
-      console.log('HELLOO PROD')
       try {
          const res = await fetch(
             `https://babimjvuxtxesunjiagw.supabase.co/rest/v1/plant`,
