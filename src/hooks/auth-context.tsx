@@ -6,11 +6,8 @@ import {
    ReactNode
 } from 'react'
 import { useRouter } from 'next/router'
-
-interface User {
-   firstName: string
-   email: string
-}
+import { createClient } from '@supabase/supabase-js'
+import { User } from '@/types/users'
 
 interface AuthContextType {
    isAuthenticated: boolean
@@ -43,7 +40,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
    }, [])
 
-   const login = (token: string, userData: User) => {
+   const login = async (token: string, userData: User) => {
       localStorage.setItem('token', token)
       localStorage.setItem('user', JSON.stringify(userData))
       setIsAuthenticated(true)
@@ -51,7 +48,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       router.push('/dashboard')
    }
 
-   const logout = () => {
+   const logout = async () => {
+      if (process.env.ENV === 'production') {
+         const supabase = createClient(
+            process.env.NEXT_PUBLIC_SUPABASE_URL!,
+            process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+         )
+         await supabase.auth.signOut()
+         console.log('User signed out')
+      }
       localStorage.removeItem('token')
       localStorage.removeItem('user')
       setIsAuthenticated(false)

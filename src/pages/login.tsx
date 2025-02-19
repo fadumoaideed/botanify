@@ -17,6 +17,8 @@ import {
 } from '../styles/login.styles'
 import bcrypt from 'bcryptjs'
 import { useAuth } from '../hooks/auth-context'
+import { supabase } from '@/utils/supabase'
+import { User } from '@/types/users'
 
 interface FormData {
    email: string
@@ -47,10 +49,7 @@ const LoginPage = () => {
          const response = await fetch('/api/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-               email: formData.email,
-               password: formData.password
-            })
+            body: JSON.stringify(formData)
          })
          const data = await response.json()
 
@@ -103,7 +102,7 @@ const LoginPage = () => {
                </Form>
 
                <SignUpText>
-                  <Link href="/register">
+                  <Link href="/signup">
                      Don&apos;t have an account? Sign up
                   </Link>
                </SignUpText>

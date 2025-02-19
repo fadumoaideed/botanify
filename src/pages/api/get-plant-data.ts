@@ -1,7 +1,7 @@
 import jsonData from '../../json-server/plants-db.json'
 //https://www.dhiwise.com/post/how-to-use-json-server-in-frontend-development
 export async function getIOTPlantData() {
-   if (process.env.NODE_ENV === 'development') {
+   if (process.env.ENV === 'development') {
       // For local development either use json-server or the json file
 
       // const apiUrl = 'http://localhost:3001/plants';

@@ -3,8 +3,9 @@
    "version": "0.1.0",
    "private": true,
    "scripts": {
-      "dev": "next dev --port 3000",
-      "server:users": "json-server --watch src/json-server/users-db.json --port 3001",
+      "dev:local": "next dev --port 3001",
+      "dev:prod": "ENV=production next dev --port 3001",
+      "server:users": "json-server --watch src/json-server/users-db.json --port 3001", 
       "server:plants": "json-server --watch src/json-server/plants-db.json --port 3002",
       "server:all": "concurrently \"npm run server:users\" \"npm run server:plants\"",
       "build": "next build",

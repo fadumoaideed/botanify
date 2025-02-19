@@ -15,6 +15,8 @@ import {
    Button,
    SignInText
 } from '../styles/register.styles'
+import { supabase } from '@/utils/supabase'
+import { User } from '@/types/users'
 
 interface FormData {
    firstName: string
@@ -24,7 +26,7 @@ interface FormData {
    confirmPassword: string
 }
 
-const RegisterPage = () => {
+const SignupPage = () => {
    const router = useRouter()
    const [formData, setFormData] = useState<FormData>({
       firstName: '',
@@ -59,23 +61,51 @@ const RegisterPage = () => {
       }
 
       try {
-         const response = await fetch('/api/register', {
-            method: 'POST',
-            headers: {
-               'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-         })
+         if (process.env.ENV === 'production') {
+            const { data, error } = await supabase.auth.signUp({
+               email: formData.email,
+               password: formData.password
+            })
 
-         const data = await response.json()
+            if (error) {
+               setError(error.message)
+               return
+            }
 
-         if (!response.ok) {
-            setError(data.message || 'Failed to create account')
-            return
+            if (data.user) {
+               const { error: profileError } = await supabase
+                  .from('users')
+                  .insert([
+                     {
+                        id: data.user.id,
+                        first_name: formData.firstName,
+                        last_name: formData.lastName,
+                        email: formData.email
+                     }
+                  ])
+
+               if (profileError) {
+                  setError(profileError.message)
+                  return
+               }
+            }
+         } else {
+            const response = await fetch('/api/signup', {
+               method: 'POST',
+               headers: {
+                  'Content-Type': 'application/json'
+               },
+               body: JSON.stringify(formData)
+            })
+
+            const data = await response.json()
+
+            if (!response.ok) {
+               setError(data.message || 'Failed to create account')
+               return
+            }
          }
 
-         // Successful registration
-         console.log('Registration successful:', data)
          router.push('/login')
       } catch (err) {
          setError('Failed to create account')
@@ -167,4 +197,4 @@ const RegisterPage = () => {
    )
 }
 
-export default RegisterPage
+export default SignupPage
