@@ -52,7 +52,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (process.env.ENV === 'production') {
          const supabase = createClient(
             process.env.NEXT_PUBLIC_SUPABASE_URL!,
-            process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+            process.env.NEXT_PUBLIC_SUPABASE_API_KEY!
          )
          await supabase.auth.signOut()
          console.log('User signed out')

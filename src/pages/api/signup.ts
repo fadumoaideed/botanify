@@ -22,7 +22,7 @@ export default async function handler(
          // Production: Use Supabase
          const supabase = createClient(
             process.env.NEXT_PUBLIC_SUPABASE_URL!,
-            process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+            process.env.NEXT_PUBLIC_SUPABASE_API_KEY!
          )
 
          // Register user in Supabase Auth
