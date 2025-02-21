@@ -5,13 +5,13 @@ import {
    Burger,
    Logo,
    MobileNavLinks,
-   NavLinks,
-   NavbarContainer,
-   navBarSize
+   NavLinksContainer,
+   NavbarContainer
 } from './navbar.styles'
-import { RxHamburgerMenu } from 'react-icons/rx'
+import { RxHamburgerMenu, RxPerson } from 'react-icons/rx'
 import { RxCross1 } from 'react-icons/rx'
 import { useAuth } from '../../hooks/auth-context'
+import { NavbarLinks } from './navbar-links'
 
 export const Navbar = () => {
    const [nav, setNav] = useState(false)
@@ -20,44 +20,18 @@ export const Navbar = () => {
       setNav(!nav)
    }
 
-   const Links = () => {
-      return isAuthenticated ? (
-         <>
-            <Link href="/plant-care" passHref>
-               Plant Care
-            </Link>
-            <Link href="/login" passHref>
-               Hello, {user?.firstName}
-            </Link>
-            <Link href="/login" passHref onClick={logout}>
-               Log out
-            </Link>
-         </>
-      ) : (
-         <>
-            <Link href="/plant-care" passHref>
-               Plant Care
-            </Link>
-            <Link href="/login" passHref>
-               Log in
-            </Link>
-         </>
-      )
-   }
-
    return (
       <>
          <NavbarContainer>
             <Link href="/" passHref>
-               {' '}
                <Logo>
                   <img alt={'Logo image of a leaf'} src={'images/logo.png'} />
                   <h1> botanify</h1>
-               </Logo>{' '}
+               </Logo>
             </Link>
-            <NavLinks>
-               <Links />
-            </NavLinks>
+            <NavLinksContainer>
+               <NavbarLinks />
+            </NavLinksContainer>
             <Burger onClick={toggleNav}>
                {nav ? (
                   <RxCross1 style={{ fontSize: '30px', color: '#3b3b3b' }} />
@@ -68,7 +42,7 @@ export const Navbar = () => {
                )}
             </Burger>
             <MobileNavLinks open={nav}>
-               <Links />
+               <NavbarLinks />
             </MobileNavLinks>
          </NavbarContainer>
       </>
