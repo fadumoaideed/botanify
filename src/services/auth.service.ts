@@ -53,7 +53,7 @@ export const authService = {
 
    async signup(userData: {
       email: string
-      password: string
+      password?: string
       firstName: string
       lastName: string
    }): Promise<AuthResponse> {
@@ -61,7 +61,7 @@ export const authService = {
          if (process.env.ENV === 'production') {
             const { data, error } = await supabase.auth.signUp({
                email: userData.email,
-               password: userData.password,
+               password: userData?.password ?? '',
                options: {
                   data: {
                      first_name: userData.firstName,
