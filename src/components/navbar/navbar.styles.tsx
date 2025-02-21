@@ -45,6 +45,28 @@ export const UserIcon = styled.div`
    background-color: #32a585;
    color: white;
    border-radius: 50%;
+
+   &:before {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 21px;
+      width: 31%;
+      height: 31%;
+      background-color: #f7f6f7;
+      border-radius: 50%;
+   }
+
+   &:after {
+      content: '';
+      position: absolute;
+      bottom: 3px;
+      left: 23px;
+      width: 22%;
+      height: 22%;
+      background-color: rgb(74, 226, 95);
+      border-radius: 50%;
+   }
 `
 
 export const Logo = styled.div`
@@ -167,6 +189,7 @@ export const NavLinksContainer = styled.div`
    gap: 1rem;
    margin: 0 30px;
    font-family: Verdana, sans-serif;
+   align-items: center;
 
    a {
       text-decoration: none;
