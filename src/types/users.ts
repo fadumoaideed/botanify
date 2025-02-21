@@ -1,9 +1,10 @@
 export interface User {
-   id: string
+   id?: string
    firstName: string
    lastName: string
    email: string
-   createdAt: string
+   password: string
+   createdAt?: string | undefined
 }
 
 export interface AuthResponse {
