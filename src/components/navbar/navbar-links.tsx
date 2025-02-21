@@ -39,7 +39,14 @@ export const NavbarLinks = () => {
             Plant Care
          </Link>
 
-         <div style={{ position: 'relative' }} ref={dropdownRef}>
+         <Link href="/dashboard" passHref>
+            Dashboard
+         </Link>
+
+         <div
+            style={{ position: 'relative', marginLeft: '30px' }}
+            ref={dropdownRef}
+         >
             <UserIconContainer onClick={toggleDropdown}>
                <UserIcon>{user?.firstName?.split('')[0]}</UserIcon>
             </UserIconContainer>

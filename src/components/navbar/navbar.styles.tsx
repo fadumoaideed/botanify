@@ -186,7 +186,7 @@ export const NavbarContainer = styled.nav`
 
 export const NavLinksContainer = styled.div`
    display: flex;
-   gap: 1rem;
+   gap: 2rem;
    margin: 0 30px;
    font-family: Verdana, sans-serif;
    align-items: center;
