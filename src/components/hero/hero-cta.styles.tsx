@@ -25,7 +25,7 @@ export const HeroCtaContainer = styled.div`
    }
 
    @media (min-width: 960px) {
-      padding: 0 100px;
+      padding: 0 80px;
    }
 `
 
@@ -60,6 +60,10 @@ export const GridItem = styled.div<{ gridArea: 'a' | 'b' | 'c' }>`
    font-weight: bold;
    //   overflow: hidden;
    grid-area: ${({ gridArea }) => gridArea};
+
+   @media (min-width: 900px) and (max-width: 959px) {
+      width: 800px;
+   }
 
    ${({ gridArea }) => {
       switch (gridArea) {
@@ -139,7 +143,7 @@ export const Content = styled.div`
    height: 100%;
    z-index: 2;
    box-sizing: border-box;
-   padding: 20px;
+   padding: 10px;
 `
 
 export const TextContainer = styled.div`
@@ -195,11 +199,17 @@ export const StyledImage = styled.img`
    }
 
    @media (min-width: 960px) {
-      height: 300px;
+      height: 250px;
    }
 
    &:nth-child(1) {
       align-self: flex-end;
+   }
+
+   @media (min-width: 960px) {
+      &:nth-child(1) {
+         align-self: center;
+      }
    }
 `
 
@@ -207,10 +217,11 @@ export const Button = styled.button`
    background-color: transparent;
    border: 1px solid black;
    color: #192831;
-   border-radius: 10px;
+   border-radius: 20px;
    font-family: 'Roboto', sans-serif;
    font-weight: 500;
    margin: 20px;
+
    @media (max-width: 375px) {
       width: 90px;
       height: 25px;
@@ -269,7 +280,7 @@ export const Calendar = styled.div`
    }
 
    @media (min-width: 960px) {
-      font-size: 100px;
+      font-size: 90px;
    }
 `
 

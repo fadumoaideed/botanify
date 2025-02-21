@@ -27,7 +27,7 @@ export const HeroContainer = styled.div`
    }
 
    @media (min-width: 960px) {
-      padding: 0 100px;
+      padding: 0 80px;
    }
 `
 
@@ -35,15 +35,15 @@ export const HeroText = styled.div`
    padding: 25px 20px 50px 25px;
 
    @media (min-width: 375px) {
-      padding: 25px 20px 50px 25px;
+      padding: 25px 20px 0px 25px;
    }
 
    @media (min-width: 450px) {
-      padding: 25px 50px 50px 50px;
+      padding: 25px 50px 0px 50px;
    }
 
    @media (min-width: 600px) {
-      padding: 50px 50px 50px 40px;
+      padding: 50px 50px 0px 40px;
    }
 
    @media (min-width: 800px) {
@@ -93,7 +93,7 @@ export const Subtitle = styled.h4`
    }
 
    @media (min-width: 600px) {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       width: 80%;
    }
 `
@@ -104,6 +104,7 @@ export const ImageContainer = styled.div`
    width: 100%;
    align-items: flex-start;
    justify-content: center;
+   height: auto;
 
    @media (min-width: 800px) {
       justify-content: flex-end;
@@ -114,14 +115,14 @@ export const HeroMedia = styled.div`
    position: relative;
 
    display: flex;
-   justify-content: flex-end;
+   justify-content: flex-start;
 
    width: 100%;
-   height: 350px;
+   // height: 350px;
    background-color: transparent;
 
    @media (min-width: 375px) {
-      height: auto;
+      // height: auto;
    }
 
    @media (min-width: 800px) {
@@ -149,7 +150,7 @@ export const StyledMobileImage = styled.img`
    animation: scaleIn 1.5s ease-out;
    transform-origin: right bottom;
    bottom: 0;
-   height: 90%;
+   height: 80%;
    width: auto;
    align-self: flex-end;
    @media (min-width: 800px) {
