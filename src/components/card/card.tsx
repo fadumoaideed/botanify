@@ -1,18 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
-import { Plant } from '../../types/plant';
-import styles from './card.module.css';
-export const Card = ({ name, image }: Plant) => {
-  return (
-    <div className={styles.card}>
-      <img className={styles.img} src={image} alt="alt" />
-      <div className={styles.cardDetails}>
-        <div className={styles.name}>{name}</div>
-      </div>
-    </div>
-  );
-};
+import React from 'react'
+import { Drainage, LightLevel, Plant } from '../../types/plant'
+import { CardContainer, CardImage, Title } from './card.styles'
+import { TbSunFilled, TbSunLow, TbSunHigh } from 'react-icons/tb'
+import { PiStackThin, PiStackSimpleThin } from 'react-icons/pi'
 
-// function LightLevel({ light }) {
-//   return <FontAwesomeIcon icon={faSun} color="#909192" height={'30px'} />;
-// }
+const iconMap = {
+   [LightLevel.direct]: <TbSunFilled />,
+   [LightLevel.shade]: <TbSunLow />,
+   [LightLevel.partial]: <TbSunHigh />,
+   [Drainage.high]: <PiStackThin />,
+   [Drainage.low]: <PiStackSimpleThin />
+} as const
+
+const getIcon = (type: LightLevel | Drainage | undefined) => {
+   const iconName = iconMap[type as keyof typeof iconMap]
+   return iconName ?? null
+}
+
+export const Card = ({ name, image }: Plant) => {
+   return (
+      <CardContainer>
+         <CardImage src={image} alt={name} />
+         <Title>{name}</Title>
+      </CardContainer>
+   )
+}

@@ -24,6 +24,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
    const [user, setUser] = useState<User | null>(null)
    const router = useRouter()
 
+   // Json-server mode
    useEffect(() => {
       // Check if token and user data exist on mount
       const token = localStorage.getItem('token')

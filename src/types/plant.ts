@@ -1,30 +1,44 @@
 export enum Watering {
-  daily = 'DAILY',
-  weekly = 'WEEKLY',
-  biweekly = 'BIWEEKLY',
-  monthly = 'MONTHLY',
-  fortnightly = 'FORTNIGHTLY',
+   daily = 'DAILY',
+   weekly = 'WEEKLY',
+   biweekly = 'BIWEEKLY',
+   monthly = 'MONTHLY',
+   fortnightly = 'FORTNIGHTLY'
 }
 export enum LightLevel {
-  direct = 'DIRECT',
-  shade = 'SHADE',
-  partial = 'PARTIAL',
+   direct = 'DIRECT',
+   shade = 'SHADE',
+   partial = 'PARTIAL'
 }
 
 export enum Drainage {
-  high = 'HIGH',
-  low = 'LOW',
+   high = 'HIGH',
+   low = 'LOW'
 }
 
 export interface Plant {
-  id?: string | undefined;
-  name: string | undefined;
-  scientificName: string | undefined;
-  watering: Watering | undefined;
-  lastWaterered?: Date | undefined;
-  image: string;
-  sunlight?: LightLevel | undefined;
-  maxheight?: string | undefined;
-  soilDrainage: Drainage | undefined;
-  tags?: Record<string, string> | undefined;
+   id?: string
+   title: string
+   description?: string
+   scientificName: string
+   watering: Watering
+   image: string
+   sunlight?: LightLevel
+   maxheight?: string
+   soilDrainage: Drainage
+   tags?: Record<string, string>
+}
+
+export interface PlantCondition {
+   plantId: string
+   lastWatered?: Date
+   lastFertilized?: Date
+   lastRepotted?: Date
+}
+
+export interface MoistureSensor {
+   id: string
+   moistureLevel: number
+   createdAt: Date
+   updatedAt: Date
 }
