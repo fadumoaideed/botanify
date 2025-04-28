@@ -1,11 +1,10 @@
-import Hero from '@/components/hero/hero'
-import { HeroCta } from '@/components/hero/hero-cta'
-import Head from 'next/head'
-import styled from '@emotion/styled'
-import { SignupCta } from '@/components/signup-cta/signup-cta'
-import { PlantCareCta } from '@/components/plant-care-cta/plant-care-cta'
-import Footer from '@/components/footer/footer'
-
+import Hero from '@/components/hero/hero';
+import { HeroCta } from '@/components/hero/hero-cta';
+import Head from 'next/head';
+import styled from '@emotion/styled';
+import { SignupCta } from '@/components/signup-cta/signup-cta';
+import Footer from '@/components/footer/footer';
+import { ImageCta } from '@/components/image-cta/image-cta';
 const HomePageContainer = styled.main`
    position: relative;
    width: 100vw;
@@ -31,10 +30,13 @@ const HomePageContainer = styled.main`
    @media (min-width: 2600px) {
       max-width: 45%;
    }
-`
+`;
 export const ComponentContainer = styled.div`
    display: flex;
    box-sizing: border-box;
+   flex-direction: column;
+   max-width: 1600px;
+
    @media (min-width: 375px) {
       padding: 0px;
    }
@@ -50,7 +52,11 @@ export const ComponentContainer = styled.div`
    @media (min-width: 960px) {
       padding: 0 80px;
    }
-`
+
+   @media (min-width: 1200px) {
+      margin: 0 auto;
+   }
+`;
 
 export default function Home() {
    return (
@@ -90,10 +96,10 @@ export default function Home() {
          <HomePageContainer>
             <Hero />
             <HeroCta />
+            <ImageCta />
             <SignupCta />
-            <PlantCareCta />
-         </HomePageContainer>{' '}
+         </HomePageContainer>
          <Footer />
       </>
-   )
+   );
 }

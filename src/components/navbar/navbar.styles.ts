@@ -107,6 +107,11 @@ export const Burger = styled.div`
    display: none;
    font-size: 1.5rem;
    height: ${navBarSize};
+
+   @media (min-width: 360px) and (max-width: 768px) {
+      padding: 0 20px 0 0;
+   }
+
    @media (max-width: 768px) {
       display: flex;
       justify-content: flex-end;

@@ -18,11 +18,11 @@ const getIcon = (type: LightLevel | Drainage | undefined) => {
    return iconName ?? null
 }
 
-export const Card = ({ name, image }: Plant) => {
+export const Card = ({ title, image }: Plant) => {
    return (
       <CardContainer>
-         <CardImage src={image} alt={name} />
-         <Title>{name}</Title>
+         <CardImage src={image} alt={title} />
+         <Title>{title}</Title>
       </CardContainer>
    )
 }

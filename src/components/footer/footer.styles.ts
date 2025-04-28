@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const FooterContainer = styled.footer`
-   background-color: #f0fdf4;
+   background-color: #f7f6f7;
    padding: 3rem 0;
    margin-top: auto;
    font-family: Roboto, sans-serif;
@@ -26,6 +26,9 @@ export const FooterSections = styled.div`
 
 export const FooterSection = styled.div`
    flex: 1;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 `
 
 export const FooterTitle = styled.h3`

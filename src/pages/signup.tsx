@@ -1,6 +1,6 @@
-import { useState, FormEvent } from 'react'
-import { useRouter } from 'next/router'
-import Link from 'next/link'
+import { useState, FormEvent } from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import {
    PageContainer,
    ImageSection,
@@ -14,51 +14,52 @@ import {
    Input,
    Button,
    SignInText
-} from '../styles/register.styles'
-import { supabase } from '@/utils/supabase'
-import { useAuth } from '@/hooks/auth-context'
+} from '../styles/register.styles';
+import { supabase } from '@/utils/supabase';
+import { useAuth } from '@/hooks/auth-context';
+import { Carousel } from '@/components/carousel/carousel';
 
 interface FormData {
-   firstName: string
-   lastName: string
-   email: string
-   password: string
-   confirmPassword: string
+   firstName: string;
+   lastName: string;
+   email: string;
+   password: string;
+   confirmPassword: string;
 }
 
 const SignupPage = () => {
-   const router = useRouter()
-   const { signup } = useAuth()
+   const router = useRouter();
+   const { signup } = useAuth();
    const [formData, setFormData] = useState<FormData>({
       firstName: '',
       lastName: '',
       email: '',
       password: '',
       confirmPassword: '' // TODO:Store password in hashed form with encryption key
-   })
-   const [error, setError] = useState('')
+   });
+   const [error, setError] = useState('');
 
    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const { name, value } = e.target
+      const { name, value } = e.target;
       setFormData((prev) => ({
          ...prev,
          [name]: value
-      }))
-   }
+      }));
+   };
 
    const handleSubmit = async (e: FormEvent) => {
-      e.preventDefault()
-      setError('')
+      e.preventDefault();
+      setError('');
 
       // Basic validation
       if (formData.password !== formData.confirmPassword) {
-         setError('Passwords do not match')
-         return
+         setError('Passwords do not match');
+         return;
       }
 
       if (formData.password.length < 6) {
-         setError('Password must be at least 6 characters long')
-         return
+         setError('Password must be at least 6 characters long');
+         return;
       }
 
       const error = await signup({
@@ -66,14 +67,15 @@ const SignupPage = () => {
          password: formData.password,
          firstName: formData.firstName,
          lastName: formData.lastName
-      })
+      });
 
-      if (error) setError(error)
-   }
+      if (error) setError(error);
+   };
 
    return (
       <PageContainer>
-         <ImageSection>Did you know? section</ImageSection>
+         {/* <Carousel /> */}
+
          <Container>
             <FormContainer>
                <Title>Create your account</Title>
@@ -153,7 +155,7 @@ const SignupPage = () => {
             </FormContainer>
          </Container>
       </PageContainer>
-   )
-}
+   );
+};
 
-export default SignupPage
+export default SignupPage;

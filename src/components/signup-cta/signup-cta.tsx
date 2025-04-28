@@ -1,48 +1,58 @@
-import React from 'react'
+import React from 'react';
 import {
    Container,
-   Image,
    Content,
-   IconContainer,
-   Text,
-   Heading,
-   SubHeading,
-   Button
-} from './signup-cta.styles'
-import { TbSunFilled, TbSunLow } from 'react-icons/tb'
-import { PiStackThin, PiStackSimpleThin } from 'react-icons/pi'
-import { ComponentContainer } from '@/pages'
+   Button,
+   FeatureRow,
+   IconWrapper,
+   FeatureText,
+   CTAContainer,
+   Heading
+} from './signup-cta.styles';
+import { PiStackThin } from 'react-icons/pi';
+import { RxSun } from 'react-icons/rx';
+import { IoWaterSharp } from 'react-icons/io5';
+import router from 'next/router';
 
+// TODO!: Animate the icons
 export const SignupCta = () => {
    return (
-      <ComponentContainer>
-         <Container>
-            <Image
-               src="/plant_images/begonia-masoniana-rock-685437_900x.webp"
-               alt="Signup CTA"
-            />
-            <Content>
-               <Heading>Monitor your plant health</Heading>
-               <SubHeading>
-                  Get personalized plant care tips, watering schedules, and
-                  expert gardening advice.
-               </SubHeading>
-               <IconContainer>
-                  <Text>Watering</Text>
-               </IconContainer>
-               <IconContainer>
-                  <Text>Light</Text>
-                  <TbSunFilled />
-                  <TbSunLow />
-               </IconContainer>
-               <IconContainer>
-                  <Text>Soil Drainage</Text>
+      <Container>
+         <Content>
+            <FeatureRow>
+               <IconWrapper>
+                  <RxSun />
+               </IconWrapper>
+               <FeatureText>
+                  Track sunlight exposure for your indoor plants with
+                  personalized recommendations
+               </FeatureText>
+            </FeatureRow>
+
+            <FeatureRow>
+               <IconWrapper>
                   <PiStackThin />
-                  <PiStackSimpleThin />
-               </IconContainer>
-               <Button>Get started</Button>
-            </Content>
-         </Container>
-      </ComponentContainer>
-   )
-}
+               </IconWrapper>
+               <FeatureText>
+                  Monitor soil drainage and get alerts when your plants need
+                  repotting
+               </FeatureText>
+            </FeatureRow>
+
+            <FeatureRow>
+               <IconWrapper>
+                  <IoWaterSharp />
+               </IconWrapper>
+               <FeatureText>
+                  Receive custom watering schedules based on your plant's
+                  specific needs
+               </FeatureText>
+            </FeatureRow>
+         </Content>
+         {/* <CTAContainer>
+            <Heading> Get started...</Heading>
+            <Button onClick={() => router.push('/signup')}>Get started</Button>
+         </CTAContainer> */}
+      </Container>
+   );
+};

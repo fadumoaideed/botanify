@@ -65,10 +65,11 @@ export const HeroCta = () => {
             <GridItem gridArea="c">
                <Content>
                   <TextContainer>
-                     <Title>Your Plant Care Companion</Title>
+                     <Title>Track your plants</Title>
                      <Subtitle>
-                        Access expert care tips, growth tracking, and seasonal
-                        advice for your indoor garden
+                        Keep track of your plants in your dashboard and get
+                        expert care tips and seasonal advice for your indoor
+                        garden
                      </Subtitle>
                   </TextContainer>
                </Content>

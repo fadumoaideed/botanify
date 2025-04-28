@@ -1,18 +1,13 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 export const HeroContainer = styled.div`
    position: relative;
    display: flex;
    gap: 20px;
    box-sizing: border-box;
-
    flex-direction: column;
-
-   @media (min-width: 375px) {
-      flex-direction: column;
-      padding: 0px;
-      gap: 0px;
-   }
+   padding: 0px;
+   gap: 0px;
 
    @media (min-width: 600px) {
       padding: 0px;
@@ -29,16 +24,12 @@ export const HeroContainer = styled.div`
    @media (min-width: 960px) {
       padding: 0 80px;
    }
-`
+`;
 
 export const HeroText = styled.div`
-   padding: 25px 20px 50px 25px;
+   padding: 25px 20px 0px 25px;
 
-   @media (min-width: 375px) {
-      padding: 25px 20px 0px 25px;
-   }
-
-   @media (min-width: 450px) {
+   @media (min-width: 480px) {
       padding: 25px 50px 0px 50px;
    }
 
@@ -53,17 +44,14 @@ export const HeroText = styled.div`
    @media (min-width: 960px) {
       padding: 50px 0px 0 0;
    }
-`
+`;
 
 export const Title = styled.h2`
    font-family: 'Comfortaa', sans-serif;
    font-weight: 700;
    font-size: 2.5rem;
-
-   @media (min-width: 375px) {
-      padding: 0 15px 0 15px;
-      font-size: 3rem;
-   }
+   padding: 0 15px 0 15px;
+   font-size: 3rem;
 
    @media (min-width: 600px) {
       font-size: 4rem;
@@ -80,23 +68,19 @@ export const Title = styled.h2`
    @media (min-width: 1200px) {
       font-size: 4rem;
    }
-`
+`;
 
 export const Subtitle = styled.h4`
    font-family: 'Manrope', sans-serif;
    font-weight: 500;
    font-size: 1rem;
-   padding-top: 25px;
-
-   @media (min-width: 375px) {
-      padding: 0 15px 0 15px;
-   }
+   padding: 0 15px 0 15px;
 
    @media (min-width: 600px) {
       font-size: 1.3rem;
       width: 80%;
    }
-`
+`;
 
 export const ImageContainer = styled.div`
    position: relative;
@@ -109,7 +93,7 @@ export const ImageContainer = styled.div`
    @media (min-width: 800px) {
       justify-content: flex-end;
    }
-`
+`;
 
 export const HeroMedia = styled.div`
    position: relative;
@@ -118,17 +102,12 @@ export const HeroMedia = styled.div`
    justify-content: flex-start;
 
    width: 100%;
-   // height: 350px;
    background-color: transparent;
-
-   @media (min-width: 375px) {
-      // height: auto;
-   }
 
    @media (min-width: 800px) {
       margin-top: 30px;
    }
-`
+`;
 
 export const Background = styled.div`
    position: absolute;
@@ -141,7 +120,7 @@ export const Background = styled.div`
    @media (min-width: 800px) {
       display: none;
    }
-`
+`;
 
 export const StyledMobileImage = styled.img`
    position: relative;
@@ -153,6 +132,7 @@ export const StyledMobileImage = styled.img`
    height: 80%;
    width: auto;
    align-self: flex-end;
+
    @media (min-width: 800px) {
       display: none;
    }
@@ -165,7 +145,7 @@ export const StyledMobileImage = styled.img`
          transform: scale(1);
       }
    }
-`
+`;
 
 export const StyledDesktopImage = styled.img`
    display: none;
@@ -189,7 +169,7 @@ export const StyledDesktopImage = styled.img`
    @media (min-width: 1200px) {
       height: 100%;
    }
-`
+`;
 
 export const TargetIndicator = styled.div`
    position: absolute;
@@ -250,7 +230,7 @@ export const TargetIndicator = styled.div`
          width: 70px;
       }
    }
-`
+`;
 
 export const IndicatorText = styled.div`
    position: absolute;
@@ -271,4 +251,4 @@ export const IndicatorText = styled.div`
       width: 20px;
       height: 20px;
    }
-`
+`;
