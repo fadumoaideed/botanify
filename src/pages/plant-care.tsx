@@ -1,13 +1,34 @@
-import { plantDatabase } from '@/data/plants-database'
-import { Card } from '../components/card/card'
-import { useState } from 'react'
-import styled from '@emotion/styled'
+import { plantDatabase } from '@/data/plants-database';
+import { Card } from '../components/card/plant-card';
+import { useState } from 'react';
+import styled from '@emotion/styled';
 
 const PlantsContainer = styled.div`
-   display: flex;
-   flex-wrap: wrap;
-   gap: 50px;
-`
+   display: grid;
+   grid-template-columns: repeat(1, 1fr);
+   grid-column-gap: 20px;
+   grid-row-gap: 40px;
+   justify-items: center;
+   width: 100%;
+
+   @media (min-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+   }
+
+   @media (min-width: 800px) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-row-gap: 70px;
+   }
+
+   @media (min-width: 1500px) {
+      grid-template-columns: repeat(4, 1fr);
+   }
+
+   @media (min-width: 1600px) {
+      grid-template-columns: repeat(5, 1fr);
+   }
+`;
+
 export const Title = styled.h3`
    font-size: 2rem;
    font-weight: 500;
@@ -24,7 +45,7 @@ export const Title = styled.h3`
       margin-top: 50px;
       font-size: 3rem;
    }
-`
+`;
 
 export const SubTitle = styled.p`
    font-size: 1rem;
@@ -35,29 +56,29 @@ export const SubTitle = styled.p`
    @media (min-width: 600px) {
       font-size: 1.3rem;
    }
-`
+`;
 export const Container = styled.div`
    display: flex;
    flex-direction: column;
    align-items: start;
    justify-content: center;
    margin: 10px;
-`
+`;
 
 export const Header = styled.div`
    display: flex;
    flex-direction: column;
    align-items: start;
    justify-content: center;
-   margin: 20px 10px 50px 10px;
-`
+   margin: 20px 10px 50px 20px;
+`;
 
 export default function PlantCare() {
-   const [visibleItems, setVisibleItems] = useState(15)
+   const [visibleItems, setVisibleItems] = useState(15);
 
    const handleLoadMore = () => {
-      setVisibleItems((prev) => prev + 15)
-   }
+      setVisibleItems((prev) => prev + 15);
+   };
    // TODO!: scape these images for infoor plant and alllow users to select from a drop down which plAN THEY HAVE. DONT ADD FEATURE IF THEY DONT HAVE IT YET
    return (
       <Container>
@@ -78,5 +99,5 @@ export default function PlantCare() {
             <button onClick={handleLoadMore}>Load More</button>
          )}
       </Container>
-   )
+   );
 }

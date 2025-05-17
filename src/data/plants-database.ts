@@ -1,9 +1,9 @@
-import { Plant, Watering, LightLevel, Drainage } from '../types/plant'
+import { Plant, Watering, LightLevel, Drainage } from '../types/plant';
 
 export const plantDatabase: Plant[] = [
    {
       id: '1',
-      name: 'Philodendron White Princess',
+      title: 'Philodendron White Princess',
       scientificName: 'Philodendron erubescens "White Princess"',
       watering: Watering.weekly,
       image: 'plant_images/1506_-Philodedron-White-Princess-holaplantas-_png_900x.webp',
@@ -19,7 +19,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '2',
-      name: 'Philodendron Melanochrysum',
+      title: 'Philodendron Melanochrysum',
       scientificName: 'Philodendron melanochrysum',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/philodendron-melanochrysum-678677_900x.webp?v=1717982339',
@@ -35,7 +35,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '3',
-      name: 'Caladium Raspberry Moon',
+      title: 'Caladium Raspberry Moon',
       scientificName: 'Caladium "Raspberry Moon"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/caladium-raspberry-moon-567832_900x.webp?v=1713974284',
@@ -51,7 +51,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '4',
-      name: 'Caladium Moon & Summer Breeze',
+      title: 'Caladium Moon & Summer Breeze',
       scientificName: 'Caladium "Moon & Summer Breeze"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/caladium-moon-summer-breeze-968027_900x.webp?v=1713973355',
@@ -67,7 +67,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '5',
-      name: 'Caladium Miss Muffet',
+      title: 'Caladium Miss Muffet',
       scientificName: 'Caladium "Miss Muffet"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/caladium-miss-muffet-371109_900x.webp?v=1713972060',
@@ -83,7 +83,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '6',
-      name: 'Begonia Albopicta Silver',
+      title: 'Begonia Albopicta Silver',
       scientificName: 'Begonia albopicta "Silver"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/Begoniasilverleaf2-Photoroom_1_900x.webp?v=1713966244',
@@ -99,7 +99,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '7',
-      name: 'Anthurium Royal Red',
+      title: 'Anthurium Royal Red',
       scientificName: 'Anthurium andraeanum "Royal Red"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/AnthuriumRoyalRed-LeafEnvy-Leaf_900x.webp?v=1713965476',
@@ -115,7 +115,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '8',
-      name: 'Alocasia Red Secret',
+      title: 'Alocasia Red Secret',
       scientificName: 'Alocasia "Red Secret"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/alocasia-red-secret-493799_900x.webp?v=1713964354',
@@ -131,7 +131,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '9',
-      name: 'Alocasia Odora',
+      title: 'Alocasia Odora',
       scientificName: 'Alocasia odora',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/alocasia-odora-800797_900x.webp?v=1713963744',
@@ -147,7 +147,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '10',
-      name: 'Aglaonema Spotted Star',
+      title: 'Aglaonema Spotted Star',
       scientificName: 'Aglaonema "Spotted Star"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/AglaonemaSpottedStarLeaf_900x.webp?v=1713964636',
@@ -163,7 +163,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '11',
-      name: 'Aglaonema Crete',
+      title: 'Aglaonema Crete',
       scientificName: 'Aglaonema "Crete"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/aglaonema-crete-936492_900x.webp?v=1713961955',
@@ -179,7 +179,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '12',
-      name: 'Calathea Dottie',
+      title: 'Calathea Dottie',
       scientificName: 'Calathea roseopicta "Dottie"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/CalatheaDottieLeaf-LeafEnvy_900x.webp?v=1713929568',
@@ -195,7 +195,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '13',
-      name: 'Variegated Peace Lily',
+      title: 'Variegated Peace Lily',
       scientificName: 'Spathiphyllum "Variegated"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/variegated-peace-lily-562806_900x.webp?v=1713928799',
@@ -211,7 +211,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '14',
-      name: 'Black Flamingo Flower',
+      title: 'Black Flamingo Flower',
       scientificName: 'Anthurium andraeanum "Black"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/anthurium-karma-black-282089_900x.webp?v=1713928104',
@@ -227,7 +227,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '15',
-      name: 'Rubber Plant Belize',
+      title: 'Rubber Plant Belize',
       scientificName: 'Ficus elastica "Belize"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/rubber-plant-belize-260601_900x.webp?v=1713927349',
@@ -243,7 +243,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '16',
-      name: 'Pink Nanouk',
+      title: 'Pink Nanouk',
       scientificName: 'Tradescantia "Nanouk"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/LeafEnvy_NottingHill2_web-50_900x.webp?v=1713926722',
@@ -259,7 +259,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '17',
-      name: 'Ficus Benghalensis Roy',
+      title: 'Ficus Benghalensis Roy',
       scientificName: 'Ficus benghalensis "Roy"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/Leaf-Envy-Ficus-roy-Leaf-2_900x.webp?v=1713925706',
@@ -275,7 +275,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '18',
-      name: 'Red Heart Syngonium',
+      title: 'Red Heart Syngonium',
       scientificName: 'Syngonium podophyllum "Red Heart"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/red-heart-syngonium-819127_900x.webp?v=1713925105',
@@ -291,7 +291,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '19',
-      name: 'Variegated Monstera',
+      title: 'Variegated Monstera',
       scientificName: 'Monstera deliciosa "Variegata"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/variegated-monstera-504899_900x.webp?v=1713924499',
@@ -307,7 +307,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '20',
-      name: 'Satin Pothos',
+      title: 'Satin Pothos',
       scientificName: 'Scindapsus pictus',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/satin-pothos-263605_900x.webp?v=1713921514',
@@ -323,7 +323,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '21',
-      name: 'Marble Queen Pothos',
+      title: 'Marble Queen Pothos',
       scientificName: 'Epipremnum aureum "Marble Queen"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/marble-queen-pothos-316774_900x.webp?v=1713920796',
@@ -339,7 +339,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '22',
-      name: 'Golden Pothos',
+      title: 'Golden Pothos',
       scientificName: 'Epipremnum aureum',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/golden-pothos-969709_900x.webp?v=1713870446',
@@ -355,7 +355,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '23',
-      name: 'Neon Pothos',
+      title: 'Neon Pothos',
       scientificName: 'Epipremnum aureum "Neon"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/neon-pothos-430813_900x.webp?v=1713869467',
@@ -371,7 +371,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '24',
-      name: 'Snake Plant Moonshine',
+      title: 'Snake Plant Moonshine',
       scientificName: 'Sansevieria trifasciata "Moonshine"',
       watering: Watering.monthly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/snake-plant-moonshine-127237_900x.webp?v=1713866928',
@@ -387,7 +387,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '25',
-      name: 'Philodendron Micans',
+      title: 'Philodendron Micans',
       scientificName: 'Philodendron hederaceum var. micans',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/philodendron-micans-663532_900x.webp?v=1713866217',
@@ -403,7 +403,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '26',
-      name: 'Oxalis',
+      title: 'Oxalis',
       scientificName: 'Oxalis triangularis',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/oxalis-304645_900x.webp?v=1713863891',
@@ -419,7 +419,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '27',
-      name: 'Weeping Fig',
+      title: 'Weeping Fig',
       scientificName: 'Ficus benjamina',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/weeping-fig-951801_900x.webp?v=1713779891',
@@ -435,7 +435,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '28',
-      name: 'Ctenanthe Compact Star',
+      title: 'Ctenanthe Compact Star',
       scientificName: 'Ctenanthe "Compact Star"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/ctenanthe-compact-star-874290_900x.webp?v=1713779296',
@@ -451,7 +451,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '29',
-      name: 'Calathea White Star',
+      title: 'Calathea White Star',
       scientificName: 'Calathea "White Star"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/calathea-white-star-336532_900x.webp?v=1713778447',
@@ -467,7 +467,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '30',
-      name: 'Calathea White Fusion',
+      title: 'Calathea White Fusion',
       scientificName: 'Calathea "White Fusion"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/calathea-white-fusion-919328_900x.webp?v=1713777628',
@@ -483,7 +483,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '31',
-      name: 'Calathea Jungle Velvet',
+      title: 'Calathea Jungle Velvet',
       scientificName: 'Calathea "Jungle Velvet"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/calathea-jungle-velvet-162889_900x.webp?v=1713776613',
@@ -499,7 +499,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '32',
-      name: 'Calathea Triostar',
+      title: 'Calathea Triostar',
       scientificName: 'Calathea "Triostar"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/calathea-triostar-756085_900x.webp?v=1713775654',
@@ -515,7 +515,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '33',
-      name: 'Calathea Crimson',
+      title: 'Calathea Crimson',
       scientificName: 'Calathea "Crimson"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/calathea-crimson-818497_900x.webp?v=1713715254',
@@ -531,7 +531,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '34',
-      name: 'Calathea Pinstripe',
+      title: 'Calathea Pinstripe',
       scientificName: 'Calathea ornata "Pinstripe"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/calathea-pinstripe-831698_900x.webp?v=1713714085',
@@ -547,7 +547,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '35',
-      name: 'Calathea Orbifolia',
+      title: 'Calathea Orbifolia',
       scientificName: 'Calathea orbifolia',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/CalatheaOrbifolia_BroadwayChalk-Photoroom_900x.webp?v=1713713030',
@@ -563,7 +563,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '36',
-      name: 'Calathea Medallion',
+      title: 'Calathea Medallion',
       scientificName: 'Calathea "Medallion"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/calathea-medallion-213373_900x.webp?v=1713712061',
@@ -579,7 +579,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '37',
-      name: 'Begonia Masoniana Rock',
+      title: 'Begonia Masoniana Rock',
       scientificName: 'Begonia masoniana "Rock"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/begonia-masoniana-rock-685437_900x.webp?v=1713706436',
@@ -595,7 +595,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '38',
-      name: 'Butterfly Palm',
+      title: 'Butterfly Palm',
       scientificName: 'Dypsis lutescens',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/butterfly-palm-432099_900x.webp?v=1713704864',
@@ -611,7 +611,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '39',
-      name: 'Pink Flamingo Flower',
+      title: 'Pink Flamingo Flower',
       scientificName: 'Anthurium andraeanum "Pink"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/AnthuriumKarmaPinkLeaf-Photoroom_900x.webp?v=1713640462',
@@ -627,7 +627,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '40',
-      name: 'Peach Flamingo Flower',
+      title: 'Peach Flamingo Flower',
       scientificName: 'Anthurium andraeanum "Peach"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/peach-flamingo-flower-anthurium-787323_900x.webp?v=1713639051',
@@ -643,7 +643,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '41',
-      name: 'Anthurium Clarinervium',
+      title: 'Anthurium Clarinervium',
       scientificName: 'Anthurium clarinervium',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/anthurium-clarinervium-992191_900x.webp?v=1713637583',
@@ -659,7 +659,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '42',
-      name: 'Peperomia',
+      title: 'Peperomia',
       scientificName: 'Peperomia obtusifolia',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/peperomia-963622_900x.jpg?v=1693062662',
@@ -675,7 +675,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '43',
-      name: 'String of Hearts',
+      title: 'String of Hearts',
       scientificName: 'Ceropegia woodii',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/string-of-hearts-104301_900x.jpg?v=1693062664',
@@ -691,7 +691,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '44',
-      name: 'Caladium',
+      title: 'Caladium',
       scientificName: 'Caladium bicolor',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/caladium-129130_900x.jpg?v=1693062669',
@@ -707,7 +707,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '45',
-      name: 'Never Never Plant',
+      title: 'Never Never Plant',
       scientificName: 'Ctenanthe oppenheimiana',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/never-never-plant-819282_900x.jpg?v=1693062660',
@@ -723,7 +723,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '46',
-      name: 'Calathea',
+      title: 'Calathea',
       scientificName: 'Calathea makoyana',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/calathea-604201_900x.jpg?v=1693062702',
@@ -739,7 +739,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '47',
-      name: 'Variegated Rubber Plant',
+      title: 'Variegated Rubber Plant',
       scientificName: 'Ficus elastica "Variegata"',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/variegated-rubber-plant-700219_900x.jpg?v=1693062673',
@@ -755,7 +755,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '48',
-      name: 'Snake Plant',
+      title: 'Snake Plant',
       scientificName: 'Sansevieria trifasciata',
       watering: Watering.monthly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/snake-plant-496732_900x.jpg?v=1693062675',
@@ -771,7 +771,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '49',
-      name: 'Rubber Plant',
+      title: 'Rubber Plant',
       scientificName: 'Ficus elastica',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/rubber-plant-919058_900x.jpg?v=1693062678',
@@ -787,7 +787,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '50',
-      name: 'Pothos',
+      title: 'Pothos',
       scientificName: 'Epipremnum aureum',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/pothos-925852_900x.jpg?v=1693062680',
@@ -803,7 +803,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '51',
-      name: 'Philodendron Scandens',
+      title: 'Philodendron Scandens',
       scientificName: 'Philodendron hederaceum',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/philodendron-scandens-291958_900x.jpg?v=1693062682',
@@ -819,7 +819,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '52',
-      name: 'Peace Lily',
+      title: 'Peace Lily',
       scientificName: 'Spathiphyllum',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/peace-lily-622333_900x.jpg?v=1693062684',
@@ -835,7 +835,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '53',
-      name: 'Parlor Palm',
+      title: 'Parlor Palm',
       scientificName: 'Chamaedorea elegans',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/parlor-palm-499014_900x.jpg?v=1693062686',
@@ -851,7 +851,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '54',
-      name: 'Monstera Deliciosa',
+      title: 'Monstera Deliciosa',
       scientificName: 'Monstera deliciosa',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/monstera-deliciosa-451678_900x.jpg?v=1693062689',
@@ -867,7 +867,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '55',
-      name: 'Monkey Mask Monstera',
+      title: 'Monkey Mask Monstera',
       scientificName: 'Monstera adansonii',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/monkey-mask-monstera-396609_900x.jpg?v=1693062691',
@@ -883,7 +883,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '56',
-      name: 'Mini Monstera',
+      title: 'Mini Monstera',
       scientificName: 'Rhaphidophora tetrasperma',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/mini-monstera-529396_900x.jpg?v=1693062693',
@@ -899,7 +899,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '57',
-      name: 'Kentia Palm',
+      title: 'Kentia Palm',
       scientificName: 'Howea forsteriana',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/kentia-palm-600716_900x.jpg?v=1693062695',
@@ -915,7 +915,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '58',
-      name: 'Fiddle Leaf Fig',
+      title: 'Fiddle Leaf Fig',
       scientificName: 'Ficus lyrata',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/fiddle-leaf-fig-287792_900x.jpg?v=1693062697',
@@ -931,7 +931,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '59',
-      name: 'Chinese Money Plant',
+      title: 'Chinese Money Plant',
       scientificName: 'Pilea peperomioides',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/chinese-money-plant-431882_900x.jpg?v=1693062700',
@@ -947,7 +947,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '60',
-      name: 'Boston Fern',
+      title: 'Boston Fern',
       scientificName: 'Nephrolepis exaltata',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/boston-fern-126176_900x.jpg?v=1693062708',
@@ -963,7 +963,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '61',
-      name: 'Blue Star Fern',
+      title: 'Blue Star Fern',
       scientificName: 'Phlebodium aureum',
       watering: Watering.weekly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/blue-star-fern-863139_900x.jpg?v=1693062710',
@@ -979,7 +979,7 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '62',
-      name: 'Black Raven ZZ',
+      title: 'Black Raven ZZ',
       scientificName: 'Zamioculcas zamiifolia "Raven"',
       watering: Watering.monthly,
       image: 'https://www.leafenvy.co.uk/cdn/shop/articles/black-raven-zz-303610_900x.jpg?v=1693062712',
@@ -993,4 +993,4 @@ export const plantDatabase: Plant[] = [
          origin: 'East Africa'
       }
    }
-]
+];
