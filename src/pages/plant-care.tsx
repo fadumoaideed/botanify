@@ -1,5 +1,5 @@
 import { plantDatabase } from '@/data/plants-database';
-import { Card } from '../components/card/plant-card';
+import { Card } from '../components/plant-card/plant-card';
 import { useState } from 'react';
 import styled from '@emotion/styled';
 
