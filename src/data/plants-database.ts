@@ -10,6 +10,8 @@ export const plantDatabase: Plant[] = [
       sunlight: LightLevel.partial,
       maxheight: '2-3 feet',
       soilDrainage: Drainage.high,
+      description:
+         'This low-maintenance plant thrives in bright, indirect light and prefers consistently moist soil. Keep it in a warm room with high humidity, away from cold drafts and direct sunlight. Considerations: While it can tolerate low light, its vibrant pink and green variegation will be more pronounced in brighter conditions.',
       tags: {
          common_names: 'Crete Chinese Evergreen',
          difficulty: 'easy',
@@ -26,6 +28,8 @@ export const plantDatabase: Plant[] = [
       sunlight: LightLevel.partial,
       maxheight: '2-3 feet',
       soilDrainage: Drainage.high,
+      description:
+         "This striking variety features silver-spotted leaves that add texture to any space. Water when the top inch of soil feels dry and maintain moderate humidity levels. Considerations: The plant's variegation may fade if kept in low light conditions, so provide bright, indirect light for best results.",
       tags: {
          common_names: 'Spotted Star Chinese Evergreen',
          difficulty: 'easy',
@@ -42,6 +46,8 @@ export const plantDatabase: Plant[] = [
       sunlight: LightLevel.partial,
       maxheight: '3-4 feet',
       soilDrainage: Drainage.high,
+      description:
+         'This dramatic plant features large, glossy leaves that can reach impressive sizes. Place it in bright, indirect light and keep the soil consistently moist but not soggy. Considerations: This plant goes dormant in winter, so reduce watering and expect some leaf loss during this period.',
       tags: {
          common_names: 'Night-scented Lily, Giant Upright Elephant Ear',
          difficulty: 'moderate',
