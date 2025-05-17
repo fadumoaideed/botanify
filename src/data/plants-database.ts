@@ -179,18 +179,18 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '12',
-      title: 'Calathea Dottie',
-      scientificName: 'Calathea roseopicta "Dottie"',
+      title: 'Eucalyptus',
+      scientificName: 'Eucalyptus',
       watering: Watering.weekly,
-      image: 'plant_images/calathea-dottie.webp',
+      image: 'plant_images/eucalyptus.webp',
       sunlight: LightLevel.partial,
       maxheight: '2-3 feet',
       soilDrainage: Drainage.high,
       tags: {
-         common_names: 'Dottie Prayer Plant',
+         common_names: 'Eucalyptus',
          difficulty: 'moderate',
          toxicity: 'non-toxic',
-         origin: 'South America'
+         origin: 'Australia'
       }
    },
    {
@@ -342,7 +342,7 @@ export const plantDatabase: Plant[] = [
       title: 'Golden Pothos',
       scientificName: 'Epipremnum aureum',
       watering: Watering.weekly,
-      image: 'plant_images/golden-pothos.webp',
+      image: 'plant_images/golden-pothos.jpg',
       sunlight: LightLevel.partial,
       maxheight: '6-8 feet',
       soilDrainage: Drainage.high,
@@ -678,7 +678,7 @@ export const plantDatabase: Plant[] = [
       title: 'String of Hearts',
       scientificName: 'Ceropegia woodii',
       watering: Watering.weekly,
-      image: 'plant_imagess/StringofHearts-Arespot_5_540x.jpg',
+      image: 'plant_images/string-of-hearts.jpg',
       sunlight: LightLevel.partial,
       maxheight: '2-3 feet',
       soilDrainage: Drainage.high,
@@ -691,18 +691,18 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '44',
-      title: 'Caladium',
-      scientificName: 'Caladium bicolor',
+      title: 'Areca Palm',
+      scientificName: 'Dypsis lutescens',
       watering: Watering.weekly,
-      image: 'plant_images/caladium.webp',
+      image: 'plant_images/areca-palm.jpg',
       sunlight: LightLevel.partial,
       maxheight: '1-2 feet',
       soilDrainage: Drainage.high,
       tags: {
-         common_names: 'Angel Wings',
+         common_names: 'Areca Palm',
          difficulty: 'moderate',
-         toxicity: 'toxic to pets',
-         origin: 'South America'
+         toxicity: 'non-toxic',
+         origin: 'Madagascar'
       }
    },
    {
@@ -742,7 +742,7 @@ export const plantDatabase: Plant[] = [
       title: 'Variegated Rubber Plant',
       scientificName: 'Ficus elastica "Variegata"',
       watering: Watering.weekly,
-      image: 'plant_images/variegated-rubber-plant.webp',
+      image: 'plant_images/variegated-rubber.webp',
       sunlight: LightLevel.partial,
       maxheight: '6-8 feet',
       soilDrainage: Drainage.high,
@@ -758,7 +758,7 @@ export const plantDatabase: Plant[] = [
       title: 'Rubber Plant',
       scientificName: 'Ficus elastica',
       watering: Watering.weekly,
-      image: 'plant_images/rubber-plant.webp',
+      image: 'plant_images/rubber-plant.jpg',
       sunlight: LightLevel.partial,
       maxheight: '6-8 feet',
       soilDrainage: Drainage.high,
@@ -771,34 +771,34 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '50',
-      title: 'Pothos',
-      scientificName: 'Epipremnum aureum',
+      title: 'Aloe Vera',
+      scientificName: 'Aloe barbadensis',
       watering: Watering.weekly,
-      image: 'plant_images/pothos.webp',
+      image: 'plant_images/aloe-vera.jpg',
       sunlight: LightLevel.partial,
       maxheight: '6-8 feet',
       soilDrainage: Drainage.high,
       tags: {
-         common_names: "Devil's Ivy",
+         common_names: 'Aloe',
          difficulty: 'very easy',
-         toxicity: 'toxic to pets',
-         origin: 'Asia'
+         toxicity: 'non-toxic',
+         origin: 'Africa'
       }
    },
    {
       id: '51',
-      title: 'Philodendron Scandens',
-      scientificName: 'Philodendron hederaceum',
+      title: 'Jade Plant',
+      scientificName: 'Crassula ovata',
       watering: Watering.weekly,
-      image: 'plant_images/philodendron-scandens.webp',
+      image: 'plant_images/jade-plant.jpg',
       sunlight: LightLevel.partial,
       maxheight: '3-4 feet',
       soilDrainage: Drainage.high,
       tags: {
-         common_names: 'Heartleaf Philodendron',
+         common_names: 'Jade Plant',
          difficulty: 'easy',
-         toxicity: 'toxic to pets',
-         origin: 'Central America'
+         toxicity: 'non-toxic',
+         origin: 'South Africa'
       }
    },
    {
@@ -819,15 +819,15 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '53',
-      title: 'Parlor Palm',
+      title: 'Spider Plant',
       scientificName: 'Chamaedorea elegans',
       watering: Watering.weekly,
-      image: 'plant_images/parlor-palm.webp',
+      image: 'plant_images/spider-plant.jpg',
       sunlight: LightLevel.partial,
       maxheight: '4-6 feet',
       soilDrainage: Drainage.high,
       tags: {
-         common_names: 'Neanthe Bella Palm',
+         common_names: 'Spider Plant',
          difficulty: 'easy',
          toxicity: 'non-toxic',
          origin: 'Central America'
@@ -838,7 +838,7 @@ export const plantDatabase: Plant[] = [
       title: 'Monstera Deliciosa',
       scientificName: 'Monstera deliciosa',
       watering: Watering.weekly,
-      image: 'plant_images/monstera-deliciosa.webp',
+      image: 'plant_images/monstera.jpg',
       sunlight: LightLevel.partial,
       maxheight: '6-8 feet',
       soilDrainage: Drainage.high,
@@ -851,15 +851,15 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '55',
-      title: 'Monkey Mask Monstera',
-      scientificName: 'Monstera adansonii',
+      title: 'Hoya Linearis',
+      scientificName: 'Hoya linearis',
       watering: Watering.weekly,
-      image: 'plant_images/monkey-mask-monstera.webp',
+      image: 'plant_images/hoya-linearis.jpg',
       sunlight: LightLevel.partial,
       maxheight: '3-4 feet',
       soilDrainage: Drainage.high,
       tags: {
-         common_names: 'Swiss Cheese Vine',
+         common_names: 'Wax Plant',
          difficulty: 'easy',
          toxicity: 'toxic to pets',
          origin: 'Central America'
@@ -867,18 +867,18 @@ export const plantDatabase: Plant[] = [
    },
    {
       id: '56',
-      title: 'Mini Monstera',
-      scientificName: 'Rhaphidophora tetrasperma',
+      title: 'Trigona African Milk Tree',
+      scientificName: 'Trigona africanus',
       watering: Watering.weekly,
-      image: 'plant_images/mini-monstera.webp',
+      image: 'plant_images/african-milk-tree-trigona.jpg',
       sunlight: LightLevel.partial,
       maxheight: '3-4 feet',
       soilDrainage: Drainage.high,
       tags: {
-         common_names: 'Philodendron Ginny',
+         common_names: 'African Milk Tree',
          difficulty: 'easy',
          toxicity: 'toxic to pets',
-         origin: 'Asia'
+         origin: 'Africa'
       }
    },
    {
@@ -918,7 +918,7 @@ export const plantDatabase: Plant[] = [
       title: 'Chinese Money Plant',
       scientificName: 'Pilea peperomioides',
       watering: Watering.weekly,
-      image: 'plant_images/chinese-money-plant.webp',
+      image: 'plant_images/chinese-money-plant.jpg',
       sunlight: LightLevel.partial,
       maxheight: '1-2 feet',
       soilDrainage: Drainage.high,
@@ -934,7 +934,7 @@ export const plantDatabase: Plant[] = [
       title: 'Boston Fern',
       scientificName: 'Nephrolepis exaltata',
       watering: Watering.weekly,
-      image: 'plant_images/boston-fern.webp',
+      image: 'plant_images/boston-fern.jpg',
       sunlight: LightLevel.partial,
       maxheight: '2-3 feet',
       soilDrainage: Drainage.high,
@@ -950,7 +950,7 @@ export const plantDatabase: Plant[] = [
       title: 'Blue Star Fern',
       scientificName: 'Phlebodium aureum',
       watering: Watering.weekly,
-      image: 'plant_images/blue-star-fern.webp',
+      image: 'plant_images/bluestar-fern.jpg',
       sunlight: LightLevel.partial,
       maxheight: '2-3 feet',
       soilDrainage: Drainage.high,
@@ -966,7 +966,7 @@ export const plantDatabase: Plant[] = [
       title: 'Black Raven ZZ',
       scientificName: 'Zamioculcas zamiifolia "Raven"',
       watering: Watering.monthly,
-      image: 'plant_images/black-raven-zz.webp',
+      image: 'plant_images/zz-raven.jpg',
       sunlight: LightLevel.partial,
       maxheight: '2-3 feet',
       soilDrainage: Drainage.high,
