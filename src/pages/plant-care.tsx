@@ -73,6 +73,22 @@ export const Header = styled.div`
    margin: 20px 10px 50px 20px;
 `;
 
+export const Button = styled.button`
+   background-color: transparent;
+   color: #fff;
+   padding: 8px 20px;
+   border-radius: 30px;
+   border: 1px solid rgb(58, 81, 62);
+   cursor: pointer;
+   font-size: 1rem;
+
+   font-weight: 500;
+   font-family: Roboto, sans-serif;
+   color: rgb(58, 81, 62);
+   margin-top: 20px;
+   align-self: center;
+`;
+
 export default function PlantCare() {
    const [visibleItems, setVisibleItems] = useState(15);
 
@@ -96,7 +112,7 @@ export default function PlantCare() {
          </PlantsContainer>
 
          {visibleItems < plantDatabase.length && (
-            <button onClick={handleLoadMore}>Load More</button>
+            <Button onClick={handleLoadMore}>Load More</Button>
          )}
       </Container>
    );

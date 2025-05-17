@@ -248,22 +248,6 @@ export const plantDatabase: Plant[] = [
       }
    },
    {
-      id: '16',
-      title: 'Caladium',
-      scientificName: 'Caladium bicolor',
-      watering: Watering.weekly,
-      image: 'plant_images/caladium.webp',
-      sunlight: LightLevel.partial,
-      maxheight: '2-3 feet',
-      soilDrainage: Drainage.high,
-      tags: {
-         common_names: 'Peacock Plant',
-         difficulty: 3,
-         toxicity: 'non-toxic',
-         origin: 'South America'
-      }
-   },
-   {
       id: '17',
       title: 'Caladium Miss Muffet',
       scientificName: 'Caladium "Miss Muffet"',
