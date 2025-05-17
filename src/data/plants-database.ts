@@ -14,7 +14,7 @@ export const plantDatabase: Plant[] = [
          'This low-maintenance plant thrives in bright, indirect light and prefers consistently moist soil. Keep it in a warm room with high humidity, away from cold drafts and direct sunlight. Considerations: While it can tolerate low light, its vibrant pink and green variegation will be more pronounced in brighter conditions.',
       tags: {
          common_names: 'Crete Chinese Evergreen',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'Asia'
       }
@@ -32,7 +32,7 @@ export const plantDatabase: Plant[] = [
          "This striking variety features silver-spotted leaves that add texture to any space. Water when the top inch of soil feels dry and maintain moderate humidity levels. Considerations: The plant's variegation may fade if kept in low light conditions, so provide bright, indirect light for best results.",
       tags: {
          common_names: 'Spotted Star Chinese Evergreen',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'Asia'
       }
@@ -50,7 +50,7 @@ export const plantDatabase: Plant[] = [
          'This dramatic plant features large, glossy leaves that can reach impressive sizes. Place it in bright, indirect light and keep the soil consistently moist but not soggy. Considerations: This plant goes dormant in winter, so reduce watering and expect some leaf loss during this period.',
       tags: {
          common_names: 'Night-scented Lily, Giant Upright Elephant Ear',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'toxic to pets',
          origin: 'Asia'
       }
@@ -66,7 +66,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Red Secret Elephant Ear',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'toxic to pets',
          origin: 'Asia'
       }
@@ -82,7 +82,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Aloe',
-         difficulty: 'very easy',
+         difficulty: 1,
          toxicity: 'non-toxic',
          origin: 'Africa'
       }
@@ -98,7 +98,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Velvet Cardboard Anthurium',
-         difficulty: 'advanced',
+         difficulty: 4,
          toxicity: 'toxic to pets',
          origin: 'Mexico'
       }
@@ -114,7 +114,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Royal Red Flamingo Flower',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'toxic to pets',
          origin: 'Central America'
       }
@@ -130,7 +130,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Areca Palm',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'Madagascar'
       }
@@ -146,7 +146,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Silver Begonia',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'toxic to pets',
          origin: 'South America'
       }
@@ -162,7 +162,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Iron Cross Begonia',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'toxic to pets',
          origin: 'Asia'
       }
@@ -178,7 +178,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Black Anthurium',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'toxic to pets',
          origin: 'Central America'
       }
@@ -194,7 +194,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Raven ZZ Plant',
-         difficulty: 'very easy',
+         difficulty: 1,
          toxicity: 'toxic to pets',
          origin: 'East Africa'
       }
@@ -210,7 +210,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Golden Polypody',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'South America'
       }
@@ -226,7 +226,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Sword Fern',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'North America'
       }
@@ -242,7 +242,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Areca Palm',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'Madagascar'
       }
@@ -258,7 +258,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Peacock Plant',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'South America'
       }
@@ -274,7 +274,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Miss Muffet Caladium',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'toxic to pets',
          origin: 'South America'
       }
@@ -290,7 +290,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Moon & Summer Breeze Caladium',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'toxic to pets',
          origin: 'South America'
       }
@@ -306,7 +306,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Raspberry Moon Caladium',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'toxic to pets',
          origin: 'South America'
       }
@@ -322,7 +322,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Peacock Plant',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'South America'
       }
@@ -338,7 +338,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Crimson Prayer Plant',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'South America'
       }
@@ -354,7 +354,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Jungle Velvet Prayer Plant',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'South America'
       }
@@ -370,7 +370,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Medallion Prayer Plant',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'South America'
       }
@@ -386,7 +386,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Round-leaf Calathea',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'South America'
       }
@@ -402,7 +402,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Pinstripe Prayer Plant',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'South America'
       }
@@ -418,7 +418,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Tricolor Prayer Plant',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'South America'
       }
@@ -434,7 +434,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'White Fusion Prayer Plant',
-         difficulty: 'advanced',
+         difficulty: 4,
          toxicity: 'non-toxic',
          origin: 'South America'
       }
@@ -450,7 +450,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'White Star Prayer Plant',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'South America'
       }
@@ -466,7 +466,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Pancake Plant',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'non-toxic',
          origin: 'China'
       }
@@ -482,7 +482,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Compact Star Prayer Plant',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'South America'
       }
@@ -498,7 +498,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Eucalyptus',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'Australia'
       }
@@ -514,7 +514,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Fiddle Leaf Fig',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'toxic to pets',
          origin: 'West Africa'
       }
@@ -530,7 +530,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Banyan Tree',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'toxic to pets',
          origin: 'Asia'
       }
@@ -546,7 +546,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: "Devil's Ivy",
-         difficulty: 'very easy',
+         difficulty: 1,
          toxicity: 'toxic to pets',
          origin: 'Asia'
       }
@@ -562,7 +562,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Wax Plant',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'Central America'
       }
@@ -578,7 +578,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Jade Plant',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'non-toxic',
          origin: 'South Africa'
       }
@@ -594,7 +594,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Paradise Palm',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'Australia'
       }
@@ -610,7 +610,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Variegated Pothos',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'Asia'
       }
@@ -626,7 +626,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Swiss Cheese Plant',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'Central America'
       }
@@ -642,7 +642,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Lime Pothos',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'Asia'
       }
@@ -658,7 +658,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Prayer Plant',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'non-toxic',
          origin: 'South America'
       }
@@ -674,7 +674,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Purple Shamrock',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'South America'
       }
@@ -690,7 +690,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Spathiphyllum',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'Central America'
       }
@@ -706,7 +706,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Peach Anthurium',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'toxic to pets',
          origin: 'Central America'
       }
@@ -722,7 +722,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Baby Rubber Plant',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'non-toxic',
          origin: 'South America'
       }
@@ -738,7 +738,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Black Gold Philodendron',
-         difficulty: 'advanced',
+         difficulty: 4,
          toxicity: 'toxic to pets',
          origin: 'Colombia'
       }
@@ -754,7 +754,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Velvet Leaf Philodendron',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'Central America'
       }
@@ -770,7 +770,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'White Princess Philodendron',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'toxic to pets',
          origin: 'South America'
       }
@@ -786,7 +786,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Pink Anthurium',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'toxic to pets',
          origin: 'Central America'
       }
@@ -802,7 +802,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Fantasy Venice',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'mildly toxic to pets',
          origin: 'North America'
       }
@@ -818,7 +818,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Arrowhead Plant',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'Central America'
       }
@@ -834,7 +834,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Indian Rubber Plant',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'Asia'
       }
@@ -850,7 +850,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Variegated Rubber Plant',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'Asia'
       }
@@ -866,7 +866,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Silver Pothos',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'Asia'
       }
@@ -882,7 +882,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Moonshine Snake Plant',
-         difficulty: 'very easy',
+         difficulty: 1,
          toxicity: 'toxic to pets',
          origin: 'West Africa'
       }
@@ -898,7 +898,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Spider Plant',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'non-toxic',
          origin: 'Central America'
       }
@@ -914,7 +914,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Rosary Vine',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'non-toxic',
          origin: 'South Africa'
       }
@@ -930,7 +930,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'African Milk Tree',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'Africa'
       }
@@ -946,7 +946,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Variegated Swiss Cheese Plant',
-         difficulty: 'advanced',
+         difficulty: 4,
          toxicity: 'toxic to pets',
          origin: 'Central America'
       }
@@ -962,7 +962,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Variegated Spathiphyllum',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'Central America'
       }
@@ -978,7 +978,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Variegated Ficus',
-         difficulty: 'easy',
+         difficulty: 2,
          toxicity: 'toxic to pets',
          origin: 'Asia'
       }
@@ -994,7 +994,7 @@ export const plantDatabase: Plant[] = [
       soilDrainage: Drainage.high,
       tags: {
          common_names: 'Benjamin Fig',
-         difficulty: 'moderate',
+         difficulty: 3,
          toxicity: 'toxic to pets',
          origin: 'Asia'
       }

@@ -17,28 +17,33 @@ export enum Drainage {
 }
 
 export interface Plant {
-   id?: string
-   title: string
-   description?: string
-   scientificName: string
-   watering: Watering
-   image: string
-   sunlight?: LightLevel
-   maxheight?: string
-   soilDrainage: Drainage
-   tags?: Record<string, string>
+   id?: string;
+   title: string;
+   description?: string;
+   scientificName: string;
+   watering: Watering;
+   image: string;
+   sunlight?: LightLevel;
+   maxheight?: string;
+   soilDrainage: Drainage;
+   tags?: {
+      common_names: string;
+      difficulty: number;
+      toxicity: string;
+      origin: string;
+   };
 }
 
 export interface PlantCondition {
-   plantId: string
-   lastWatered?: Date
-   lastFertilized?: Date
-   lastRepotted?: Date
+   plantId: string;
+   lastWatered?: Date;
+   lastFertilized?: Date;
+   lastRepotted?: Date;
 }
 
 export interface MoistureSensor {
-   id: string
-   moistureLevel: number
-   createdAt: Date
-   updatedAt: Date
+   id: string;
+   moistureLevel: number;
+   createdAt: Date;
+   updatedAt: Date;
 }
