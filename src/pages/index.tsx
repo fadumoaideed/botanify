@@ -3,6 +3,7 @@ import { HeroCta } from '@/components/hero/hero-cta';
 import Head from 'next/head';
 import styled from '@emotion/styled';
 import { ImageCta } from '@/components/image-cta/image-cta';
+import { SignupCTA } from '@/components/signup-cta/signup-cta';
 const HomePageContainer = styled.main`
    position: relative;
    width: 100vw;
@@ -95,6 +96,7 @@ export default function Home() {
             <Hero />
             <HeroCta />
             <ImageCta />
+            <SignupCTA />
          </HomePageContainer>
       </>
    );
