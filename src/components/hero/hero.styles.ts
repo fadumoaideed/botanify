@@ -219,7 +219,7 @@ export const TargetIndicator = styled.div`
       }
    }
 
-   @media (min-width: 450px) {
+   @media (min-width: 425px) {
       &::after {
          width: 70px;
       }
