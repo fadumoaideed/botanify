@@ -131,6 +131,32 @@ export const GridItem = styled.div<{ gridArea: 'a' | 'b' | 'c' }>`
    }}
 `;
 
+export const Title = styled.h3`
+   font-weight: 700;
+   font-family: 'Comfortaa', cursive;
+   text-align: center;
+   font-size: 0.9rem;
+   opacity: 1;
+   transition: opacity 0.5s ease-in-out;
+
+   @media (min-width: 480px) {
+      font-size: 1rem;
+   }
+
+   @media (min-width: 600px) {
+      font-size: 1.5rem;
+   }
+
+   @media (min-width: 800px) and (max-width: 959px) {
+      font-size: 2rem;
+   }
+
+   /* Target the third Title */
+   &:nth-of-type(3) {
+      align-items: flex-start;
+   }
+`;
+
 export const TextContainer = styled.div`
    display: flex;
    flex-direction: column;
@@ -146,31 +172,14 @@ export const TextContainer = styled.div`
    }
 `;
 
-export const Title = styled.h3`
-   font-weight: 700;
-   font-family: 'Comfortaa', cursive;
-   text-align: center;
-   font-size: 0.9rem;
-
-   @media (min-width: 480px) {
-      font-size: 1rem;
-   }
-
-   @media (min-width: 600px) {
-      font-size: 1.5rem;
-   }
-
-   @media (min-width: 800px) and (max-width: 959px) {
-      font-size: 2rem;
-   }
-`;
-
 export const Subtitle = styled.h4`
    font-size: 16px;
    font-weight: normal;
    font-family: 'Roboto', sans-serif;
    font-size: 0.7rem;
    width: 200px;
+   opacity: 1;
+   transition: opacity 0.5s ease-in-out;
 
    @media (min-width: 480px) {
       font-size: 0.8rem;
@@ -206,6 +215,13 @@ export const Content = styled.div`
       gap: 0px;
    }
 
+   /* Target the third section's Title */
+   &:nth-of-type(3) ${Title} {
+      text-align: left;
+      width: 100%;
+      padding-left: 20px;
+   }
+
    > *:only-child {
       ${Title} {
          font-size: 1.2rem;
@@ -223,7 +239,7 @@ export const Content = styled.div`
             font-size: 1.5rem;
             width: 400px;
          }
-      }  
+      }
 
       @media (min-width: 960px) {
          ${Title} {
@@ -232,8 +248,8 @@ export const Content = styled.div`
          ${Subtitle} {
             font-size: 1rem;
             width: 300px;
-
          }
+      }
    }
 `;
 
@@ -380,4 +396,27 @@ export const CalendarContainer = styled.div`
    z-index: 2;
    box-sizing: border-box;
    perspective: 1000px; // Added this for the 3D effect
+`;
+
+export const IconWrapper = styled.div`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-right: 15px;
+   color: rgb(58, 81, 62);
+
+   svg {
+      width: 50px;
+      height: 50px;
+
+      @media (min-width: 800px) {
+         width: 40px;
+         height: 40px;
+      }
+
+      @media (min-width: 1024px) {
+         width: 50px;
+         height: 50px;
+      }
+   }
 `;

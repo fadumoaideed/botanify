@@ -2,7 +2,6 @@ import Hero from '@/components/hero/hero';
 import { HeroCta } from '@/components/hero/hero-cta';
 import Head from 'next/head';
 import styled from '@emotion/styled';
-import { SignupCta } from '@/components/signup-cta/signup-cta';
 import Footer from '@/components/footer/footer';
 import { ImageCta } from '@/components/image-cta/image-cta';
 const HomePageContainer = styled.main`
@@ -97,7 +96,6 @@ export default function Home() {
             <Hero />
             <HeroCta />
             <ImageCta />
-            <SignupCta />
          </HomePageContainer>
          <Footer />
       </>

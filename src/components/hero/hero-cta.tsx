@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import {
    HeroCtaContainer,
    Grid,
@@ -12,22 +12,55 @@ import {
    StyledImage,
    Calendar,
    CalendarSpan,
-   CalendarContainer
-} from './hero-cta.styles'
-import router from 'next/router'
-import { useAuth } from '@/hooks/auth-context'
+   CalendarContainer,
+   IconWrapper
+} from './hero-cta.styles';
+import router from 'next/router';
+import { useAuth } from '@/hooks/auth-context';
+import { PiStackThin } from 'react-icons/pi';
+import { RxSun } from 'react-icons/rx';
+import { IoWaterSharp } from 'react-icons/io5';
 
 const handleClick = (isAuthenticated: boolean) => {
    if (!isAuthenticated) {
-      router.push('/login')
+      router.push('/login');
    } else {
-      router.push('/dashboard')
+      router.push('/dashboard');
    }
-}
+};
+
+const trackingOptions = [
+   {
+      option: 'sunlight exposure',
+      subtitle: 'Monitor sunlight exposure for your indoor plants',
+      icon: <RxSun />
+   },
+   {
+      option: 'soil drainage',
+      subtitle:
+         'Monitor soil drainage and get alerts when your plants need repotting',
+      icon: <PiStackThin />
+   },
+   {
+      option: 'watering schedule',
+      subtitle:
+         "Receive custom watering schedules based on your plant's specific needs",
+      icon: <IoWaterSharp />
+   }
+];
 
 export const HeroCta = () => {
-   const { isAuthenticated } = useAuth()
-   // "Did you know? Despite popular myths, snake plants can't sustain life in sealed rooms - but they're still amazing air purifiers!"
+   const { isAuthenticated } = useAuth();
+   const [currentOption, setCurrentOption] = useState(0);
+
+   useEffect(() => {
+      const interval = setInterval(() => {
+         setCurrentOption((prev) => (prev + 1) % trackingOptions.length);
+      }, 4000); // Change every 3 seconds
+
+      return () => clearInterval(interval);
+   }, []);
+
    return (
       <HeroCtaContainer>
          <Grid>
@@ -64,17 +97,20 @@ export const HeroCta = () => {
             </GridItem>
             <GridItem gridArea="c">
                <Content>
+                  <IconWrapper>
+                     {trackingOptions[currentOption].icon}
+                  </IconWrapper>
                   <TextContainer>
-                     <Title>Track your plants</Title>
+                     <Title>
+                        Track your {trackingOptions[currentOption].option}
+                     </Title>
                      <Subtitle>
-                        Keep track of your plants in your dashboard and get
-                        expert care tips and seasonal advice for your indoor
-                        garden
+                        {trackingOptions[currentOption].subtitle}
                      </Subtitle>
                   </TextContainer>
                </Content>
             </GridItem>
          </Grid>
       </HeroCtaContainer>
-   )
-}
+   );
+};
