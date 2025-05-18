@@ -1,6 +1,6 @@
-import React from 'react'
-import Link from 'next/link'
-import { FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa'
+import React from 'react';
+import Link from 'next/link';
+import { FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
 import {
    FooterContainer,
    FooterContent,
@@ -11,9 +11,9 @@ import {
    SocialLinksContainer,
    SocialLink,
    CopyrightContainer
-} from './footer.styles'
+} from './footer.styles';
 
-const Footer: React.FC = () => {
+export const Footer: React.FC = () => {
    return (
       <FooterContainer>
          <FooterContent>
@@ -72,7 +72,5 @@ const Footer: React.FC = () => {
             </CopyrightContainer>
          </FooterContent>
       </FooterContainer>
-   )
-}
-
-export default Footer
+   );
+};

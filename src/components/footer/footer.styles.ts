@@ -1,17 +1,18 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 export const FooterContainer = styled.footer`
    background-color: #f7f6f7;
    padding: 3rem 0;
    margin-top: auto;
    font-family: Roboto, sans-serif;
-`
+   margin-top: 50px;
+`;
 
 export const FooterContent = styled.div`
    max-width: 1200px;
    margin: 0 auto;
    padding: 0 1rem;
-`
+`;
 
 export const FooterSections = styled.div`
    display: flex;
@@ -22,21 +23,21 @@ export const FooterSections = styled.div`
       flex-direction: row;
       justify-content: space-between;
    }
-`
+`;
 
 export const FooterSection = styled.div`
    flex: 1;
    display: flex;
    flex-direction: column;
    align-items: center;
-`
+`;
 
 export const FooterTitle = styled.h3`
    font-size: 1.125rem;
    font-weight: 600;
    color: #166534;
    margin-bottom: 1rem;
-`
+`;
 
 export const FooterLink = styled.a`
    color: #059669;
@@ -46,12 +47,12 @@ export const FooterLink = styled.a`
    &:hover {
       color: #166534;
    }
-`
+`;
 
 export const SocialLinksContainer = styled.div`
    display: flex;
    gap: 1rem;
-`
+`;
 
 export const SocialLink = styled.a`
    color: #059669;
@@ -60,7 +61,7 @@ export const SocialLink = styled.a`
    &:hover {
       color: #166534;
    }
-`
+`;
 
 export const CopyrightContainer = styled.div`
    margin-top: 2rem;
@@ -68,4 +69,4 @@ export const CopyrightContainer = styled.div`
    border-top: 1px solid #dcfce7;
    text-align: center;
    color: #059669;
-`
+`;

@@ -2,7 +2,6 @@ import Hero from '@/components/hero/hero';
 import { HeroCta } from '@/components/hero/hero-cta';
 import Head from 'next/head';
 import styled from '@emotion/styled';
-import Footer from '@/components/footer/footer';
 import { ImageCta } from '@/components/image-cta/image-cta';
 const HomePageContainer = styled.main`
    position: relative;
@@ -97,7 +96,6 @@ export default function Home() {
             <HeroCta />
             <ImageCta />
          </HomePageContainer>
-         <Footer />
       </>
    );
 }
