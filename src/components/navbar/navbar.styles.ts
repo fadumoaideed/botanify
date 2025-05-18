@@ -1,15 +1,15 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
-export const navBarSize = '60px'
+export const navBarSize = '60px';
 
 interface NavLinksProps {
-   open: boolean
+   open: boolean;
 }
 
 export const Text = styled.div`
    font-family: Verdana, sans-serif;
    font-size: 1rem;
-`
+`;
 export const DropDownMenu = styled.div`
    margin-top: 10px;
    position: absolute;
@@ -26,7 +26,7 @@ export const DropDownMenu = styled.div`
       cursor: pointer;
       padding: 8px;
    }
-`
+`;
 
 export const UserIconContainer = styled.div`
    display: flex;
@@ -34,7 +34,7 @@ export const UserIconContainer = styled.div`
    justify-content: center;
    gap: 8px;
    cursor: 'pointer';
-`
+`;
 
 export const UserIcon = styled.div`
    display: flex;
@@ -67,7 +67,7 @@ export const UserIcon = styled.div`
       background-color: rgb(74, 226, 95);
       border-radius: 50%;
    }
-`
+`;
 
 export const Logo = styled.div`
    display: flex;
@@ -101,7 +101,7 @@ export const Logo = styled.div`
    @media (max-width: 768px) {
       flex: 1;
    }
-`
+`;
 
 export const Burger = styled.div`
    display: none;
@@ -118,7 +118,7 @@ export const Burger = styled.div`
       align-items: center;
       padding: 0 10px 0 0;
    }
-`
+`;
 
 export const MobileNavLinks = styled.div<NavLinksProps>`
    display: none;
@@ -146,7 +146,7 @@ export const MobileNavLinks = styled.div<NavLinksProps>`
       width: 100%;
       display: ${({ open }) => (open ? 'flex' : 'none')};
    }
-`
+`;
 
 export const NavbarContainer = styled.nav`
    display: flex;
@@ -157,6 +157,7 @@ export const NavbarContainer = styled.nav`
    background-color: #f7f6f7;
    color: black;
    height: ${navBarSize};
+   padding: 0 50px;
 
    li {
       list-style: none;
@@ -187,12 +188,11 @@ export const NavbarContainer = styled.nav`
    @media (min-width: 601px) {
       height: 75px;
    }
-`
+`;
 
 export const NavLinksContainer = styled.div`
    display: flex;
-   gap: 2rem;
-   margin: 0 30px;
+   gap: 5rem;
    font-family: Verdana, sans-serif;
    align-items: center;
 
@@ -212,4 +212,4 @@ export const NavLinksContainer = styled.div`
    @media (max-width: 768px) {
       display: none;
    }
-`
+`;
