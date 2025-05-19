@@ -101,6 +101,7 @@ export default function PlantCare() {
    const handleLoadMore = () => {
       setVisibleItems((prev) => prev + 15);
    };
+
    // TODO!: scape these images for infoor plant and alllow users to select from a drop down which plAN THEY HAVE. DONT ADD FEATURE IF THEY DONT HAVE IT YET
    return (
       <Container>
@@ -113,7 +114,7 @@ export default function PlantCare() {
          </Header>
          <PlantsContainer>
             {plantDatabase.slice(0, visibleItems).map((plant) => (
-               <Card key={plant.id} {...plant} />
+               <Card key={plant.id} plant={plant} />
             ))}
          </PlantsContainer>
 

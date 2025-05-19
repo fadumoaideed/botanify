@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
+import React, { useState } from 'react';
 import { Drainage, LightLevel, Plant } from '../../types/plant';
 import {
    CardContainer,
@@ -9,6 +9,7 @@ import {
 } from './plant-card.styles';
 import { TbSunFilled, TbSunLow, TbSunHigh } from 'react-icons/tb';
 import { PiStackThin, PiStackSimpleThin } from 'react-icons/pi';
+import { Overlay } from './overlay/overlay';
 
 const iconMap = {
    [LightLevel.direct]: <TbSunFilled />,
@@ -23,13 +24,26 @@ const getIcon = (type: LightLevel | Drainage | undefined) => {
    return iconName ?? null;
 };
 
-export const Card = ({ title, image }: Plant) => {
+export const Card = ({ plant }: { plant: Plant }): React.JSX.Element => {
+   const [showOverlay, setShowOverlay] = useState(false);
+
+   const handleShowOverlay = () => {
+      setShowOverlay(!showOverlay);
+   };
+
+   const { image, title } = plant;
+
    return (
-      <CardContainer>
-         <ImageContainer>
-            <CardImage src={image} alt={title} />
-         </ImageContainer>
-         <Title>{title}</Title>
-      </CardContainer>
+      <>
+         <CardContainer onClick={handleShowOverlay}>
+            <ImageContainer>
+               <CardImage src={image} alt={title} />
+            </ImageContainer>
+            <Title>{title}</Title>
+         </CardContainer>
+         {showOverlay && (
+            <Overlay handleCloseOverlay={handleShowOverlay} plant={plant} />
+         )}
+      </>
    );
 };

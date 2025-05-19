@@ -75,7 +75,7 @@ const SignupPage = () => {
    return (
       <PageContainer>
          {/* <Carousel /> */}
-
+         <div>Hello</div>
          <Container>
             <FormContainer>
                <Title>Create your account</Title>

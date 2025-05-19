@@ -1,5 +1,29 @@
 import styled from '@emotion/styled';
 
+export const OverlayContainer = styled.div`
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   backdrop-filter: blur(5px);
+   z-index: 1;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+   > div {
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      height: 500px;
+      width: 600px;
+
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 30px;
+   }
+`;
+
 export const CardContainer = styled.div`
    display: flex;
    flex-direction: column;
