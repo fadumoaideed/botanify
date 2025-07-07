@@ -10,8 +10,7 @@ export const PageContainer = styled.div`
 
 export const ImageSection = styled.div`
    flex: 1;
-   background-image: url('/path-to-your-image.jpg'); // TODO:Update with your image path
-   background-size: cover;
+   background-image: url('register-page-monstera.png');
    background-position: center;
    display: none;
 

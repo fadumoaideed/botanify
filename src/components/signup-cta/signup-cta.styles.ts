@@ -10,6 +10,19 @@ export const Container = styled.div`
       align-items: center;
       flex-direction: column;
    }
+
+   @media (min-width: 600px) {
+      padding: 20px;
+   }
+
+   @media (min-width: 800px) {
+      padding: 0 50px;
+      margin-bottom: 50px;
+   }
+
+   @media (min-width: 960px) {
+      padding: 0 80px;
+   }
 `;
 
 export const VideoContainer = styled.div`

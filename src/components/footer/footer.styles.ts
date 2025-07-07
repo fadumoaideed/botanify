@@ -3,9 +3,8 @@ import styled from '@emotion/styled';
 export const FooterContainer = styled.footer`
    background-color: #f7f6f7;
    padding: 3rem 0;
-   margin-top: auto;
+
    font-family: Roboto, sans-serif;
-   margin-top: 50px;
 `;
 
 export const FooterContent = styled.div`
@@ -65,8 +64,8 @@ export const SocialLink = styled.a`
 
 export const CopyrightContainer = styled.div`
    margin-top: 2rem;
-   padding-top: 2rem;
-   border-top: 1px solid #dcfce7;
+   padding-top: 1rem;
+   border-top: 1px solid rgb(204, 229, 211);
    text-align: center;
    color: #059669;
 `;

@@ -1,13 +1,13 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 export const PageContainer = styled.div`
    min-height: 100vh;
    display: flex;
-`
+`;
 
 export const ImageSection = styled.div`
    flex: 1;
-   background-image: url('/path-to-your-image.jpg'); // Update with your image path
+   background-image: url('calathea-orbifolia-login.jpg');
    background-size: cover;
    background-position: center;
    display: none;
@@ -15,7 +15,7 @@ export const ImageSection = styled.div`
    @media (min-width: 1024px) {
       display: block;
    }
-`
+`;
 
 export const Container = styled.div`
    flex: 1;
@@ -24,13 +24,13 @@ export const Container = styled.div`
    justify-content: center;
    background-color: #f9fafb;
    padding: 3rem 1rem;
-`
+`;
 
 export const FormContainer = styled.div`
    max-width: 28rem;
    width: 100%;
    margin: 0 auto;
-`
+`;
 
 export const Title = styled.h2`
    margin-top: 1.5rem;
@@ -39,26 +39,26 @@ export const Title = styled.h2`
    font-weight: 800;
    color: #111827;
    font-family: 'Comfortaa', cursive;
-`
+`;
 
 export const Form = styled.form`
    margin-top: 2rem;
    display: flex;
    flex-direction: column;
    gap: 1.5rem;
-`
+`;
 
 export const ErrorMessage = styled.div`
    color: #ef4444;
    font-size: 0.875rem;
    text-align: center;
-`
+`;
 
 export const InputGroup = styled.div`
    display: flex;
    flex-direction: column;
    gap: 0.5rem;
-`
+`;
 
 export const Label = styled.label`
    position: absolute;
@@ -70,7 +70,7 @@ export const Label = styled.label`
    clip: rect(0, 0, 0, 0);
    white-space: nowrap;
    border: 0;
-`
+`;
 
 export const Input = styled.input`
    width: 100%;
@@ -92,7 +92,7 @@ export const Input = styled.input`
    &::placeholder {
       color: #9ca3af;
    }
-`
+`;
 
 export const Button = styled.button`
    width: 100%;
@@ -114,7 +114,7 @@ export const Button = styled.button`
       outline: none;
       box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
    }
-`
+`;
 
 export const SignUpText = styled.div`
    margin-top: 1.5rem;
@@ -132,4 +132,4 @@ export const SignUpText = styled.div`
          color: #2563eb;
       }
    }
-`
+`;

@@ -14,7 +14,7 @@ import {
    Input,
    Button,
    SignInText
-} from '../styles/register.styles';
+} from '../styles/signup.styles';
 import { supabase } from '@/utils/supabase';
 import { useAuth } from '@/hooks/auth-context';
 import { Carousel } from '@/components/carousel/carousel';
@@ -74,8 +74,7 @@ const SignupPage = () => {
 
    return (
       <PageContainer>
-         {/* <Carousel /> */}
-         <div>Hello</div>
+         <ImageSection />
          <Container>
             <FormContainer>
                <Title>Create your account</Title>
