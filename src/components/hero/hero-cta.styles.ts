@@ -199,7 +199,6 @@ export const Content = styled.div`
    display: flex;
    flex-direction: column;
    justify-content: space-around;
-   align-items: center;
    height: 100%;
    box-sizing: border-box;
    padding: 10px;
@@ -227,7 +226,6 @@ export const Content = styled.div`
          font-size: 1.2rem;
       }
       ${Subtitle} {
-         font-size: 1rem;
          width: 250px;
       }
 
@@ -236,7 +234,6 @@ export const Content = styled.div`
             font-size: 2rem;
          }
          ${Subtitle} {
-            font-size: 1.5rem;
             width: 400px;
          }
       }
@@ -246,7 +243,6 @@ export const Content = styled.div`
             font-size: 1.2rem;
          }
          ${Subtitle} {
-            font-size: 1rem;
             width: 300px;
          }
       }
@@ -266,7 +262,7 @@ export const StyledImage = styled.img`
    }
 
    @media (min-width: 960px) {
-      height: 250px;
+      height: 350px;
    }
 
    &:nth-child(1) {
@@ -333,7 +329,7 @@ export const Calendar = styled.div`
       border-radius: inherit;
       box-shadow: inherit;
       transform-origin: top;
-      animation: flipCalendar 4s forwards;
+      // animation: flipCalendar 4s forwards;
    }
 
    @keyframes flipCalendar {

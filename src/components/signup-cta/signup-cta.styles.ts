@@ -5,6 +5,8 @@ export const Container = styled.div`
    width: 100%;
    gap: 20px;
    margin-bottom: 20px;
+   justify-content: space-around;
+   align-items: center;
    box-sizing: border-box;
    @media (max-width: 768px) {
       align-items: center;
@@ -69,7 +71,6 @@ export const Video = styled.video`
 export const Content = styled.div`
    display: flex;
    flex-direction: column;
-   justify-content: center;
    align-items: center;
    text-align: center;
    flex-wrap: wrap;
@@ -80,6 +81,7 @@ export const Title = styled.h2`
    color: #2c3e50;
    margin-bottom: 1rem;
    font-family: 'Comfortaa', cursive;
+   max-width: 500px;
 
    @media (min-width: 425px) {
       font-size: 1.5rem;
@@ -98,6 +100,7 @@ export const Description = styled.p`
    line-height: 1.6;
    margin-bottom: 2rem;
    font-family: 'Roboto', sans-serif;
+   max-width: 500px;
 
    @media (min-width: 425px) {
       font-size: 1.2rem;

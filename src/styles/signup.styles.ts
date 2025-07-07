@@ -10,7 +10,7 @@ export const PageContainer = styled.div`
 
 export const ImageSection = styled.div`
    flex: 1;
-   background-image: url('register-page-monstera.png');
+   background-image: url('register.jpg');
    background-position: center;
    display: none;
 

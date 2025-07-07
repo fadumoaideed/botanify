@@ -97,9 +97,9 @@ export const HeroCta = () => {
             </GridItem>
             <GridItem gridArea="c">
                <Content>
-                  <IconWrapper>
+                  {/* <IconWrapper>
                      {trackingOptions[currentOption].icon}
-                  </IconWrapper>
+                  </IconWrapper> */}
                   <TextContainer>
                      <Title>
                         Track your {trackingOptions[currentOption].option}
