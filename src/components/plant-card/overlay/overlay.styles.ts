@@ -28,7 +28,7 @@ export const CardContainer = styled.div`
       top: 50%;
       right: 50%;
       transform: translate(50%, -50%);
-      height: 500px;
+      height: 550px;
       width: 700px;
       padding: 30px;
    }
