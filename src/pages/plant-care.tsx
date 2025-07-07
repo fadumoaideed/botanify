@@ -81,7 +81,7 @@ export const Button = styled.button`
    border: 1px solid rgb(58, 81, 62);
    cursor: pointer;
    font-size: 1rem;
-   margin-top: 20px;
+   margin: 2rem 0;
 
    font-weight: 500;
    font-family: Roboto, sans-serif;

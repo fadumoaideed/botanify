@@ -11,27 +11,26 @@ export const OverlayContainer = styled.div`
 `;
 
 export const CardContainer = styled.div`
-   position: absolute;
-   top: 50%;
-   right: 50%;
-   transform: translate(50%, -50%);
-   height: 500px;
-   width: 700px;
    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-   padding: 50px;
+   padding: 50px 0;
    background-color: #fff;
    border-radius: 30px;
-   margin: 0 15px;
-
+   width: 100%;
+   height: auto;
+   max-height: 80vh;
+   overflow-y: auto;
    @media (min-width: 375px) {
-      margin: 0 20px;
+      width: 100%;
    }
 
-   @media (max-width: 768px) {
-      width: 90%;
-      height: auto;
-      max-height: 80vh;
-      overflow-y: auto;
+   @media (min-width: 768px) {
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      height: 500px;
+      width: 700px;
+      padding: 30px;
    }
 `;
 
@@ -95,7 +94,15 @@ export const ContentSection = styled.div`
    flex-direction: column;
    gap: 15px;
    overflow-y: auto;
-   padding: 0 10px;
+   padding: 0 30px;
+
+   @media (max-width: 768px) {
+      margin: 20px;
+   }
+
+   @media (min-width: 769px) {
+      padding: 0 30px;
+   }
 `;
 
 export const Title = styled.h2`
