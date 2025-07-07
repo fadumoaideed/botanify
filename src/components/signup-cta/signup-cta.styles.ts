@@ -5,7 +5,7 @@ export const Container = styled.div`
    width: 100%;
    gap: 20px;
    margin-bottom: 20px;
-   justify-content: space-around;
+   justify-content: space-between;
    align-items: center;
    box-sizing: border-box;
    @media (max-width: 768px) {
@@ -74,6 +74,7 @@ export const Content = styled.div`
    align-items: center;
    text-align: center;
    flex-wrap: wrap;
+   flex: 1.3;
 `;
 
 export const Title = styled.h2`

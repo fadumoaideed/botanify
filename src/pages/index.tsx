@@ -95,7 +95,7 @@ export default function Home() {
          <HomePageContainer>
             <Hero />
             <HeroCta />
-            <ImageCta />
+            {/* <ImageCta /> */}
             <SignupCTA />
          </HomePageContainer>
       </>
