@@ -8,8 +8,9 @@ export const PageContainer = styled.div`
 export const ImageSection = styled.div`
    flex: 1;
    background-image: url('calathea-orbifolia-login.jpg');
-   background-size: cover;
    background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
    display: none;
 
    @media (min-width: 1024px) {

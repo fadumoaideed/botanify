@@ -1,7 +1,8 @@
-import React from 'react'
+import { DashboardContainer } from '@/components/dashboard/dashboard.styles';
+import React from 'react';
 
 export default function Dashboard() {
-   return <div>Dashboard</div>
+   return <DashboardContainer></DashboardContainer>;
 }
 
 //TODO: Add user dashboard with the plants they have bought

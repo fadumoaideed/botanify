@@ -10,6 +10,7 @@ export const Text = styled.div`
    font-family: Verdana, sans-serif;
    font-size: 1rem;
 `;
+
 export const DropDownMenu = styled.div`
    margin-top: 10px;
    position: absolute;

@@ -1,6 +1,6 @@
-import { plantDatabase } from '@/data/plants-database';
-import { Card } from '../components/plant-card/plant-card';
-import { useState } from 'react';
+import { PlantCard } from '../components/plant-card/plant-card';
+import { useState, useEffect } from 'react';
+import { Plant } from '@/types/plant';
 import styled from '@emotion/styled';
 
 const PlantsContainer = styled.div`
@@ -22,10 +22,6 @@ const PlantsContainer = styled.div`
 
    @media (min-width: 1500px) {
       grid-template-columns: repeat(4, 1fr);
-   }
-
-   @media (min-width: 1600px) {
-      grid-template-columns: repeat(5, 1fr);
    }
 `;
 
@@ -57,10 +53,10 @@ export const SubTitle = styled.p`
       font-size: 1.3rem;
    }
 `;
+
 export const Container = styled.div`
    display: flex;
    flex-direction: column;
-   align-items: start;
    justify-content: center;
    margin: 10px;
 `;
@@ -82,7 +78,6 @@ export const Button = styled.button`
    cursor: pointer;
    font-size: 1rem;
    margin: 2rem 0;
-
    font-weight: 500;
    font-family: Roboto, sans-serif;
    color: rgb(58, 81, 62);
@@ -93,16 +88,157 @@ export const Button = styled.button`
       background-color: rgb(58, 81, 62);
       color: #fff;
    }
+
+   &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background-color: transparent;
+      color: rgb(58, 81, 62);
+   }
 `;
 
-export default function PlantCare() {
-   const [visibleItems, setVisibleItems] = useState(15);
+export const PaginationContainer = styled.div`
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+   margin: 2rem 0;
+   flex-wrap: wrap;
+`;
 
-   const handleLoadMore = () => {
-      setVisibleItems((prev) => prev + 15);
+export const PageInfo = styled.span`
+   font-family: Roboto, sans-serif;
+   color: rgb(58, 81, 62);
+   font-size: 1rem;
+   margin: 0 10px;
+   text-align: center;
+`;
+
+export const LoadingMessage = styled.div`
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 200px;
+   font-family: Roboto, sans-serif;
+   color: rgb(58, 81, 62);
+   font-size: 1.2rem;
+`;
+
+export const ErrorMessage = styled.div`
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 200px;
+   font-family: Roboto, sans-serif;
+   color: #e74c3c;
+   font-size: 1.2rem;
+   text-align: center;
+`;
+
+interface PaginatedResponse {
+   plants: Plant[];
+   pagination: {
+      currentPage: number;
+      totalPages: number;
+      totalItems: number;
+      itemsPerPage: number;
+      hasNextPage: boolean;
+      hasPreviousPage: boolean;
+   };
+}
+
+export default function PlantCare() {
+   const [plants, setPlants] = useState<Plant[]>([]);
+   const [pagination, setPagination] = useState({
+      currentPage: 1,
+      totalPages: 1,
+      totalItems: 0,
+      itemsPerPage: 15,
+      hasNextPage: false,
+      hasPreviousPage: false
+   });
+   const [loading, setLoading] = useState(true);
+   const [error, setError] = useState<string | null>(null);
+
+   const fetchPlants = async (
+      pageNumber: number = 1,
+      pageSize: number = 16
+   ) => {
+      try {
+         setLoading(true);
+         setError(null);
+
+         const response = await fetch(
+            `/api/plants?pageNumber=${pageNumber}&pageSize=${pageSize}`
+         );
+         const data = await response.json();
+
+         if (!response.ok) {
+            throw new Error(data.error || 'Failed to fetch plants');
+         }
+
+         setPlants(data.plants);
+         setPagination(data.pagination);
+      } catch (error) {
+         console.error('Error fetching plants:', error);
+         setError(
+            error instanceof Error ? error.message : 'Failed to fetch plants'
+         );
+      } finally {
+         setLoading(false);
+      }
    };
 
-   // TODO!: scape these images for infoor plant and alllow users to select from a drop down which plAN THEY HAVE. DONT ADD FEATURE IF THEY DONT HAVE IT YET
+   useEffect(() => {
+      fetchPlants();
+   }, []);
+
+   const handlePreviousPage = () => {
+      if (pagination.hasPreviousPage) {
+         fetchPlants(pagination.currentPage - 1, pagination.itemsPerPage);
+      }
+   };
+
+   const handleNextPage = () => {
+      if (pagination.hasNextPage) {
+         fetchPlants(pagination.currentPage + 1, pagination.itemsPerPage);
+      }
+   };
+
+   if (loading) {
+      return (
+         <Container>
+            <Header>
+               <Title>Plant care A-Z</Title>
+               <SubTitle>
+                  Here you can find all the information you need to care for
+                  your plants.
+               </SubTitle>
+            </Header>
+            <LoadingMessage>Loading plants...</LoadingMessage>
+         </Container>
+      );
+   }
+
+   if (error) {
+      return (
+         <Container>
+            <Header>
+               <Title>Plant care A-Z</Title>
+               <SubTitle>
+                  Here you can find all the information you need to care for
+                  your plants.
+               </SubTitle>
+            </Header>
+            <ErrorMessage>
+               Error: {error}
+               <br />
+               <Button onClick={() => fetchPlants(1, 15)}>Try Again</Button>
+            </ErrorMessage>
+         </Container>
+      );
+   }
+
    return (
       <Container>
          <Header>
@@ -112,15 +248,31 @@ export default function PlantCare() {
                plants.
             </SubTitle>
          </Header>
+
          <PlantsContainer>
-            {plantDatabase.slice(0, visibleItems).map((plant) => (
-               <Card key={plant.id} plant={plant} />
+            {plants.map((plant) => (
+               <PlantCard key={plant.id} plant={plant} />
             ))}
          </PlantsContainer>
 
-         {visibleItems < plantDatabase.length && (
-            <Button onClick={handleLoadMore}>Load More</Button>
-         )}
+         <PaginationContainer>
+            <Button
+               onClick={handlePreviousPage}
+               disabled={!pagination.hasPreviousPage}
+            >
+               Previous
+            </Button>
+
+            <PageInfo>
+               Page {pagination.currentPage} of {pagination.totalPages}
+               <br />
+               Showing {plants.length} of {pagination.totalItems} plants
+            </PageInfo>
+
+            <Button onClick={handleNextPage} disabled={!pagination.hasNextPage}>
+               Next
+            </Button>
+         </PaginationContainer>
       </Container>
    );
 }

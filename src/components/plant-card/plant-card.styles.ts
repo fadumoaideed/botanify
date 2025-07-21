@@ -31,6 +31,8 @@ export const CardImage = styled.img`
 export const ImageContainer = styled.div`
    border-radius: 10px;
    overflow: hidden;
+   max-height: 550px;
+   max-width: 550px;
 `;
 
 export const Title = styled.h3`

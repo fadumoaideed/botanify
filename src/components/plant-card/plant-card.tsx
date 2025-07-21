@@ -24,7 +24,7 @@ const getIcon = (type: LightLevel | Drainage | undefined) => {
    return iconName ?? null;
 };
 
-export const Card = ({ plant }: { plant: Plant }): React.JSX.Element => {
+export const PlantCard = ({ plant }: { plant: Plant }): React.JSX.Element => {
    const [showOverlay, setShowOverlay] = useState(false);
 
    const handleShowOverlay = () => {
