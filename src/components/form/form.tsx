@@ -1,51 +1,60 @@
-'use client' // THis is a client side component
-import styles from './form1.module.css'
-import React, { useState } from 'react'
-import { Plant } from '../../types/plant'
-import axios from 'axios'
+'use client'; // THis is a client side component
+import styles from './form1.module.css';
+import React, { useState } from 'react';
+import { Drainage, Plant } from '../../types/plant';
+import axios from 'axios';
 // import { Dropzone } from '../dropzone/dropzone';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 
-const Form = () => {
-   const router = useRouter()
+export const PlantForm = () => {
+   const router = useRouter();
 
    const formData: Plant = {
-      name: '',
+      title: '',
+      description: '',
       scientificName: '',
       image: '',
+      sunlight: undefined,
+      maxheight: undefined,
       watering: undefined,
-      soilDrainage: undefined
-   }
+      soilDrainage: undefined,
+      tags: {
+         common_names: '',
+         difficulty: 0,
+         toxicity: '',
+         origin: ''
+      }
+   };
 
-   const [responseBody, setResponseBody] = useState<Plant>(formData)
-   const [nameError, setNameError] = useState<string>('')
-   const [imageError, setImageError] = useState<string>('')
+   const [responseBody, setResponseBody] = useState<Plant>(formData);
+   const [nameError, setNameError] = useState<string>('');
+   const [imageError, setImageError] = useState<string>('');
 
    const inputChangeHandler = (
       event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
    ) => {
-      const { name, value } = event.target
-      setResponseBody({ ...responseBody, [name]: value })
-   }
+      const { name, value } = event.target;
+      setResponseBody({ ...responseBody, [name]: value });
+   };
 
    const onSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault()
-      if (responseBody.name == '') {
-         setNameError('Name is required')
+      event.preventDefault();
+      if (responseBody.title == '') {
+         setNameError('Name is required');
       }
       if (responseBody.image == '') {
-         setImageError('Image is required')
+         setImageError('Image is required');
       }
-      if (responseBody.name && responseBody.image) {
+      if (responseBody.title && responseBody.image) {
          try {
             // Create a JSON object containing the data to send
             const plantData = {
-               name: responseBody.name,
+               title: responseBody.title,
                scientificName: responseBody.scientificName,
                image: 'helloo',
                watering: responseBody.watering,
                soilDrainage: responseBody.soilDrainage
-            }
+            };
 
             const response = await axios.post(
                'http://localhost:3001/plants',
@@ -55,18 +64,18 @@ const Form = () => {
                      'Content-Type': 'application/json'
                   }
                }
-            )
+            );
 
             if (response.status === 201) {
-               router.push('/') // Go to homepage
+               router.push('/'); // Go to homepage
             }
          } catch (error) {
-            console.error('Error submitting the form:', error)
+            console.error('Error submitting the form:', error);
          }
       }
 
       //Form submission happens here
-   }
+   };
    return (
       <form onSubmit={onSubmitHandler} className={styles.form}>
          <div className={styles.image}>
@@ -89,7 +98,7 @@ const Form = () => {
                <input
                   id="name"
                   name="name"
-                  value={responseBody.name}
+                  value={responseBody.title}
                   onChange={(e) => inputChangeHandler(e)}
                   type="text"
                />
@@ -143,7 +152,7 @@ const Form = () => {
                <select
                   name="soilDrainage"
                   id="soilDrainage"
-                  value={responseBody.soilDrainage}
+                  value={responseBody.soilDrainage || Drainage.high}
                   onChange={(e) => inputChangeHandler(e)}
                >
                   <option value="">Choose selection</option>
@@ -154,6 +163,5 @@ const Form = () => {
             <input className={styles.button} type="submit" value="Add Plant" />
          </div>
       </form>
-   )
-}
-export default Form
+   );
+};

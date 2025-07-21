@@ -21,16 +21,16 @@ export interface Plant {
    title: string;
    description?: string;
    scientificName: string;
-   watering: Watering;
+   watering?: Watering;
    image: string;
    sunlight?: LightLevel;
    maxheight?: string;
-   soilDrainage: Drainage;
+   soilDrainage?: Drainage;
    tags?: {
-      common_names: string;
-      difficulty: number;
-      toxicity: string;
-      origin: string;
+      common_names?: string;
+      difficulty?: number;
+      toxicity?: string;
+      origin?: string;
    };
 }
 
