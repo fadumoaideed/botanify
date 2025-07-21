@@ -26,6 +26,7 @@ export interface Plant {
    sunlight?: LightLevel;
    maxheight?: string;
    soilDrainage?: Drainage;
+   lastWatered?: Date;
    tags?: {
       common_names?: string;
       difficulty?: number;

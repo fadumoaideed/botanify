@@ -15,9 +15,7 @@ import {
    Button,
    SignInText
 } from '../styles/signup.styles';
-import { supabase } from '@/utils/supabase';
 import { useAuth } from '@/hooks/auth-context';
-import { Carousel } from '@/components/carousel/carousel';
 
 interface FormData {
    firstName: string;

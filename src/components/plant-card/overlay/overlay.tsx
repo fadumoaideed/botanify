@@ -88,7 +88,7 @@ export const Overlay = ({
                   <DetailsSection>
                      <DetailItem>
                         <DetailLabel>Watering Schedule:</DetailLabel>
-                        <DetailValue>{formatEnumValue(watering)}</DetailValue>
+                        <DetailValue>{watering?.toLowerCase()}</DetailValue>
                      </DetailItem>
 
                      {sunlight && (
@@ -103,7 +103,7 @@ export const Overlay = ({
                      <DetailItem>
                         <DetailLabel>Soil Drainage:</DetailLabel>
                         <DetailValue>
-                           {formatEnumValue(soilDrainage)} drainage
+                           {soilDrainage?.toLowerCase()} drainage
                         </DetailValue>
                      </DetailItem>
 
