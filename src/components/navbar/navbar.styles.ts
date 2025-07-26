@@ -126,8 +126,8 @@ export const MobileNavLinks = styled.div<NavLinksProps>`
    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
    padding: 20px;
    background: #f7f6f7;
-   top: ${navBarSize};
-   position: absolute;
+   top: 0px;
+   position: relative;
    z-index: 100;
 
    li {
@@ -158,7 +158,8 @@ export const NavbarContainer = styled.nav`
    background-color: #f7f6f7;
    color: black;
    height: ${navBarSize};
-   padding: 0 50px;
+   /* padding: 0 20px; */
+   width: 100%;
 
    li {
       list-style: none;
@@ -178,7 +179,7 @@ export const NavbarContainer = styled.nav`
    }
    ${MobileNavLinks} {
       flex-basis: 100%;
-      font-family: Verdana, sans-serif;
+      font-family: 'Comfortaa', cursive;
    }
 
    @media (max-width: 600px) {
@@ -188,14 +189,16 @@ export const NavbarContainer = styled.nav`
 
    @media (min-width: 601px) {
       height: 75px;
+      padding: 0;
    }
 `;
 
 export const NavLinksContainer = styled.div`
    display: flex;
-   gap: 5rem;
+   gap: 4rem;
    font-family: Verdana, sans-serif;
    align-items: center;
+   margin-right: 30px;
 
    a {
       text-decoration: none;

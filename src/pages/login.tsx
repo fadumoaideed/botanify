@@ -13,8 +13,7 @@ import {
    Button,
    SignUpText,
    ErrorMessage
-} from '../styles/login.styles';
-import bcrypt from 'bcryptjs';
+} from '../styles/page/login.styles';
 import { useAuth } from '../hooks/auth-context';
 
 interface FormData {
@@ -42,8 +41,10 @@ const LoginPage = () => {
       e.preventDefault();
       setError('');
 
-      const error = await login(formData.email, formData.password);
-      if (error) setError(error);
+      const response = await login(formData.email, formData.password);
+      if (response?.error) {
+         setError(response?.error);
+      }
    };
 
    return (

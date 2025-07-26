@@ -4,9 +4,8 @@
    "private": true,
    "type": "module",
    "scripts": {
-      "dev": "next dev",
+      "dev": "echo \"Starting in PRODUCTION mode using SUPABASE\" && ENV=production next dev --port 3001",
       "dev:local": "echo \"Starting in LOCAL mode using JSON-SERVER\" && concurrently \"npm run server:users\" \"npm run server:plants\" && next dev --port 3001",
-      "dev:prod": "echo \"Starting in PRODUCTION mode using SUPABASE\" && ENV=production next dev --port 3001",
       "server:users": "json-server --watch src/json-server/users-db.json --port 3001",
       "server:plants": "json-server --watch src/json-server/plants-db.json --port 3002",
       "server:all": "concurrently \"npm run server:users\" \"npm run server:plants\"",

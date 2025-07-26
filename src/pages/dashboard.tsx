@@ -1,8 +1,24 @@
-import { DashboardContainer } from '@/components/dashboard/dashboard.styles';
+import { DashboardContainer } from '@/styles/page/dashboard.styles';
+import { WelcomeCTA } from '@/components/dashboard/welcome-cta/welcome-cta';
 import React from 'react';
+import { useAuth } from '@/hooks/auth-context';
 
 export default function Dashboard() {
-   return <DashboardContainer></DashboardContainer>;
+   const { isAuthenticated } = useAuth();
+
+   if (!isAuthenticated) {
+      return (
+         <DashboardContainer>
+            <div>Loading...</div>
+         </DashboardContainer>
+      );
+   }
+
+   return (
+      <DashboardContainer>
+         <WelcomeCTA />
+      </DashboardContainer>
+   );
 }
 
 //TODO: Add user dashboard with the plants they have bought

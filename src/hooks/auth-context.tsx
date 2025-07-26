@@ -4,64 +4,78 @@ import {
    useState,
    useEffect,
    ReactNode
-} from 'react'
-import { useRouter } from 'next/router'
-import { User } from '@/types/users'
-import { authService } from '@/services/auth.service'
+} from 'react';
+import { useRouter } from 'next/router';
+import { User } from '@/types/users';
+import { AuthService } from '@/services/auth.service';
 
 interface AuthContextType {
-   isAuthenticated: boolean
-   user: User | null
-   login: (email: string, password: string) => Promise<string | null>
-   signup: (userData: User) => Promise<string | null>
-   logout: () => Promise<void>
+   isAuthenticated: boolean;
+   user: User | null;
+   login: (
+      email: string,
+      password: string
+   ) => Promise<{ success?: boolean; error?: string }>;
+   signup: (userData: User) => Promise<{ success?: boolean; error?: string }>;
+   logout: () => Promise<{ success?: boolean; error?: string }>;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined)
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-   const [isAuthenticated, setIsAuthenticated] = useState(false)
-   const [user, setUser] = useState<User | null>(null)
-   const router = useRouter()
+   const [isAuthenticated, setIsAuthenticated] = useState(false);
+   const [user, setUser] = useState<User | null>(null);
+   const router = useRouter();
 
-   // Json-server mode
    useEffect(() => {
-      // Check if token and user data exist on mount
-      const token = localStorage.getItem('token')
-      const savedUser = localStorage.getItem('user')
-      if (token && savedUser) {
-         setIsAuthenticated(true)
-         setUser(JSON.parse(savedUser))
-      }
-   }, [])
+      const checkSession = async () => {
+         const { user } = await AuthService.getSession();
+         if (user) {
+            setIsAuthenticated(true);
+            setUser(user);
+         }
+      };
+
+      checkSession();
+   }, []);
 
    const login = async (email: string, password: string) => {
-      const { user, token, error } = await authService.login(email, password)
+      const { user, token, error } = await AuthService.login(email, password);
 
-      if (error || !token || !user) return error || 'Login failed'
+      console.log({ user, token, error });
 
-      localStorage.setItem('token', token)
-      localStorage.setItem('user', JSON.stringify(user))
-      setIsAuthenticated(true)
-      setUser(user)
-      router.push('/dashboard')
-      return null
-   }
+      if (error) {
+         return { error };
+      }
+      if (user && token) {
+         setUser(user);
+         setIsAuthenticated(true);
+         router.push('/dashboard');
+      }
+
+      return { success: true };
+   };
 
    const signup = async (userData: User) => {
-      const { error } = await authService.signup(userData)
-      if (error) return error
-
-      router.push('/login')
-      return null
-   }
+      const { error } = await AuthService.signup(userData);
+      if (error) {
+         return { error };
+      }
+      return { success: true };
+   };
 
    const logout = async () => {
-      await authService.logout()
-      setIsAuthenticated(false)
-      setUser(null)
-      router.push('/')
-   }
+      const { error } = await AuthService.logout();
+
+      if (error) {
+         return { error };
+      }
+
+      setIsAuthenticated(false);
+      setUser(null);
+      router.push('/');
+      return { success: true };
+   };
 
    return (
       <AuthContext.Provider
@@ -69,13 +83,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       >
          {children}
       </AuthContext.Provider>
-   )
+   );
 }
 
 export const useAuth = () => {
-   const context = useContext(AuthContext)
+   const context = useContext(AuthContext);
    if (context === undefined) {
-      throw new Error('useAuth must be used within an AuthProvider')
+      throw new Error('useAuth must be used within an AuthProvider');
    }
-   return context
-}
+   return context;
+};

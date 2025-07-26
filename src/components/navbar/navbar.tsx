@@ -1,24 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState } from 'react'
-import Link from 'next/link'
+import { useState } from 'react';
+import Link from 'next/link';
 import {
    Burger,
    Logo,
    MobileNavLinks,
    NavLinksContainer,
    NavbarContainer
-} from './navbar.styles'
-import { RxHamburgerMenu, RxPerson } from 'react-icons/rx'
-import { RxCross1 } from 'react-icons/rx'
-import { useAuth } from '../../hooks/auth-context'
-import { NavbarLinks } from './navbar-links'
+} from './navbar.styles';
+import { RxHamburgerMenu } from 'react-icons/rx';
+import { RxCross1 } from 'react-icons/rx';
+import { NavbarLinks } from './navbar-links';
 
 export const Navbar = () => {
-   const [nav, setNav] = useState(false)
-   const { isAuthenticated, logout, user } = useAuth()
+   const [nav, setNav] = useState(false);
    const toggleNav = () => {
-      setNav(!nav)
-   }
+      setNav(!nav);
+   };
 
    return (
       <>
@@ -46,5 +44,5 @@ export const Navbar = () => {
             </MobileNavLinks>
          </NavbarContainer>
       </>
-   )
-}
+   );
+};

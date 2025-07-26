@@ -146,3 +146,10 @@ export const SignInText = styled.div`
       }
    }
 `;
+
+export const EmailVerificationNotice = styled.div`
+   margin-top: 1.5rem;
+   text-align: center;
+   font-size: 0.875rem;
+   font-family: 'Comfortaa', cursive;
+`;

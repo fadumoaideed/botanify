@@ -17,7 +17,7 @@ import {
    ErrorImage,
    ErrorTitle,
    ErrorDescription
-} from '../styles/plant-care.styles';
+} from '../styles/page/plant-care.styles';
 
 interface PaginatedResponse {
    plants: Plant[];
