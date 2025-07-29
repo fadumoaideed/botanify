@@ -5,6 +5,9 @@ import path from 'path';
 import fs from 'fs/promises';
 import { plantDatabase } from '@/data/plants-database';
 
+/**
+ * Paginated response from a local plant database
+ */
 interface PaginatedResponse {
    plants: Plant[];
    pagination: {

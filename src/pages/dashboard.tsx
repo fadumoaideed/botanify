@@ -2,6 +2,9 @@ import { DashboardContainer } from '@/styles/page/dashboard.styles';
 import { WelcomeCTA } from '@/components/dashboard/welcome-cta/welcome-cta';
 import React from 'react';
 import { useAuth } from '@/hooks/auth-context';
+import { DidYouKnow } from '@/components/dashboard/did-you-know/did-you-know';
+import { ActionCenter } from '@/components/dashboard/action-center/action-center';
+import { PlantList } from '@/components/dashboard/plants/plants';
 
 export default function Dashboard() {
    const { isAuthenticated } = useAuth();
@@ -17,6 +20,9 @@ export default function Dashboard() {
    return (
       <DashboardContainer>
          <WelcomeCTA />
+         <DidYouKnow />
+         <ActionCenter />
+         <PlantList />
       </DashboardContainer>
    );
 }
