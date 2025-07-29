@@ -71,7 +71,7 @@ export const Title = styled.h2`
 `;
 
 export const Subtitle = styled.h4`
-   font-family: 'Manrope', sans-serif;
+   font-family: 'Roboto', sans-serif;
    font-weight: 500;
    font-size: 1rem;
    padding: 0 15px 0 15px;
@@ -244,7 +244,7 @@ export const IndicatorText = styled.div`
    gap: 0px;
    animation: fadeIn 0.5s ease-out 2.5s forwards;
    opacity: 0;
-   font-family: 'Manrope', sans-serif;
+   font-family: 'Roboto', sans-serif;
    font-size: 0.8rem;
 
    svg {

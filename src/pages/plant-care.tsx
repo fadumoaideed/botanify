@@ -1,4 +1,3 @@
-import { plantDatabase } from '@/data/plants-database';
 import { Card } from '../components/plant-card/plant-card';
 import { useState, useEffect } from 'react';
 import { Plant } from '@/types/plant';
