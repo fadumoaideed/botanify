@@ -11,77 +11,68 @@ This project is built using NextJS and Emotion styled-components, providing a mo
 ## Features
 
 ### Authentication
-- User registration with email and password
-- Secure authentication using Supabase Auth in production
-- Development mode using JSON server with JWT tokens
-- Protected routes for authenticated users
+
+-  User registration with email and password
+-  Secure authentication using Supabase Auth in production
+-  Development mode using JSON server with JWT tokens
+-  Protected routes for authenticated users
 
 ### Dashboard
-- Overview of your plant collection
-- Priority section for plants needing immediate attention
-- Status display for healthy plants
-- Calendar integration for care scheduling
-- Quick actions for adding new plants
+
+-  Overview of your plant collection
+-  Priority section for plants needing immediate attention
+-  Status display for healthy plants
+-  Calendar integration for care scheduling
+-  Quick actions for adding new plants
 
 ### Plant Care Management
-- Dedicated plant care tracking interface
-- Detailed care instructions and guidelines
-- Customizable care schedules
+
+-  Dedicated plant care tracking interface
+-  Detailed care instructions and guidelines
+-  Customizable care schedules
 
 ### Reminders System
-- Automated notifications for:
-  - Watering schedules
-  - Fertilizing dates
-  - Repotting reminders
-  - Seasonal care adjustments
+
+-  Automated notifications for:
+   -  Watering schedules
+   -  Fertilizing dates
+   -  Repotting reminders
+   -  Seasonal care adjustments
 
 ## Tech Stack
 
-- **Frontend**: NextJS, Emotion Styled Components
-- **Production Backend**: Supabase (Auth & Database)
-- **Development Backend**: json-server
-- **Styling**: Emotion (CSS-in-JS)
+-  **Frontend**: NextJS, Emotion Styled Components
+-  **Production Backend**: Supabase (Auth & Database)
+-  **Development Backend**: json-server
+-  **Styling**: Emotion (CSS-in-JS)
 
 ## Getting Started
 
 1. Clone the repository
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Development Mode:
+
    ```bash
    # Start Next.js development server
    npm run dev
 
    # Start JSON servers (in a separate terminal)
-   npm run server:all
+   npm run dev:local
    ```
+
    This will run:
-   - Next.js on port 3000
-   - Users JSON server on port 3001
-   - Plants JSON server on port 3002
+
+   -  Next.js on port 3000
+   -  Users JSON server on port 3001
+   -  Plants JSON server on port 3002
 
 4. Production Mode:
    ```bash
-   npm run build
-   npm run start
+   npm run dev
    ```
    This will use Supabase for authentication and data storage.
-
-## Development vs Production
-
-- **Development** (`npm run dev`):
-  - Uses JSON server for data storage
-  - Local JWT authentication
-  - Hot reloading enabled
-  - Development debugging tools
-
-- **Production** (`npm run start`):
-  - Uses Supabase for authentication and data storage
-  - Production-optimized build
-  - Enhanced security and performance
-
-## Available Scripts
-

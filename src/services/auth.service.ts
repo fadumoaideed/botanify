@@ -1,107 +1,141 @@
-import { createClient } from '@supabase/supabase-js'
-import { User } from '@/types/users'
-
-const supabase = createClient(
-   process.env.NEXT_PUBLIC_SUPABASE_URL!,
-   process.env.NEXT_PUBLIC_SUPABASE_API_KEY!
-)
+import { User } from '@/types/users';
+import { getErrorMessage } from '@/lib/get-error-message';
+import { HTTP_STATUS } from '@/lib/https-status';
+import { supabase } from '@/utils/supabase';
 
 export interface AuthResponse {
-   user?: User | null
-   token: string | null
-   error?: string
+   user?: User | null;
+   token?: string | null;
+   status?: number;
+   error?: string;
 }
 
-export const authService = {
+// Auth Service to communicate with supabase
+export const AuthService = {
    async login(email: string, password: string): Promise<AuthResponse> {
       try {
-         if (process.env.ENV === 'production') {
-            const {
-               data: { user, session },
-               error
-            } = await supabase.auth.signInWithPassword({
-               email,
-               password
-            })
+         const {
+            data: { user, session },
+            error
+         } = await supabase.auth.signInWithPassword({
+            email,
+            password
+         });
 
-            if (error) return { user: null, token: null, error: error.message }
-
+         if (error) {
+            console.log('error', { error });
+            console.log('error.code', error?.code);
             return {
-               token: session?.access_token ?? null,
-               user: user
-                  ? {
-                       id: user?.id,
-                       email: user?.email ?? '',
-                       firstName: user?.user_metadata?.first_name,
-                       lastName: user?.user_metadata?.last_name,
-                       createdAt: user?.created_at
-                    }
-                  : null
-            }
-         } else {
-            const response = await fetch('/api/login', {
-               method: 'POST',
-               headers: { 'Content-Type': 'application/json' },
-               body: JSON.stringify({ email, password })
-            })
-            return await response.json()
+               user: null,
+               token: null,
+               status: error?.status as number,
+               error: getErrorMessage(error?.code as string)
+            };
          }
+         return {
+            token: session?.access_token ?? null,
+            user: user
+               ? {
+                    id: user?.id,
+                    email: user?.email ?? '',
+                    firstName: user?.user_metadata?.first_name,
+                    lastName: user?.user_metadata?.last_name,
+                    createdAt: user?.created_at
+                 }
+               : null
+         };
       } catch (error) {
-         return { user: null, token: null, error: 'Authentication failed' }
+         return {
+            user: null,
+            token: null,
+            error: 'Login authentication failed',
+            status: HTTP_STATUS.INTERNAL_SERVER_ERROR
+         };
       }
    },
 
    async signup(userData: {
-      email: string
-      password?: string
-      firstName: string
-      lastName: string
+      email: string;
+      password?: string;
+      firstName: string;
+      lastName: string;
    }): Promise<AuthResponse> {
       try {
-         if (process.env.ENV === 'production') {
-            const { data, error } = await supabase.auth.signUp({
-               email: userData.email,
-               password: userData?.password ?? '',
-               options: {
-                  data: {
-                     first_name: userData.firstName,
-                     last_name: userData.lastName
-                  }
+         const { data, error } = await supabase.auth.signUp({
+            email: userData.email,
+            password: userData?.password ?? '',
+            options: {
+               data: {
+                  first_name: userData.firstName,
+                  last_name: userData.lastName
                }
-            })
-
-            if (error) return { user: null, token: null, error: error.message }
-
-            return {
-               token: data.session?.access_token ?? null,
-               user: data.user
-                  ? {
-                       id: data.user.id,
-                       email: data.user.email ?? '',
-                       firstName: userData.firstName,
-                       lastName: userData.lastName,
-                       createdAt: data.user.created_at
-                    }
-                  : null
             }
-         } else {
-            const response = await fetch('/api/signup', {
-               method: 'POST',
-               headers: { 'Content-Type': 'application/json' },
-               body: JSON.stringify(userData)
-            })
-            return await response.json()
-         }
+         });
+
+         if (error)
+            return {
+               user: null,
+               token: null,
+               error: getErrorMessage(error.code as string),
+               status: error.status as number
+            };
+
+         return {
+            token: data.session?.access_token ?? null,
+            user: data.user
+               ? {
+                    id: data.user.id,
+                    email: data.user.email ?? '',
+                    firstName: userData.firstName,
+                    lastName: userData.lastName,
+                    createdAt: data.user.created_at
+                 }
+               : null
+         };
       } catch (error) {
-         return { user: null, token: null, error: 'Registration failed' }
+         return {
+            user: null,
+            token: null,
+            error: 'Registration failed',
+            status: HTTP_STATUS.INTERNAL_SERVER_ERROR
+         };
       }
    },
 
-   async logout(): Promise<void> {
-      if (process.env.ENV === 'production') {
-         await supabase.auth.signOut()
+   async logout(): Promise<AuthResponse> {
+      try {
+         const { error } = await supabase.auth.signOut();
+         if (error) {
+            return {
+               error: getErrorMessage(error.code as string),
+               status: error.status as number
+            };
+         }
+         return { status: HTTP_STATUS.OK };
+      } catch (error) {
+         console.error('Logout failed', error);
+         return {
+            error: 'Logout failed',
+            status: HTTP_STATUS.INTERNAL_SERVER_ERROR
+         };
       }
-      localStorage.removeItem('token')
-      localStorage.removeItem('user')
+   },
+
+   async getSession(): Promise<AuthResponse> {
+      const { data, error } = await supabase.auth.getSession();
+      if (error) {
+         return { error: getErrorMessage(error.code as string) };
+      }
+      return {
+         user: data.session?.user
+            ? {
+                 id: data.session?.user.id,
+                 email: data.session?.user.email ?? '',
+                 firstName: data.session?.user.user_metadata?.first_name,
+                 lastName: data.session?.user.user_metadata?.last_name,
+                 createdAt: data.session?.user.created_at
+              }
+            : null
+      };
    }
-}
+};

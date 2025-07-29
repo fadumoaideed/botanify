@@ -1,18 +1,18 @@
-import { useState, useRef, useEffect } from 'react'
-import Link from 'next/link'
+import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 import {
    UserIcon,
    Text,
    DropDownMenu,
    UserIconContainer
-} from './navbar.styles'
-import { useAuth } from '../../hooks/auth-context'
+} from './navbar.styles';
+import { useAuth } from '../../hooks/auth-context';
 
 export const NavbarLinks = () => {
-   const { isAuthenticated, logout, user } = useAuth()
-   const [dropdownOpen, setDropdownOpen] = useState(false)
-   const dropdownRef = useRef<HTMLDivElement>(null)
-   const [isMobile, setIsMobile] = useState(false)
+   const { isAuthenticated, logout, user } = useAuth();
+   const [dropdownOpen, setDropdownOpen] = useState(false);
+   const dropdownRef = useRef<HTMLDivElement>(null);
+   const [isMobile, setIsMobile] = useState(false);
 
    useEffect(() => {
       const handleClickOutside = (event: MouseEvent) => {
@@ -20,37 +20,37 @@ export const NavbarLinks = () => {
             dropdownRef.current &&
             !dropdownRef.current.contains(event.target as Node)
          ) {
-            setDropdownOpen(false)
+            setDropdownOpen(false);
          }
-      }
+      };
 
-      document.addEventListener('mousedown', handleClickOutside)
+      document.addEventListener('mousedown', handleClickOutside);
       return () => {
-         document.removeEventListener('mousedown', handleClickOutside)
-      }
-   }, [])
+         document.removeEventListener('mousedown', handleClickOutside);
+      };
+   }, []);
 
    const toggleDropdown = () => {
-      setDropdownOpen(!dropdownOpen)
-   }
+      setDropdownOpen(!dropdownOpen);
+   };
 
    useEffect(() => {
       const handleResize = () => {
-         setIsMobile(window.innerWidth < 768)
-      }
-      window.addEventListener('resize', handleResize)
+         setIsMobile(window.innerWidth < 768);
+      };
+      window.addEventListener('resize', handleResize);
       return () => {
-         window.removeEventListener('resize', handleResize)
-      }
-   }, [])
+         window.removeEventListener('resize', handleResize);
+      };
+   }, []);
 
    return isAuthenticated ? (
       <>
-         <Link href="/dashboard" passHref>
-            Dashboard
-         </Link>
          <Link href="/plant-care" passHref>
             Plant Care
+         </Link>
+         <Link href="/dashboard" passHref>
+            Dashboard
          </Link>
 
          {isMobile ? (
@@ -85,5 +85,5 @@ export const NavbarLinks = () => {
             Log in
          </Link>
       </>
-   )
-}
+   );
+};
