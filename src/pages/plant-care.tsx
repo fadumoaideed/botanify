@@ -105,10 +105,10 @@ export default function PlantCare() {
                   />
                   <ErrorTitle>Oops! Our plants need some water 🌱</ErrorTitle>
                   <ErrorDescription>
-                     We're having trouble loading the plant care information
-                     right now. Just like plants need water to thrive, our
-                     servers need a moment to refresh. Please try again in a
-                     moment!
+                     We&apos;re having trouble loading the plant care
+                     information right now. Just like plants need water to
+                     thrive, our servers need a moment to refresh. Please try
+                     again in a moment!
                   </ErrorDescription>
                   <Button onClick={() => fetchPlants(1, 15)}>
                      Water the servers

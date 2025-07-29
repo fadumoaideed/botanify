@@ -1,12 +1,7 @@
-import { createClient } from '@supabase/supabase-js';
 import { User } from '@/types/users';
 import { getErrorMessage } from '@/lib/get-error-message';
 import { HTTP_STATUS } from '@/lib/https-status';
-
-const supabase = createClient(
-   process.env.NEXT_PUBLIC_SUPABASE_URL!,
-   process.env.NEXT_PUBLIC_SUPABASE_API_KEY!
-);
+import { supabase } from '@/utils/supabase';
 
 export interface AuthResponse {
    user?: User | null;

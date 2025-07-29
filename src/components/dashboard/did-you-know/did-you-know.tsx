@@ -1,4 +1,5 @@
 import { plantFacts } from '@/lib/plant-facts';
+import Image from 'next/image';
 import {
    Container,
    Content,
@@ -13,9 +14,11 @@ export const DidYouKnow = () => {
    return (
       <Container>
          <ImageContainer>
-            <img
+            <Image
                src={randomPlantFact.image}
                alt={`plant fact ${randomPlantFact.plantName}`}
+               width={100}
+               height={100}
             />
          </ImageContainer>{' '}
          <Content>
