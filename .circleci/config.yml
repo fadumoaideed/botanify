@@ -1,37 +1,37 @@
 version: 2.1
 
 jobs:
-  lint:
-    docker:
-      - image: cimg/node:21.6.1
+   lint:
+      docker:
+         - image: cimg/node:21.6.1
 
-    steps:
-      - checkout
-      # Run linting
-      - run:
-          name: Run Lint
-          command: npm run lint
+      steps:
+         - checkout
+         # Run linting
+         - run:
+              name: Run Lint
+              command: npm run lint
 
-  build:
-    docker:
-      - image: cimg/node:21.6.1
+   build:
+      docker:
+         - image: cimg/node:21.6.1
 
-    steps:
-      - checkout
+      steps:
+         - checkout
 
-      # Install dependencies
-      - run:
-          name: Install Dependencies
-          command: npm install
+         # Install dependencies
+         - run:
+              name: Install Dependencies
+              command: npm install
 
-      # Build the Next.js application
-      - run:
-          name: Build Next.js App
-          command: npm run build
+         # Build the Next.js application
+         - run:
+              name: Build Next.js App
+              command: npm run build
 
 workflows:
-  version: 2
-  lint_and_build:
-    jobs:
-      - build
-
+   version: 2
+   build:
+      jobs:
+         - build
+         - lint
