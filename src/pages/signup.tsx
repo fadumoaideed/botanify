@@ -32,21 +32,20 @@ export const VerficationBanner = ({
 }) => {
    return (
       <EmailVerificationNotice>
-         <Title>Email verification sent</Title>
-
-         <Subtitle>Please check your email for a verification link</Subtitle>
-         <Link href="/login" onClick={() => setVerificationBanner(false)}>
-            Go to login
-         </Link>
+         <h2>Check your email</h2>
+         <p>
+            We&apos;ve sent a verification link to your email address. Please
+            check your inbox and click the link to verify your account.
+         </p>
+         <button onClick={() => setVerificationBanner(false)}>
+            Back to login
+         </button>
       </EmailVerificationNotice>
    );
 };
 
 const SignupPage = () => {
    const { signup } = useAuth();
-
-   const [error, setError] = useState('');
-   const [verificationBanner, setVerificationBanner] = useState(false);
    const [formData, setFormData] = useState<FormData>({
       firstName: '',
       lastName: '',
@@ -54,6 +53,11 @@ const SignupPage = () => {
       password: '',
       confirmPassword: ''
    });
+   const [error, setError] = useState('');
+   const [verificationBanner, setVerificationBanner] = useState(false);
+   const [validationErrors, setValidationErrors] = useState<{
+      [key: string]: string;
+   }>({});
 
    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
@@ -61,36 +65,50 @@ const SignupPage = () => {
          ...prev,
          [name]: value
       }));
+
+      // Clear validation error when user starts typing
+      if (validationErrors[name]) {
+         setValidationErrors((prev) => {
+            const newErrors = { ...prev };
+            delete newErrors[name];
+            return newErrors;
+         });
+      }
+   };
+
+   const validateForm = (): boolean => {
+      const errors: { [key: string]: string } = {};
+
+      if (formData.password !== formData.confirmPassword) {
+         errors.confirmPassword = 'Passwords do not match';
+      }
+
+      if (formData.password.length < 6) {
+         errors.password = 'Password must be at least 6 characters long';
+      }
+
+      setValidationErrors(errors);
+      return Object.keys(errors).length === 0;
    };
 
    const handleSubmit = async (e: FormEvent) => {
       e.preventDefault();
       setError('');
 
-      // Basic validation
-      if (formData.password !== formData.confirmPassword) {
-         setError('Passwords do not match');
+      if (!validateForm()) {
          return;
       }
 
-      if (formData.password.length < 6) {
-         setError('Password must be at least 6 characters long');
-         return;
-      }
-
-      const signupResponse = await signup({
+      const response = await signup({
          email: formData.email,
          password: formData.password,
          firstName: formData.firstName,
          lastName: formData.lastName
       });
 
-      console.log('signupResponse', signupResponse);
-
-      if (signupResponse?.error) {
-         setError(signupResponse?.error);
-      }
-      if (signupResponse?.success) {
+      if (response?.error) {
+         setError(response.error);
+      } else {
          setVerificationBanner(true);
       }
    };
@@ -104,8 +122,17 @@ const SignupPage = () => {
                <Subtitle>Start managing your plants today</Subtitle>
 
                {!verificationBanner && (
-                  <form onSubmit={handleSubmit}>
-                     {error && <ErrorMessage>{error}</ErrorMessage>}
+                  <form onSubmit={handleSubmit} noValidate>
+                     {error && (
+                        <ErrorMessage
+                           role="alert"
+                           aria-live="polite"
+                           aria-atomic="true"
+                           id="signup-error"
+                        >
+                           {error}
+                        </ErrorMessage>
+                     )}
 
                      <div className="grid grid-cols-2 gap-4">
                         <InputGroup>
@@ -117,6 +144,11 @@ const SignupPage = () => {
                               required
                               value={formData.firstName}
                               onChange={handleChange}
+                              aria-describedby={
+                                 error ? 'signup-error' : undefined
+                              }
+                              aria-invalid={error ? 'true' : 'false'}
+                              autoComplete="given-name"
                            />
                         </InputGroup>
 
@@ -129,6 +161,11 @@ const SignupPage = () => {
                               required
                               value={formData.lastName}
                               onChange={handleChange}
+                              aria-describedby={
+                                 error ? 'signup-error' : undefined
+                              }
+                              aria-invalid={error ? 'true' : 'false'}
+                              autoComplete="family-name"
                            />
                         </InputGroup>
                      </div>
@@ -142,6 +179,9 @@ const SignupPage = () => {
                            required
                            value={formData.email}
                            onChange={handleChange}
+                           aria-describedby={error ? 'signup-error' : undefined}
+                           aria-invalid={error ? 'true' : 'false'}
+                           autoComplete="email"
                         />
                      </InputGroup>
 
@@ -154,12 +194,37 @@ const SignupPage = () => {
                            required
                            value={formData.password}
                            onChange={handleChange}
+                           aria-describedby={
+                              validationErrors.password
+                                 ? 'password-error'
+                                 : error
+                                 ? 'signup-error'
+                                 : 'password-help'
+                           }
+                           aria-invalid={
+                              validationErrors.password || error
+                                 ? 'true'
+                                 : 'false'
+                           }
+                           autoComplete="new-password"
                         />
+                        <div id="password-help" className="sr-only">
+                           Password must be at least 6 characters long
+                        </div>
+                        {validationErrors.password && (
+                           <div
+                              id="password-error"
+                              role="alert"
+                              aria-live="polite"
+                           >
+                              {validationErrors.password}
+                           </div>
+                        )}
                      </InputGroup>
 
                      <InputGroup>
                         <Label htmlFor="confirmPassword">
-                           Confirm password
+                           Confirm Password
                         </Label>
                         <Input
                            id="confirmPassword"
@@ -168,21 +233,46 @@ const SignupPage = () => {
                            required
                            value={formData.confirmPassword}
                            onChange={handleChange}
+                           aria-describedby={
+                              validationErrors.confirmPassword
+                                 ? 'confirm-password-error'
+                                 : error
+                                 ? 'signup-error'
+                                 : undefined
+                           }
+                           aria-invalid={
+                              validationErrors.confirmPassword || error
+                                 ? 'true'
+                                 : 'false'
+                           }
+                           autoComplete="new-password"
                         />
+                        {validationErrors.confirmPassword && (
+                           <div
+                              id="confirm-password-error"
+                              role="alert"
+                              aria-live="polite"
+                           >
+                              {validationErrors.confirmPassword}
+                           </div>
+                        )}
                      </InputGroup>
 
-                     <Button type="submit">Create account</Button>
+                     <Button type="submit">Create Account</Button>
                   </form>
                )}
+
                {verificationBanner && (
                   <VerficationBanner
                      setVerificationBanner={setVerificationBanner}
                   />
                )}
 
-               <SignInText>
-                  <Link href="/login">Already have an account? Sign in</Link>
-               </SignInText>
+               {!verificationBanner && (
+                  <SignInText>
+                     <Link href="/login">Already have an account? Sign in</Link>
+                  </SignInText>
+               )}
             </FormContainer>
          </Container>
       </PageContainer>

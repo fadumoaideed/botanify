@@ -18,28 +18,58 @@ export const Navbar = () => {
       setNav(!nav);
    };
 
+   // Handle keyboard navigation for mobile menu
+   const handleKeyDown = (e: React.KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+         e.preventDefault();
+         toggleNav();
+      }
+   };
+
    return (
       <>
          <NavbarContainer>
             <Link href="/" passHref>
                <Logo>
-                  <img alt={'Logo image of a leaf'} src={'images/logo.png'} />
+                  <img
+                     alt={'Botanify logo - leaf icon'}
+                     src={'images/logo.png'}
+                  />
                   <h1> botanify</h1>
                </Logo>
             </Link>
             <NavLinksContainer>
                <NavbarLinks />
             </NavLinksContainer>
-            <Burger onClick={toggleNav}>
+            <Burger
+               onClick={toggleNav}
+               onKeyDown={handleKeyDown}
+               role="button"
+               tabIndex={0}
+               aria-label={
+                  nav ? 'Close navigation menu' : 'Open navigation menu'
+               }
+               aria-expanded={nav}
+               aria-controls="mobile-nav-menu"
+            >
                {nav ? (
-                  <RxCross1 style={{ fontSize: '30px', color: '#3b3b3b' }} />
+                  <RxCross1
+                     style={{ fontSize: '30px', color: '#3b3b3b' }}
+                     aria-hidden="true"
+                  />
                ) : (
                   <RxHamburgerMenu
                      style={{ fontSize: '30px', color: '#3b3b3b' }}
+                     aria-hidden="true"
                   />
                )}
             </Burger>
-            <MobileNavLinks open={nav}>
+            <MobileNavLinks
+               open={nav}
+               id="mobile-nav-menu"
+               role="navigation"
+               aria-label="Mobile navigation"
+            >
                <NavbarLinks />
             </MobileNavLinks>
          </NavbarContainer>

@@ -32,19 +32,14 @@ const handleClick = (isAuthenticated: boolean) => {
 const trackingOptions = [
    {
       option: 'sunlight exposure',
-      subtitle: 'Monitor sunlight exposure for your indoor plants',
+      subtitle:
+         "Monitor your plants' light levels and get recommendations for optimal placement in your home.",
       icon: <RxSun />
    },
    {
-      option: 'soil drainage',
+      option: 'soil moisture levels',
       subtitle:
-         'Monitor soil drainage and get alerts when your plants need repotting',
-      icon: <PiStackThin />
-   },
-   {
-      option: 'watering schedule',
-      subtitle:
-         "Receive custom watering schedules based on your plant's specific needs",
+         'Keep track of watering schedules and soil conditions to prevent over or under-watering.',
       icon: <IoWaterSharp />
    }
 ];
@@ -56,24 +51,38 @@ export const HeroCta = () => {
    useEffect(() => {
       const interval = setInterval(() => {
          setCurrentOption((prev) => (prev + 1) % trackingOptions.length);
-      }, 4000); // Change every 3 seconds
+      }, 4000); // Change every 4 seconds
 
       return () => clearInterval(interval);
    }, []);
 
    return (
-      <HeroCtaContainer>
+      <HeroCtaContainer
+         as="section"
+         role="region"
+         aria-label="Plant care features"
+      >
          <Grid>
             <GridItem gridArea="a">
                <Content>
-                  <StyledImage src="images/snake-plant.png" alt="snake plant" />
+                  <StyledImage
+                     src="images/snake-plant.png"
+                     alt="Snake plant (Sansevieria) with tall, upright green leaves with yellow edges in a white pot"
+                  />
                   <TextContainer>
-                     <Title>Breathe Better with Plants</Title>
+                     <Title as="h2">Breathe Better with Plants</Title>
                      <Subtitle>
                         Discover nature&apos;s air purifiers that transform your
                         home into a healthier sanctuary
                      </Subtitle>
-                     <Button onClick={() => handleClick(isAuthenticated)}>
+                     <Button
+                        onClick={() => handleClick(isAuthenticated)}
+                        aria-label={
+                           isAuthenticated
+                              ? 'Go to your dashboard'
+                              : 'Sign in to learn more about plants'
+                        }
+                     >
                         Learn More
                      </Button>
                   </TextContainer>
@@ -82,12 +91,15 @@ export const HeroCta = () => {
             <GridItem gridArea="b">
                <Content>
                   <CalendarContainer>
-                     <Calendar>
-                        <CalendarSpan />
+                     <Calendar
+                        role="img"
+                        aria-label="Calendar icon representing plant care scheduling"
+                     >
+                        <CalendarSpan aria-hidden="true" />
                      </Calendar>
                   </CalendarContainer>
                   <TextContainer>
-                     <Title>Plant Care Reminders</Title>
+                     <Title as="h2">Plant Care Reminders</Title>
                      <Subtitle>
                         Never miss a watering day with personalized care alerts
                         for each of your green companions
@@ -101,7 +113,7 @@ export const HeroCta = () => {
                      {trackingOptions[currentOption].icon}
                   </IconWrapper> */}
                   <TextContainer>
-                     <Title>
+                     <Title as="h2">
                         Track your {trackingOptions[currentOption].option}
                      </Title>
                      <Subtitle>

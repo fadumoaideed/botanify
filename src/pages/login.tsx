@@ -53,8 +53,16 @@ const LoginPage = () => {
          <Container>
             <FormContainer>
                <Title>Log in to your account</Title>
-               <Form onSubmit={handleSubmit}>
-                  {error && <ErrorMessage>{error}</ErrorMessage>}
+               <Form onSubmit={handleSubmit} noValidate>
+                  {error && (
+                     <ErrorMessage
+                        role="alert"
+                        aria-live="polite"
+                        aria-atomic="true"
+                     >
+                        {error}
+                     </ErrorMessage>
+                  )}
 
                   <InputGroup>
                      <Label htmlFor="email">Email address</Label>
@@ -66,6 +74,9 @@ const LoginPage = () => {
                         placeholder="Email address"
                         value={formData.email}
                         onChange={handleChange}
+                        aria-describedby={error ? 'error-message' : undefined}
+                        aria-invalid={error ? 'true' : 'false'}
+                        autoComplete="email"
                      />
                   </InputGroup>
 
@@ -79,10 +90,18 @@ const LoginPage = () => {
                         placeholder="Password"
                         value={formData.password}
                         onChange={handleChange}
+                        aria-describedby={error ? 'error-message' : undefined}
+                        aria-invalid={error ? 'true' : 'false'}
+                        autoComplete="current-password"
                      />
                   </InputGroup>
 
-                  <Button type="submit">Login</Button>
+                  <Button
+                     type="submit"
+                     aria-describedby={error ? 'error-message' : undefined}
+                  >
+                     Login
+                  </Button>
                </Form>
 
                <SignUpText>

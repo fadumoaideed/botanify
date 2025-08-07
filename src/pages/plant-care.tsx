@@ -1,7 +1,8 @@
 import { plantDatabase } from '@/data/plants-database';
 import { Card } from '../components/plant-card/plant-card';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Plant } from '@/types/plant';
+import { getErrorMessage } from '@/lib/get-error-message';
 import {
    PlantsContainer,
    Container,
@@ -33,112 +34,99 @@ interface PaginatedResponse {
 
 export default function PlantCare() {
    const [plants, setPlants] = useState<Plant[]>([]);
+   const [loading, setLoading] = useState(false);
+   const [error, setError] = useState('');
+
    const [pagination, setPagination] = useState<
       PaginatedResponse['pagination']
    >({
       currentPage: 1,
       totalPages: 1,
       totalItems: 0,
-      itemsPerPage: 15,
+      itemsPerPage: 20,
       hasNextPage: false,
       hasPreviousPage: false
    });
-   const [loading, setLoading] = useState(true);
-   const [error, setError] = useState<string | null>(null);
 
-   const fetchPlants = async (
-      pageNumber: number = 1,
-      pageSize: number = 16
-   ) => {
+   const fetchPlants = useCallback(async (page: number = 1) => {
+      setLoading(true);
+      setError('');
       try {
-         setLoading(true);
-         setError(null);
-
-         const response = await fetch(
-            `/api/plants?pageNumber=${pageNumber}&pageSize=${pageSize}`
-         );
-         const data = await response.json();
-
+         const response = await fetch(`/api/plants?page=${page}`);
          if (!response.ok) {
-            throw new Error(data.error || 'Failed to fetch plants');
+            throw new Error('Failed to fetch plants');
          }
-
+         const data = await response.json();
          setPlants(data.plants);
          setPagination(data.pagination);
-      } catch (error) {
-         console.error('Error fetching plants:', error);
+      } catch (err) {
          setError(
-            error instanceof Error ? error.message : 'Failed to fetch plants'
+            err instanceof Error ? err.message : 'Failed to fetch plants'
          );
       } finally {
          setLoading(false);
       }
-   };
+   }, []);
 
    useEffect(() => {
       fetchPlants();
-   }, []);
-
-   const handlePreviousPage = () => {
-      if (pagination.hasPreviousPage) {
-         fetchPlants(pagination.currentPage - 1, pagination.itemsPerPage);
-      }
-   };
+   }, [fetchPlants]);
 
    const handleNextPage = () => {
       if (pagination.hasNextPage) {
-         fetchPlants(pagination.currentPage + 1, pagination.itemsPerPage);
+         fetchPlants(pagination.currentPage + 1);
+      }
+   };
+
+   const handlePreviousPage = () => {
+      if (pagination.hasPreviousPage) {
+         fetchPlants(pagination.currentPage - 1);
       }
    };
 
    return (
       <Container>
-         {loading && !error && (
-            <LoadingMessage>Loading plants...</LoadingMessage>
-         )}
+         {loading && <div aria-live="polite">Loading plants...</div>}
          {error && (
             <ErrorContainer>
-               <ErrorMessage>
-                  <ErrorImage
-                     src="/images/unwatered_plant.png"
-                     alt="Unwatered Plant"
-                  />
-                  <ErrorTitle>Oops! Our plants need some water 🌱</ErrorTitle>
-                  <ErrorDescription>
-                     We&apos;re having trouble loading the plant care
-                     information right now. Just like plants need water to
-                     thrive, our servers need a moment to refresh. Please try
-                     again in a moment!
-                  </ErrorDescription>
-                  <Button onClick={() => fetchPlants(1, 15)}>
-                     Water the servers
-                  </Button>
+               <ErrorMessage role="alert" aria-live="polite">
+                  <h2>Error loading plants</h2>
+                  <p>{error}</p>
+                  <button onClick={() => fetchPlants(pagination.currentPage)}>
+                     Try again
+                  </button>
                </ErrorMessage>
             </ErrorContainer>
          )}
          {plants.length > 0 && !error && (
             <>
                <Header>
-                  <Title>Plant care A-Z</Title>
+                  <Title as="h1">Plant care A-Z</Title>
                   <SubTitle>
                      Here you can find all the information you need to care for
                      your plants.
                   </SubTitle>
                </Header>
-               <PlantsContainer>
+               <PlantsContainer role="region" aria-label="Plant care guide">
                   {plants.map((plant) => (
                      <Card key={plant.id} plant={plant} />
                   ))}
                </PlantsContainer>
-               <PaginationContainer>
+               <PaginationContainer
+                  role="navigation"
+                  aria-label="Plant pagination"
+               >
                   <Button
                      onClick={handlePreviousPage}
                      disabled={!pagination.hasPreviousPage}
+                     aria-label={`Go to previous page ${
+                        pagination.currentPage - 1
+                     }`}
                   >
                      Previous
                   </Button>
 
-                  <PageInfo>
+                  <PageInfo aria-live="polite">
                      Page {pagination.currentPage} of {pagination.totalPages}
                      <br />
                      Showing {plants.length} of {pagination.totalItems} plants
@@ -147,6 +135,9 @@ export default function PlantCare() {
                   <Button
                      onClick={handleNextPage}
                      disabled={!pagination.hasNextPage}
+                     aria-label={`Go to next page ${
+                        pagination.currentPage + 1
+                     }`}
                   >
                      Next
                   </Button>

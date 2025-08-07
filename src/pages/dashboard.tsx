@@ -12,13 +12,16 @@ export default function Dashboard() {
    if (!isAuthenticated) {
       return (
          <DashboardContainer>
-            <div>Loading...</div>
+            <div role="status" aria-live="polite">
+               Loading your dashboard...
+            </div>
          </DashboardContainer>
       );
    }
 
    return (
-      <DashboardContainer>
+      <DashboardContainer as="main" role="main" aria-label="Dashboard">
+         <h1 className="sr-only">Plant Care Dashboard</h1>
          <WelcomeCTA />
          <DidYouKnow />
          <ActionCenter />

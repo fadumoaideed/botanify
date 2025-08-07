@@ -38,8 +38,21 @@ export const SignupCTA = () => {
    return (
       <Container>
          <VideoContainer>
-            <Video ref={videoRef} muted playsInline autoPlay>
+            <Video
+               ref={videoRef}
+               muted
+               playsInline
+               autoPlay
+               aria-label="Video showing plant potting and care process"
+            >
                <source src="/potting.mp4" type="video/mp4" />
+               <track
+                  kind="captions"
+                  src="/potting-captions.vtt"
+                  srcLang="en"
+                  label="English"
+                  default
+               />
                Your browser does not support the video tag.
             </Video>
          </VideoContainer>
@@ -49,7 +62,10 @@ export const SignupCTA = () => {
                Join thousands of plant parents who are growing their green thumb
                with Botanify and connect with a community of plant lovers.
             </Description>
-            <Button onClick={() => router.push('/signup')}>
+            <Button
+               onClick={() => router.push('/signup')}
+               aria-label="Sign up to start your plant care journey"
+            >
                Start Growing Today
             </Button>
          </Content>

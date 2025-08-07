@@ -31,13 +31,27 @@ export const Card = ({ plant }: { plant: Plant }): React.JSX.Element => {
       setShowOverlay(!showOverlay);
    };
 
+   const handleKeyDown = (e: React.KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+         e.preventDefault();
+         handleShowOverlay();
+      }
+   };
+
    const { image, title } = plant;
 
    return (
       <>
-         <CardContainer onClick={handleShowOverlay}>
+         <CardContainer
+            onClick={handleShowOverlay}
+            onKeyDown={handleKeyDown}
+            role="button"
+            tabIndex={0}
+            aria-label={`View details for ${title}`}
+            aria-expanded={showOverlay}
+         >
             <ImageContainer>
-               <CardImage src={image} alt={title} />
+               <CardImage src={image} alt={`${title} plant`} />
             </ImageContainer>
             <Title>{title}</Title>
          </CardContainer>

@@ -4,6 +4,7 @@ import Head from 'next/head';
 import styled from '@emotion/styled';
 import { ImageCta } from '@/components/image-cta/image-cta';
 import { SignupCTA } from '@/components/signup-cta/signup-cta';
+
 const HomePageContainer = styled.main`
    position: relative;
    width: 100vw;
@@ -30,7 +31,24 @@ const HomePageContainer = styled.main`
       max-width: 45%;
    }
 `;
-export const ComponentContainer = styled.div`
+
+const SkipLink = styled.a`
+   position: absolute;
+   top: -40px;
+   left: 6px;
+   background: #000;
+   color: #fff;
+   padding: 8px;
+   z-index: 1000;
+   text-decoration: none;
+   border-radius: 0 0 4px 4px;
+
+   &:focus {
+      top: 6px;
+   }
+`;
+
+export const ComponentContainer = `
    display: flex;
    box-sizing: border-box;
    flex-direction: column;
@@ -92,7 +110,8 @@ export default function Home() {
             <link rel="canonical" href="https://botanify.com" />{' '}
             {/* Update with your actual domain */}
          </Head>
-         <HomePageContainer>
+         <SkipLink href="#main-content">Skip to main content</SkipLink>
+         <HomePageContainer id="main-content">
             <Hero />
             <HeroCta />
             {/* <ImageCta /> */}

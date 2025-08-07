@@ -31,6 +31,7 @@ export const Overlay = ({
    plant: Plant;
 }) => {
    const cardRef = useRef<HTMLDivElement>(null);
+   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
    const {
       image,
@@ -45,6 +46,38 @@ export const Overlay = ({
    } = plant;
 
    useEffect(() => {
+      // Focus the close button when overlay opens
+      if (closeButtonRef.current) {
+         closeButtonRef.current.focus();
+      }
+
+      // Trap focus within the modal
+      const handleTabKey = (e: KeyboardEvent) => {
+         if (e.key === 'Tab') {
+            const focusableElements = cardRef.current?.querySelectorAll(
+               'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            if (focusableElements && focusableElements.length > 0) {
+               const firstElement = focusableElements[0] as HTMLElement;
+               const lastElement = focusableElements[
+                  focusableElements.length - 1
+               ] as HTMLElement;
+
+               if (e.shiftKey) {
+                  if (document.activeElement === firstElement) {
+                     e.preventDefault();
+                     lastElement.focus();
+                  }
+               } else {
+                  if (document.activeElement === lastElement) {
+                     e.preventDefault();
+                     firstElement.focus();
+                  }
+               }
+            }
+         }
+      };
+
       const handleClickOutside = (event: MouseEvent) => {
          if (
             cardRef.current &&
@@ -54,10 +87,24 @@ export const Overlay = ({
          }
       };
 
+      const handleEscapeKey = (event: KeyboardEvent) => {
+         if (event.key === 'Escape') {
+            handleCloseOverlay();
+         }
+      };
+
       document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscapeKey);
+      document.addEventListener('keydown', handleTabKey);
+
+      // Prevent background scrolling
+      document.body.style.overflow = 'hidden';
 
       return () => {
          document.removeEventListener('mousedown', handleClickOutside);
+         document.removeEventListener('keydown', handleEscapeKey);
+         document.removeEventListener('keydown', handleTabKey);
+         document.body.style.overflow = 'auto';
       };
    }, [handleCloseOverlay]);
 
@@ -67,25 +114,44 @@ export const Overlay = ({
    };
 
    return (
-      <OverlayContainer>
+      <OverlayContainer
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="plant-title"
+         aria-describedby="plant-description"
+      >
          <CardContainer ref={cardRef}>
-            <CloseButton onClick={handleCloseOverlay}>✕</CloseButton>
+            <CloseButton
+               ref={closeButtonRef}
+               onClick={handleCloseOverlay}
+               aria-label={`Close ${title} details`}
+               type="button"
+            >
+               ✕
+            </CloseButton>
             <ContentContainer>
                <ImageSection>
                   <ImageContainer>
-                     <CardImage src={image} alt={title} />
+                     <CardImage src={image} alt={`${title} plant`} />
                   </ImageContainer>
                </ImageSection>
 
                <ContentSection>
                   <div>
-                     <Title>{title}</Title>
+                     <Title id="plant-title">{title}</Title>
                      <ScientificName>{scientificName}</ScientificName>
                   </div>
 
-                  {description && <Description>{description}</Description>}
+                  {description && (
+                     <Description id="plant-description">
+                        {description}
+                     </Description>
+                  )}
 
-                  <DetailsSection>
+                  <DetailsSection
+                     role="region"
+                     aria-label="Plant care information"
+                  >
                      <DetailItem>
                         <DetailLabel>Watering Schedule:</DetailLabel>
                         <DetailValue>{watering?.toLowerCase()}</DetailValue>
@@ -116,7 +182,10 @@ export const Overlay = ({
                   </DetailsSection>
 
                   {tags && (
-                     <TagsContainer>
+                     <TagsContainer
+                        role="region"
+                        aria-label="Additional plant information"
+                     >
                         <DetailLabel style={{ marginBottom: '10px' }}>
                            Additional Information:
                         </DetailLabel>
